@@ -68,4 +68,4 @@ def build_page() -> str:
 
 # Tall enough to fit the whole desktop page so the parent window scrolls
 # (no nested scrollbox); scrolling=True keeps narrow/mobile layouts usable.
-components.html(build_page(), height=11800, scrolling=True)
+components.html(build_page(), height=15200, scrolling=True)

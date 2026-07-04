@@ -6,10 +6,14 @@ a gated lifestyle condominium in Papar, Sabah.
 Built as a self-contained static page (`index.html`) and wrapped in a **Streamlit**
 app for one-click cloud deployment.
 
-- **Brand:** navy & gold, Playfair Display + Inter
-- **Sections:** hero film · overview · the film · residences & unit concepts · facilities · floor plans · location · pricing · specifications · enquiry
+- **Brand:** navy & gold, Playfair Display + Inter + Noto Serif SC
+- **Bilingual:** full English / 中文 (繁體) toggle in the nav (persists via localStorage)
+- **WSG Group branding:** animated developer opening splash + footer logo lockup (美嘉城集團)
+- **Interactive room tour:** click any room on the 1,050 sf floor plan to see its renovated render
+- **Motion:** count-up stats, gold shimmer, scroll reveals, Ken-Burns, highlight marquee
+- **Sections:** opening → hero film → overview (site plan) → at-a-glance board → the film → residences & unit concepts → interactive room tour → facilities → floor plans → location → pricing → specifications → enquiry
 - **Content** was extracted from the official sales brochure (`parklane-residences-reference.html`).
-- **Media:** cinematic trailer + drone/interior footage + optimised renders and plans.
+- **Media:** cinematic trailer + drone/interior footage + optimised renders, plans & room visualisations.
 
 ---
 
