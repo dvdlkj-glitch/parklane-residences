@@ -1,71 +1,86 @@
-# Parklane Residences @ Benoni — Marketing Landing Page
+# Benoni Township · Parklane Residences — Design 02 “Township in Depth”
 
-A cinematic, single-page real-estate site for **Parklane Residences @ Benoni** (WSG Group),
-a gated lifestyle condominium in Papar, Sabah.
+Second web-page design for **WSG Group 美嘉城集團**, presenting the **entire Benoni
+Township** (Papar, Sabah) with Parklane Residences at its centre.
 
-Built as a self-contained static page (`index.html`) and wrapped in a **Streamlit**
-app for one-click cloud deployment.
+## What makes this design different from Design 01
 
-- **Brand:** navy & gold, Playfair Display + Inter + Noto Serif SC
-- **Bilingual:** full English / 中文 (繁體) toggle in the nav (persists via localStorage)
-- **WSG Group branding:** animated developer opening splash + footer logo lockup (美嘉城集團)
-- **Interactive room tour:** click any room on the 1,050 sf floor plan to see its renovated render
-- **Motion:** count-up stats, gold shimmer, scroll reveals, Ken-Burns, highlight marquee
-- **Sections:** opening → hero film → overview (site plan) → at-a-glance board → the film → residences & unit concepts → interactive room tour → facilities → floor plans → location → pricing → specifications → enquiry
-- **Content** was extracted from the official sales brochure (`parklane-residences-reference.html`).
-- **Media:** cinematic trailer + drone/interior footage + optimised renders, plans & room visualisations.
+- **3D scroll website technique** (GSAP ScrollTrigger):
+  - Opening **bilingual WSG Group logo sting** — an AI-animated gold light-sweep
+    over the WSG GROUP | 美嘉城集團 logo on navy marble.
+  - Hero with an AI-generated **township aerial fly-through video**.
+  - A pinned **deep-zoom journey**: five full-frame scenes (masterplan → mall →
+    facilities deck → lakeside park → township at night) fly toward the camera
+    in true 3D perspective as you scroll.
+  - Pinned **horizontal glide** through the township pillars (mall 148k sf,
+    Servay, 10Star Cinemas, North Borneo University, shop-offices, lake park).
+  - Parallax sky-deck scene, 3D-tilt unit cards, 3D-entrance film frames,
+    count-up stats.
+- **Fully bilingual** EN / 繁體中文 toggle (persists via localStorage).
+- Navy & gold WSG brand palette; Playfair Display + Inter + Noto Serif TC.
 
----
+## AI-generated assets (Higgsfield AI MCP)
+
+`assets/gen/`:
+
+| File | What it is |
+|---|---|
+| `logo-scene.jpg` | Bilingual WSG logo re-staged on navy marble (Nano Banana 2, 2K) |
+| `logo-sting-web.mp4` | 5 s animated logo reveal (Kling 3.0 Turbo, 1080p) |
+| `township-hero.jpg` | Township masterplan aerial, 21:9, extended from the real render |
+| `township-fly-web.mp4` | 8 s aerial fly-through of the township (Kling 3.0 Turbo, 1080p) |
+| `mall-boulevard.jpg` | Street-level mall / cinema boulevard at dusk |
+| `sky-deck.jpg` | Central facilities deck at twilight |
+| `night-skyline.jpg` | Township at night, 21:9 |
+| `park-lifestyle.jpg` | Lakeside park morning lifestyle |
+*(web-optimised versions in the repo; raw 2K PNG / 1080p masters kept locally)*
+
+All were generated with the project's **real renders as references** so the
+architecture stays faithful. Real floor plans, unit boards, interior renders
+and drone films are reused from Design 01 (`assets/img`, `assets/rooms`,
+`assets/video`).
 
 ## Run locally
+
+**As the Streamlit app (same as the cloud deployment):**
 
 ```bash
 pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
 
-Then open http://localhost:8501
+`streamlit_app.py` inlines every referenced asset as a base64 data URI and pins
+the component iframe to the full viewport (100dvh) so the scroll-driven 3D
+scenes work inside Streamlit's sandboxed iframe.
 
-> `streamlit_app.py` reads `index.html` and inlines every image/video as a base64
-> data URI (the component runs in a sandboxed iframe that can't read local files).
+**Or as a plain static site:**
 
-## Deploy to Streamlit Community Cloud
-
-1. Push this folder to a GitHub repository.
-2. Go to **https://share.streamlit.io** → **New app**.
-3. Pick the repo/branch and set **Main file path** to `streamlit_app.py`.
-4. **Deploy.** You get a public `https://<app>.streamlit.app` URL.
-
-## Bonus: host as a plain static site (GitHub Pages)
-
-`index.html` uses relative asset paths, so it also works as a static site with
-**no** Python — lighter and faster (video is streamed, not inlined):
-
-1. Repo → **Settings → Pages** → Source: `main` / root.
-2. Your site: `https://<user>.github.io/<repo>/`.
-
----
-
-## Structure
-
-```
-parklane-residence-site/
-├── index.html            # the landing page (self-contained, editable)
-├── streamlit_app.py      # Streamlit wrapper (inlines assets → iframe)
-├── requirements.txt
-├── .streamlit/config.toml
-└── assets/
-    ├── img/              # optimised renders, floor plans, unit boards, stills
-    └── video/            # hero loop + cinematic trailer
+```bash
+python -m http.server 8541 --directory .
 ```
 
-## Editing content
+then open http://localhost:8541 (internet needed for Google Fonts + GSAP CDN).
 
-All copy, prices and contacts live directly in `index.html`. Search for the
-section (e.g. `<!-- PRICING -->`) and edit the text. Re-deploy to publish.
+## Mobile-first optimisations
 
----
+- **Page weight ~5.6 MB total** (down from ~78 MB of raw AI assets): all
+  generated stills served as optimised progressive JPEGs (≤1920 px), hero
+  fly-through re-encoded 30 MB → 3 MB, logo sting 6.3 MB → 0.8 MB
+  (`*-web.mp4`, faststart). Raw PNG/MP4 masters kept alongside.
+- **Hamburger menu** with full-screen navy overlay (numbered serif links +
+  WhatsApp CTA) under 900 px; nav brand compacts.
+- **3D journey plates go portrait (4:5)** on phones so each scene fills the
+  screen as it flies toward the camera.
+- **Hero title floats cinematically** on touch devices (replaces the desktop
+  mouse-parallax).
+- **Connectivity map is swipeable** on phones (pre-centred on the Parklane hub,
+  "swipe the map" hint) so labels stay readable; floor plans pan horizontally.
+- `100svh` viewport units (no URL-bar jump), no horizontal page overflow,
+  ≥44 px tap targets, videos `muted playsinline` for iOS autoplay.
 
-*Disclaimer: figures, layouts, prices and specifications are from the sales brochure
-and are artists' impressions / indicative only, subject to change. Not a contractual
-document. © 2026 WSG Group.*
+## Facts encoded in the page
+
+4 towers · 19 storeys · 999-year tenure · 36 months to completion* ·
+100% Bank Islam financing* · 2-bed 620/680 sf from RM 246,000 ·
+3-bed 1,000–1,100 sf from RM 378,000 · WhatsApp enquiry +60 19-899 2313.
+*Subject to the developer's latest announcement.

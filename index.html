@@ -3,1072 +3,857 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Parklane Residences @ Benoni · 百可麗豪華公寓 — WSG Group 美嘉城集團</title>
-<meta name="description" content="Parklane Residences @ Benoni, Papar, Sabah. A gated lifestyle condominium by WSG Group — 4 towers, 19 storeys, 999-year tenure. 2 & 3 bedroom homes from RM 246,000.">
+<title>Benoni Township · Parklane Residences — WSG Group 美嘉城集團</title>
+<meta name="description" content="Design 02 — a 3D scroll journey through Benoni Township, Papar, Sabah. Parklane Residences by WSG Group 美嘉城集團: 4 towers · 19 storeys · 999-year tenure · from RM 246,000.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet">
-<script>document.documentElement.className='js';</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0a1a2e; --navy2:#0f2b46; --navy3:#143654; --panel:#102a44;
-  --gold:#c9a45c; --gold2:#e0c384; --goldsoft:#f0dfae;
-  --cream:#f6f1e8; --paper:#fbf8f2; --ink:#1b2733; --muted:#94a2b3;
-  --line:rgba(201,164,92,.22); --line2:#e7ddca;
-  --shadow:0 24px 60px rgba(7,18,33,.16); --shadow-s:0 10px 30px rgba(7,18,33,.10);
-  --maxw:1200px; --ease:cubic-bezier(.2,.7,.2,1);
+  --navy:#081120; --navy2:#0c1a30; --navy3:#13233f;
+  --gold:#c9a45c; --gold2:#e8cf9a; --cream:#f4ead8;
+  --ink:#e9eef7; --muted:#9fb0c8;
+  --serif:'Playfair Display','Noto Serif TC',serif;
+  --sans:'Inter','Noto Serif TC',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-:lang(zh),html[lang^="zh"] body{font-family:'Noto Serif SC','Inter',serif}
-h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;color:var(--navy2);line-height:1.12;letter-spacing:-.01em}
-html[lang^="zh"] h1,html[lang^="zh"] h2,html[lang^="zh"] h3,html[lang^="zh"] h4{font-family:'Noto Serif SC',serif}
-a{color:inherit;text-decoration:none}
+html{scroll-behavior:auto}
+body{background:var(--navy);color:var(--ink);font-family:var(--sans);font-weight:300;overflow-x:hidden}
+body.zh{--serif:'Noto Serif TC',serif;--sans:'Noto Serif TC',sans-serif;letter-spacing:.02em}
 img{max-width:100%;display:block}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
-.eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600}
-.section{padding:96px 0}
-.center{text-align:center}
-.lead{font-size:19px;color:#4a5867;max-width:720px;margin:18px auto 0;font-weight:300}
-.divider{width:64px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:2px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;cursor:pointer;border:1px solid transparent;transition:.3s}
-.btn-gold{background:var(--gold);color:var(--navy)}
-.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 12px 30px rgba(201,164,92,.4)}
-.btn-ghost{background:transparent;border-color:rgba(255,255,255,.5);color:#fff}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold2)}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--gold);color:var(--navy)}
 
-/* gold shimmer sweep on eyebrows */
-.eyebrow.shine{background:linear-gradient(90deg,var(--gold) 0%,var(--goldsoft) 20%,var(--gold) 40%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shine 5s linear infinite}
-@keyframes shine{to{background-position:200% center}}
+/* ---------- intro overlay ---------- */
+#intro{position:fixed;inset:0;z-index:100;background:#050a14;display:flex;align-items:center;justify-content:center;transition:opacity 1.1s ease,visibility 1.1s}
+#intro.done{opacity:0;visibility:hidden;pointer-events:none}
+#intro video,#intro .intro-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(max-aspect-ratio:4/3){#intro video{object-fit:contain;background:#050a14}}
+#intro .intro-img{background:url('assets/gen/logo-scene.jpg') center/cover no-repeat}
+#intro .enter{position:absolute;bottom:9vh;left:50%;transform:translateX(-50%);z-index:2;
+  border:1px solid rgba(201,164,92,.55);color:var(--gold2);background:rgba(8,17,32,.35);backdrop-filter:blur(6px);
+  padding:14px 46px;letter-spacing:.42em;text-transform:uppercase;font-size:12px;cursor:pointer;transition:.35s}
+#intro .enter:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
 
-/* ===== DEVELOPER OPENING SPLASH ===== */
-.opening{position:absolute;top:0;left:0;right:0;height:clamp(620px,100vh,940px);z-index:120;
-  background:radial-gradient(120% 90% at 50% 0%,#12314f 0%,#0a1a2e 70%);display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
-body.op-lock{overflow:hidden;height:100vh}
-.opening.hide{opacity:0;visibility:hidden;transition:.7s ease}
-.op-inner{position:relative;z-index:1;max-width:660px;padding:0 24px}
-.op-eyebrow{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold2);opacity:0;animation:opFade .8s var(--ease) .2s forwards}
-.op-logo{display:inline-block;margin-top:26px;background:#fff;border-radius:14px;padding:26px 40px;
-  box-shadow:0 30px 70px rgba(0,0,0,.4),0 0 0 1px rgba(201,164,92,.25);opacity:0;transform:translateY(16px) scale(.97);animation:opFade 1.1s var(--ease) .45s forwards}
-.op-logo img{width:min(400px,64vw);height:auto}
-.op-line{height:1px;width:min(260px,58%);margin:28px auto 0;overflow:hidden}
-.op-line span{display:block;height:1px;transform:scaleX(0);transform-origin:center;background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--gold) 70%,transparent);animation:opX .9s var(--ease) 1.1s forwards}
-.op-project{margin-top:22px;opacity:0;animation:opFade .9s var(--ease) 1.4s forwards}
-.op-project .nm{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.8rem,4.6vw,2.7rem);color:#fff}
-.op-project .sub{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-top:10px}
-.op-enter{display:inline-flex;align-items:center;gap:.6em;margin-top:32px;cursor:pointer;background:none;border:1px solid var(--gold);color:var(--gold2);
-  padding:13px 30px;font-family:inherit;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;border-radius:2px;opacity:0;animation:opFade .9s var(--ease) 1.7s forwards;transition:.3s}
-.op-enter:hover{background:var(--gold);color:var(--navy)}
-.op-skip{position:absolute;top:24px;right:26px;z-index:2;background:none;border:none;color:rgba(255,255,255,.6);cursor:pointer;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-family:inherit}
-.op-skip:hover{color:#fff}
-@keyframes opFade{to{opacity:1;transform:none}}
-@keyframes opX{to{transform:scaleX(1)}}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s;padding:18px 0}
-nav.scrolled{background:rgba(10,26,46,.96);backdrop-filter:blur(12px);padding:11px 0;box-shadow:0 6px 30px rgba(0,0,0,.25)}
-.nav-in{display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;flex-direction:column;line-height:1}
-.brand b{font-family:'Playfair Display',serif;color:#fff;font-size:21px;letter-spacing:.04em;font-weight:700}
-.brand small{color:var(--gold);font-size:9px;letter-spacing:.3em;text-transform:uppercase;margin-top:5px}
-.nav-links{display:flex;gap:28px;align-items:center}
-.nav-links a{color:rgba(255,255,255,.82);font-size:13px;letter-spacing:.06em;transition:.2s}
-.nav-links a:hover{color:var(--gold2)}
-.langtog{display:inline-flex;align-items:center;gap:7px;background:none;border:1px solid rgba(255,255,255,.28);color:#fff;
-  padding:8px 13px;border-radius:2px;cursor:pointer;font-family:inherit;font-size:12px;letter-spacing:.1em;transition:.3s}
-.langtog:hover{border-color:var(--gold);color:var(--gold2)}
-.langtog svg{width:15px;height:15px}
-.nav-cta{padding:10px 20px;border:1px solid var(--gold);color:var(--gold2);font-size:12px;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;transition:.3s}
-.nav-cta:hover{background:var(--gold);color:var(--navy)}
-.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
-.burger span{width:26px;height:2px;background:#fff}
-
-/* HERO */
-.hero{position:relative;height:clamp(620px,100vh,940px);display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
-.hero video,.hero .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,20,36,.74) 0%,rgba(8,20,36,.42) 42%,rgba(8,20,36,.86) 100%)}
-.hero-c{position:relative;z-index:2;color:#fff;padding:0 24px;max-width:920px}
-.hero .devline{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--goldsoft);margin-bottom:20px}
-.hero .award{display:inline-flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-bottom:22px}
-.hero .award span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--goldsoft);border:1px solid var(--line);padding:7px 14px;border-radius:2px}
-.hero h1{color:#fff;font-size:clamp(42px,7vw,86px);font-weight:700;letter-spacing:.02em;text-shadow:0 4px 30px rgba(0,0,0,.4)}
-.hero .cnm{font-family:'Noto Serif SC',serif;font-size:clamp(18px,2.4vw,26px);color:var(--goldsoft);letter-spacing:.14em;margin-top:8px;font-weight:600}
-.hero .tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,3vw,34px);color:var(--goldsoft);margin-top:12px}
-html[lang^="zh"] .hero .tagline{font-family:'Noto Serif SC',serif;font-style:normal}
-.hero .sub{font-size:17px;font-weight:300;color:rgba(255,255,255,.9);margin:20px auto 0;max-width:600px}
-.hero .cta-row{display:flex;gap:16px;justify-content:center;margin-top:36px;flex-wrap:wrap}
-.scrollcue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.28em;text-transform:uppercase;animation:bob 2s ease-in-out infinite}
-@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
-
-/* MARQUEE */
-.marquee{background:var(--gold);color:var(--navy);overflow:hidden;white-space:nowrap;padding:11px 0;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
-.marquee .track{display:inline-block;animation:scrollx 30s linear infinite}
-.marquee .track span{margin:0 26px}
-@keyframes scrollx{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* STAT BAR */
-.statbar{background:var(--navy);color:#fff}
-.statbar .row{display:grid;grid-template-columns:repeat(5,1fr)}
-.statbar .cell{padding:36px 18px;text-align:center;border-right:1px solid rgba(255,255,255,.07)}
-.statbar .cell:last-child{border-right:none}
-.statbar .num{font-family:'Playfair Display',serif;font-size:34px;color:var(--gold2);font-weight:700}
-.statbar .lab{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.66);margin-top:6px}
-
-/* two col */
-.two{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
-.figure{border-radius:4px;overflow:hidden;box-shadow:var(--shadow);position:relative}
-.figure img{transition:transform 1.2s var(--ease)}
-.figure:hover img{transform:scale(1.04)}
-.figure .cap{position:absolute;left:0;bottom:0;right:0;padding:22px;background:linear-gradient(transparent,rgba(8,20,36,.85));color:#fff;font-size:12.5px}
-.h-sec{font-size:clamp(30px,4vw,46px)}
-.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line2);border:1px solid var(--line2);margin-top:34px;border-radius:4px;overflow:hidden}
-.statgrid div{background:#fff;padding:24px 16px;text-align:center}
-.statgrid .n{font-family:'Playfair Display',serif;font-size:30px;color:var(--navy2);font-weight:700}
-.statgrid .l{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px}
-
-/* AT A GLANCE board */
-.glance{background:linear-gradient(180deg,var(--cream),#fff)}
-.glance .board-lg{max-width:760px;margin:34px auto 0;border-radius:6px;overflow:hidden;box-shadow:var(--shadow);cursor:zoom-in;border:1px solid var(--line)}
-
-/* FILM */
-.film{background:var(--navy);color:#fff}
-.film .frame{max-width:1000px;margin:40px auto 0;border-radius:4px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5);border:1px solid var(--line)}
-.film video{width:100%;display:block;background:#000}
-.film h2{color:#fff}.film .lead{color:rgba(255,255,255,.72)}
-
-/* unit cards */
-.unitcards{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:44px}
-.ucard{background:#fff;border:1px solid var(--line2);border-radius:6px;overflow:hidden;box-shadow:var(--shadow-s);transition:.35s}
-.ucard:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.ucard .top{padding:30px 30px 24px;border-bottom:1px solid var(--line2)}
-.ucard .tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
-.ucard h3{font-size:27px;margin:8px 0 2px}
-.ucard .sz{color:var(--muted);font-size:14px}
-.ucard .price{margin-top:16px}
-.ucard .price small{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.ucard .price b{display:block;font-family:'Playfair Display',serif;font-size:32px;color:var(--navy2)}
-.ucard .rows{padding:22px 30px 28px}
-.ucard .rows .r{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--line2);font-size:14px}
-.ucard .rows .r:last-child{border:none}
-.ucard .rows .r span:last-child{color:var(--navy2);font-weight:600}
-
-.boards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:30px}
-.board{background:#fff;border:1px solid var(--line2);border-radius:6px;overflow:hidden;cursor:zoom-in;box-shadow:var(--shadow-s);transition:.3s}
-.board:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
-.board .lbl{padding:14px 18px;font-size:13px;letter-spacing:.05em;color:var(--navy2);font-weight:600;display:flex;justify-content:space-between;align-items:center}
-.board .lbl span{color:var(--gold);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
-
-.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
-.gal a{border-radius:4px;overflow:hidden;position:relative;cursor:zoom-in}
-.gal a img{height:100%;width:100%;object-fit:cover;transition:.6s}
-.gal a:hover img{transform:scale(1.07)}
-.gal .wide{grid-column:span 2}
-
-/* ===== ROOM TOUR ===== */
-.tour{background:linear-gradient(180deg,#fff,var(--cream))}
-.tour-layout{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start;margin-top:42px}
-.plancard{background:#fff;border:1px solid var(--line2);border-radius:12px;padding:20px;box-shadow:var(--shadow-s)}
-.plancard h3{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:8px;text-align:center;font-family:'Inter',sans-serif;font-weight:600}
-.plancard svg{width:100%;height:auto}
-.room{cursor:pointer}
-.room rect{transition:.18s}
-.room:hover rect{fill:#f3ead2}
-.room.active rect{fill:#f7edd2;stroke:var(--gold);stroke-width:7}
-.rlabel{font:600 22px 'Inter',Arial;fill:var(--navy2);pointer-events:none}
-.rsf{font:500 17px 'Inter',Arial;fill:#9a8f79;pointer-events:none}
-.dim{font:600 20px Arial;fill:#c9a45c}
-.viewer{background:#fff;border:1px solid var(--line2);border-radius:12px;overflow:hidden;box-shadow:var(--shadow-s);position:sticky;top:90px}
-.photo{position:relative;aspect-ratio:3/2;background:var(--navy2);overflow:hidden}
-.photo img{width:100%;height:100%;object-fit:cover;animation:kb 12s ease-in-out infinite alternate}
-@keyframes kb{from{transform:scale(1)}to{transform:scale(1.08)}}
-.photo .tag{position:absolute;top:14px;left:14px;background:rgba(10,26,46,.82);color:var(--gold2);font-size:11px;padding:6px 14px;border-radius:2px;letter-spacing:.14em;text-transform:uppercase}
-.vbody{padding:22px 24px 26px}
-.vbody h3{font-size:23px}
-.vbody .area{color:var(--gold);font-weight:600;font-size:13px;letter-spacing:.06em;margin:4px 0 10px;text-transform:uppercase}
-.vbody p{color:#4a5867;font-size:14.5px}
-.navbtns{display:flex;gap:10px;margin-top:18px}
-.navbtns button{flex:1;background:var(--navy2);color:#fff;border:none;border-radius:2px;padding:12px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:.25s;font-family:inherit}
-.navbtns button:hover{background:var(--gold);color:var(--navy)}
-.thumbs{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:22px}
-.thumb{cursor:pointer;border-radius:4px;overflow:hidden;border:2px solid transparent;aspect-ratio:3/2;position:relative}
-.thumb.active{border-color:var(--gold)}
-.thumb img{width:100%;height:100%;object-fit:cover}
-.thumb span{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff;font-size:9px;padding:9px 4px 3px;text-align:center;font-weight:600;letter-spacing:.02em}
-
-/* FACILITIES */
-.facilities{background:linear-gradient(180deg,var(--cream),#fff)}
-.fac-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.fcard{background:#fff;border:1px solid var(--line2);border-radius:6px;padding:30px 26px;transition:.3s;box-shadow:var(--shadow-s)}
-.fcard:hover{border-color:var(--gold);transform:translateY(-4px)}
-.fcard .ico{font-size:34px;margin-bottom:14px}
-.fcard h4{font-size:20px;margin-bottom:6px}
-.fcard p{color:#5a6774;font-size:14.5px}
-
-/* LOCATION */
-.loc-eco{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
-.chip{background:#fff;border:1px solid var(--line2);border-radius:4px;padding:16px 18px;font-size:13.5px;color:var(--navy2);font-weight:500;display:flex;gap:10px;align-items:center}
-.chip .d{width:7px;height:7px;background:var(--gold);border-radius:50%;flex:none;transform:rotate(45deg)}
-.connect{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.connect span{background:var(--navy2);color:#fff;padding:8px 16px;border-radius:999px;font-size:12.5px}
-.loc-highlights{margin-top:22px}
-.loc-highlights .lh{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line2)}
-.loc-highlights .lh .i{color:var(--gold);font-size:18px;flex:none;width:24px;text-align:center}
-.loc-highlights .lh b{color:var(--navy2)}
-.loc-highlights .lh span{color:#5a6774;font-size:13.5px}
-
-/* animated connectivity route map */
-.routewrap{max-width:1000px;margin:38px auto 0;background:radial-gradient(120% 130% at 62% 38%,#143654,#0a1a2e);border:1px solid var(--line);border-radius:14px;padding:22px}
-.routemap{width:100%;height:auto;display:block}
-.routemap .route{stroke:var(--gold2);stroke-width:2;fill:none;stroke-dasharray:1;stroke-dashoffset:1;opacity:.55}
-.routemap.animate .route{animation:draw 1.5s var(--ease) forwards}
-.routemap .node{fill:var(--gold2);opacity:0}
-.routemap.animate .node{animation:opFade .5s ease 1s forwards}
-.routemap .pulse{fill:var(--gold);opacity:0}
-.routemap.animate .pulse{animation:pulsering 2.8s ease-out 1.1s infinite}
-.routemap .nlabel{fill:#eaeef3;font:600 13px 'Inter',sans-serif;opacity:0}
-.routemap.animate .nlabel{animation:opFade .6s ease 1.2s forwards}
-.hwy{fill:none;stroke:rgba(255,255,255,.10);stroke-width:7;stroke-linejoin:round;stroke-linecap:round}
-.routemap .hub{fill:var(--gold);stroke:#fff;stroke-width:2}
-.routemap .hubring{fill:none;stroke:var(--gold);stroke-width:1.5;opacity:.5}
-.routemap.animate .hubring{animation:pulsering 2.6s ease-out infinite}
-.routemap .hublabel{fill:var(--gold2);font:700 16px 'Playfair Display',serif}
-.routemap .sealabel{fill:rgba(150,190,220,.5);font:600 11px 'Inter',sans-serif;letter-spacing:.2em}
-@keyframes draw{to{stroke-dashoffset:0}}
-@keyframes pulsering{0%{opacity:.55;r:5}100%{opacity:0;r:26}}
-.conn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
-.conn-card{background:#fff;border:1px solid var(--line2);border-radius:8px;padding:20px 16px;text-align:center;transition:.3s;box-shadow:var(--shadow-s);display:block}
-.conn-card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:var(--shadow)}
-.conn-card .ci{font-size:26px}
-.conn-card .cn{font-weight:600;color:var(--navy2);margin-top:8px;font-size:15px}
-.conn-card .ct{color:var(--gold);font-weight:600;font-size:13px;margin-top:3px}
-.conn-card .cd{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px}
-.conn-card:hover .cd{color:var(--navy2)}
-.mapembed{max-width:1000px;margin:30px auto 0;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line2);aspect-ratio:16/7;background:#dde5ec}
-.mapembed iframe{width:100%;height:100%;border:0;display:block}
-
-/* PRICING */
-.pricing{background:var(--navy);color:#fff}
-.pricing h2{color:#fff}.pricing .lead{color:rgba(255,255,255,.72)}
-.promo{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:760px;margin:40px auto 0}
-.promo .p{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:34px;text-align:center}
-.promo .p .t{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold2)}
-.promo .p h3{color:#fff;font-size:24px;margin:10px 0}
-.promo .p .from{font-size:12px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
-.promo .p .amt{font-family:'Playfair Display',serif;font-size:42px;color:var(--gold2);font-weight:700;margin-top:4px}
-.tablewrap{max-width:1000px;margin:44px auto 0;overflow-x:auto;border:1px solid var(--line);border-radius:6px}
-table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
-th{background:var(--panel);color:var(--gold2);text-align:left;padding:15px 18px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
-td{padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.9)}
-tr:hover td{background:rgba(255,255,255,.03)}
-.note{max-width:1000px;margin:16px auto 0;font-size:12.5px;color:var(--muted)}
-
-/* SPECS */
-.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:0 50px;margin-top:34px}
-.specs .s{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line2)}
-.specs .s .k{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:600;padding-top:2px}
-.specs .s .v{font-size:14px;color:#4a5867}
-
-/* CONTACT */
-.contact{background:var(--cream)}
-.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:44px;align-items:start}
-.form input,.form textarea{width:100%;padding:14px 16px;border:1px solid var(--line2);border-radius:4px;font-family:inherit;font-size:15px;margin-bottom:14px;background:#fff}
-.form input:focus,.form textarea:focus{outline:none;border-color:var(--gold)}
-.form .btn{width:100%;justify-content:center}
-.cinfo .blk{margin-bottom:26px}
-.cinfo .blk .h{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px}
-.cinfo .blk .big{font-family:'Playfair Display',serif;font-size:24px;color:var(--navy2)}
-html[lang^="zh"] .cinfo .blk .big{font-family:'Noto Serif SC',serif}
-.cinfo a{color:var(--navy2);font-weight:500}
-.team{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 24px;margin-top:6px}
-.team .m{display:flex;justify-content:space-between;font-size:14px;padding:6px 0;border-bottom:1px dashed var(--line2)}
-.team .m b{color:var(--navy2)}
-
-/* FOOTER */
-footer{background:var(--navy);color:rgba(255,255,255,.62);padding:56px 0 30px;font-size:13px}
-.foot-logo{background:#fff;border-radius:10px;padding:18px 26px;display:inline-block;margin-bottom:22px}
-.foot-logo img{width:220px;height:auto}
-footer .top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:26px;margin-bottom:22px}
-footer .brand2 b{color:#fff;font-family:'Playfair Display',serif;font-size:22px}
-footer .lic{font-size:11.5px;line-height:1.9;max-width:440px}
-footer .disc{font-size:11px;color:rgba(255,255,255,.4);max-width:900px;line-height:1.7}
-
-/* reveal */
-html.js .reveal{opacity:0;transform:translateY(30px);transition:.8s var(--ease)}
-html.js .reveal.in{opacity:1;transform:none}
-
-/* sticky WhatsApp FAB */
-.wa-fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:95;
-  height:58px;width:58px;border-radius:50%;background:#25d366;display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  box-shadow:0 12px 30px rgba(37,211,102,.45),0 4px 12px rgba(0,0,0,.28);transition:transform .25s,box-shadow .25s;animation:waIn .5s var(--ease) .9s both}
-.wa-fab svg{width:32px;height:32px;fill:#fff;flex:none}
-.wa-fab .wa-label{display:none;color:#fff;font-weight:600;font-size:14px;letter-spacing:.02em;white-space:nowrap}
-.wa-fab::before{content:"";position:absolute;inset:0;border-radius:inherit;background:#25d366;z-index:-1;animation:waPulse 2.8s ease-out infinite}
-.wa-fab:hover{transform:scale(1.07);box-shadow:0 16px 38px rgba(37,211,102,.55)}
-@keyframes waPulse{0%{opacity:.5;transform:scale(1)}100%{opacity:0;transform:scale(1.85)}}
-@keyframes waIn{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
-@media(min-width:901px){
-  .wa-fab{width:auto;border-radius:999px;padding:0 22px 0 16px}
-  .wa-fab .wa-label{display:inline}
-}
-
-/* lightbox */
-.lb{position:fixed;inset:0;background:rgba(6,14,26,.94);z-index:200;display:none;align-items:center;justify-content:center;padding:40px;cursor:zoom-out}
-.lb.open{display:flex}
-.lb img{max-width:95%;max-height:92%;border-radius:4px;box-shadow:0 30px 90px rgba(0,0,0,.6)}
-.lb .x{position:absolute;top:24px;right:30px;color:#fff;font-size:34px;cursor:pointer;line-height:1}
-
+/* ---------- nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;
+  padding:16px 4vw;transition:background .5s,box-shadow .5s}
+nav.scrolled{background:rgba(8,17,32,.82);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(201,164,92,.22)}
+.brand{display:flex;align-items:center;gap:14px}
+.brand .mono{font-family:var(--serif);font-size:21px;color:var(--gold2);letter-spacing:.08em}
+.brand .div{width:1px;height:26px;background:rgba(201,164,92,.5)}
+.brand .sub{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
+.brand .sub b{display:block;color:var(--gold);font-weight:500;letter-spacing:.42em}
+.navlinks{display:flex;gap:26px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.navlinks a:hover{color:var(--gold2)}
+.lang{display:flex;border:1px solid rgba(201,164,92,.45);border-radius:2px;overflow:hidden;font-size:11px}
+.lang button{background:none;border:0;color:var(--muted);padding:7px 14px;cursor:pointer;letter-spacing:.1em;font-family:var(--sans)}
+.lang button.on{background:var(--gold);color:var(--navy)}
+.burger{display:none;background:none;border:1px solid rgba(201,164,92,.45);border-radius:2px;width:38px;height:34px;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0}
+.burger i{display:block;width:16px;height:1.5px;background:var(--gold2);transition:.35s}
+.burger.open i:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger.open i:nth-child(2){opacity:0}
+.burger.open i:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+#mnav{position:fixed;inset:0;z-index:55;background:rgba(5,10,20,.96);backdrop-filter:blur(16px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;opacity:0;visibility:hidden;transition:.45s}
+#mnav.open{opacity:1;visibility:visible}
+#mnav a{font-family:var(--serif);font-size:clamp(24px,7vw,34px);color:var(--cream);padding:10px 0;letter-spacing:.06em}
+#mnav a span{color:var(--gold);font-size:12px;letter-spacing:.4em;display:block;text-align:center;margin-bottom:-4px}
+#mnav .m-cta{margin-top:26px;background:var(--gold);color:var(--navy);font-family:var(--sans);font-size:12px;letter-spacing:.3em;text-transform:uppercase;padding:14px 38px;border-radius:2px}
 @media(max-width:900px){
-  .nav-links{display:none}.burger{display:flex}
-  .nav-links.mobile{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;background:rgba(10,26,46,.98);padding:22px 26px;gap:6px;box-shadow:0 20px 40px rgba(0,0,0,.35)}
-  .nav-links.mobile a{padding:13px 4px;border-bottom:1px solid rgba(255,255,255,.08);font-size:15px}
-  .nav-links.mobile .langtog{margin-top:10px;justify-content:center;padding:12px}
-  .nav-links.mobile .nav-cta{margin-top:6px;text-align:center;padding:14px}
-  .two,.tour-layout{grid-template-columns:1fr;gap:34px}
-  .statbar .row{grid-template-columns:repeat(2,1fr)}
-  .statbar .cell:nth-child(2){border-right:none}
-  .unitcards,.boards,.fac-grid,.loc-eco,.promo,.specs,.c-grid,.gal,.thumbs{grid-template-columns:1fr}
-  .statgrid{grid-template-columns:repeat(2,1fr)}
-  .conn-grid{grid-template-columns:1fr 1fr}
-  .thumbs{grid-template-columns:repeat(4,1fr)}
-  .gal .wide{grid-column:auto}
-  .team{grid-template-columns:1fr}
-  .section{padding:70px 0}
-  .lead{font-size:16.5px}
-  .mapembed{aspect-ratio:4/3}
+  .navlinks{display:none}
+  .burger{display:flex}
+  .brand .sub{display:none}
 }
 
-/* ===== PHONES ===== */
-@media(max-width:560px){
-  .wrap{padding:0 18px}
-  .section{padding:52px 0}
-  .eyebrow{letter-spacing:.24em;font-size:11px}
-  h2.h-sec{font-size:29px}
-  .lead{font-size:15.5px;margin-top:14px}
-  .btn{padding:14px 22px;font-size:12px}
+/* ---------- hero ---------- */
+#hero{position:relative;height:100vh;overflow:hidden}
+#hero .bg{position:absolute;inset:-6%;will-change:transform}
+#hero video,#hero .bg img{width:100%;height:100%;object-fit:cover}
+#hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,17,32,.55) 0%,rgba(8,17,32,.12) 40%,rgba(8,17,32,.88) 100%)}
+.hero-copy{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 6vw;transform-style:preserve-3d;perspective:900px}
+.kicker{font-size:11px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold2);margin-bottom:22px}
+.hero-copy h1{font-family:var(--serif);font-weight:600;font-size:clamp(44px,7.4vw,110px);line-height:1.04;color:var(--cream);text-shadow:0 8px 60px rgba(0,0,0,.55)}
+.hero-copy h1 em{font-style:italic;color:var(--gold2)}
+.hero-zh{font-family:'Noto Serif TC',serif;font-size:clamp(17px,2vw,26px);color:var(--gold2);letter-spacing:.6em;margin-top:20px;text-indent:.6em}
+.hero-sub{margin-top:26px;font-size:clamp(13px,1.25vw,17px);color:var(--muted);max-width:640px;line-height:1.8}
+.scroll-cue{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--gold2);font-size:10px;letter-spacing:.4em;text-transform:uppercase}
+.scroll-cue .line{width:1px;height:56px;background:linear-gradient(180deg,var(--gold),transparent);animation:drip 2s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-  /* dynamic viewport height so mobile browser chrome doesn't clip the hero */
-  .hero,.opening{height:100svh;min-height:540px}
-  .hero .devline{font-size:9.5px;letter-spacing:.18em;margin-bottom:14px}
-  .hero .award{gap:8px;margin-bottom:18px}
-  .hero .award span{font-size:9.5px;letter-spacing:.1em;padding:6px 10px}
-  .hero .cnm{font-size:17px;margin-top:6px}
-  .hero .tagline{font-size:20px;margin-top:8px}
-  .hero .sub{font-size:14.5px;margin-top:16px}
-  .hero .cta-row{flex-direction:column;align-items:stretch;gap:12px;margin-top:28px}
-  .hero .cta-row .btn{width:100%;justify-content:center}
-  .scrollcue{display:none}
+/* ---------- section shells ---------- */
+section{position:relative}
+.sec-head{max-width:1200px;margin:0 auto;padding:110px 6vw 46px;text-align:center}
+.sec-head .kicker{margin-bottom:16px}
+.sec-head h2{font-family:var(--serif);font-size:clamp(30px,4vw,54px);font-weight:600;color:var(--cream)}
+.sec-head p{margin:18px auto 0;max-width:620px;color:var(--muted);line-height:1.85;font-size:14.5px}
+.gold-rule{width:64px;height:1px;background:var(--gold);margin:26px auto 0;position:relative}
+.gold-rule::after{content:'';position:absolute;left:50%;top:-2.5px;width:6px;height:6px;background:var(--gold);transform:translateX(-50%) rotate(45deg)}
 
-  .brand b{font-size:18px}.brand small{font-size:8px;letter-spacing:.24em}
-  nav{padding:14px 0}
+/* ---------- 3D journey ---------- */
+#journey{background:radial-gradient(120% 90% at 50% 0%,var(--navy2) 0%,var(--navy) 70%)}
+.stage-wrap{height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.stage{position:relative;width:100%;height:100%;perspective:1150px;transform-style:preserve-3d}
+.plate{position:absolute;top:50%;left:50%;width:min(76vw,1180px);aspect-ratio:16/8.2;transform:translate(-50%,-50%);
+  transform-style:preserve-3d;will-change:transform,opacity;opacity:0}
+.plate .ph{position:absolute;inset:0;border-radius:4px;overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,.6),0 0 0 1px rgba(201,164,92,.25)}
+.plate .ph img{width:100%;height:100%;object-fit:cover}
+.plate .ph::after{content:'';position:absolute;inset:0;background:linear-gradient(200deg,transparent 55%,rgba(8,17,32,.82))}
+.plate .tag{position:absolute;left:4.5%;bottom:7%;z-index:2}
+.plate .tag .no{font-size:11px;letter-spacing:.45em;color:var(--gold2);text-transform:uppercase}
+.plate .tag h3{font-family:var(--serif);font-size:clamp(24px,3vw,44px);color:var(--cream);margin-top:8px;font-weight:600}
+.plate .tag p{color:var(--muted);font-size:13.5px;margin-top:8px;max-width:420px;line-height:1.7}
+.plate.final{aspect-ratio:auto;width:auto;text-align:center}
+.plate.final .fin-k{font-size:11px;letter-spacing:.5em;color:var(--gold2);text-transform:uppercase}
+.plate.final h3{font-family:var(--serif);font-size:clamp(34px,5vw,72px);color:var(--cream);font-weight:600;margin-top:18px;line-height:1.15}
+.plate.final h3 em{font-style:italic;color:var(--gold2)}
+@media(max-width:900px){
+  .plate{width:90vw;aspect-ratio:4/5.1;max-height:72vh}
+  .plate .tag{left:6%;bottom:6%;right:6%}
+  .plate .tag p{font-size:12.5px;max-width:none}
+  .plate .ph::after{background:linear-gradient(200deg,transparent 42%,rgba(8,17,32,.88))}
+}
+.journey-progress{position:absolute;right:4vw;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:5}
+.journey-progress i{width:5px;height:5px;border-radius:50%;background:rgba(201,164,92,.3);transition:.3s}
+.journey-progress i.on{background:var(--gold);box-shadow:0 0 10px var(--gold)}
 
-  .op-logo{padding:20px 26px}.op-project .sub{font-size:11px}
+/* ---------- stats band ---------- */
+#stats{background:linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%);border-top:1px solid rgba(201,164,92,.18);border-bottom:1px solid rgba(201,164,92,.18)}
+.stats-grid{max-width:1200px;margin:0 auto;padding:76px 6vw;display:grid;grid-template-columns:repeat(5,1fr);gap:30px;text-align:center}
+.stat .num{font-family:var(--serif);font-size:clamp(34px,4vw,58px);color:var(--gold2)}
+.stat .num sup{font-size:.45em;color:var(--gold)}
+.stat .lbl{margin-top:8px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr)}.stats-grid .stat:last-child{grid-column:span 2}}
 
-  .statbar .cell{padding:26px 12px}
-  .statbar .num{font-size:27px}.statbar .lab{font-size:10px}
-  .statgrid .n{font-size:23px}.statgrid .l{font-size:10px}
+/* ---------- township horizontal ---------- */
+#township{background:var(--navy)}
+.h-wrap{overflow:hidden}
+.h-track{display:flex;gap:34px;padding:20px 8vw 130px;will-change:transform}
+.t-card{flex:0 0 min(430px,78vw);background:var(--navy3);border:1px solid rgba(201,164,92,.22);border-radius:4px;overflow:hidden;transform-style:preserve-3d}
+.t-card .im{height:230px;overflow:hidden}
+.t-card .im img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.t-card:hover .im img{transform:scale(1.07)}
+.t-card .bd{padding:26px 26px 30px}
+.t-card .no{font-size:10px;letter-spacing:.4em;color:var(--gold);text-transform:uppercase}
+.t-card h3{font-family:var(--serif);font-size:24px;color:var(--cream);margin-top:10px;font-weight:600}
+.t-card .zh-line{color:var(--gold2);font-family:'Noto Serif TC',serif;font-size:13px;margin-top:4px;letter-spacing:.18em}
+.t-card p{color:var(--muted);font-size:13.5px;line-height:1.75;margin-top:12px}
 
-  .figure .cap{font-size:11.5px;padding:16px}
-  .ucard .top{padding:24px 22px 20px}.ucard h3{font-size:24px}
-  .ucard .price b{font-size:28px}.ucard .rows{padding:18px 22px 22px}
-  .boards{gap:18px}.board .lbl{font-size:12px;padding:12px 14px}
+/* ---------- residences ---------- */
+#residences{background:linear-gradient(180deg,var(--navy2),var(--navy) 30%)}
+.units{max-width:1240px;margin:0 auto;padding:0 6vw 60px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.u-card{position:relative;border-radius:4px;overflow:hidden;border:1px solid rgba(201,164,92,.25);background:var(--navy3);transform-style:preserve-3d;transition:transform .2s ease-out;will-change:transform}
+.u-card .im{height:250px;overflow:hidden}
+.u-card .im img{width:100%;height:100%;object-fit:cover}
+.u-card .bd{padding:26px}
+.u-card .type{font-size:10px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold)}
+.u-card h3{font-family:var(--serif);font-size:30px;color:var(--cream);margin-top:8px;font-weight:600}
+.u-card .meta{color:var(--muted);font-size:13px;margin-top:6px;letter-spacing:.06em}
+.u-card .price{margin-top:16px;padding-top:16px;border-top:1px solid rgba(201,164,92,.2);display:flex;align-items:baseline;gap:8px}
+.u-card .price .fr{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.u-card .price .rm{font-family:var(--serif);font-size:24px;color:var(--gold2)}
+.badge{position:absolute;top:16px;left:16px;background:rgba(8,17,32,.78);border:1px solid rgba(201,164,92,.5);color:var(--gold2);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding:7px 13px;backdrop-filter:blur(6px)}
+@media(max-width:960px){.units{grid-template-columns:1fr}}
+.interior-strip{display:flex;gap:14px;max-width:1240px;margin:0 auto;padding:0 6vw 120px;overflow-x:auto;scrollbar-width:none}
+.interior-strip::-webkit-scrollbar{display:none}
+.interior-strip img{height:200px;border-radius:3px;border:1px solid rgba(201,164,92,.2);flex:0 0 auto}
 
-  .fcard{padding:24px 22px}.fcard .ico{font-size:30px}.fcard h4{font-size:19px}
+/* ---------- sky deck ---------- */
+#skydeck{height:130vh;position:relative;overflow:hidden}
+#skydeck .bg{position:absolute;inset:-12% 0;background:url('assets/gen/sky-deck.jpg') center/cover no-repeat;will-change:transform}
+#skydeck .shade{position:absolute;inset:0;background:linear-gradient(180deg,var(--navy) 0%,transparent 26%,transparent 62%,var(--navy) 100%)}
+.deck-copy{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;max-width:1240px;margin:0 auto;padding:0 6vw 12vh}
+.deck-copy h2{font-family:var(--serif);font-size:clamp(30px,4.4vw,60px);color:var(--cream);font-weight:600;max-width:640px;text-shadow:0 6px 40px rgba(0,0,0,.6)}
+.chips{display:flex;flex-wrap:wrap;gap:11px;margin-top:26px;max-width:700px}
+.chip{border:1px solid rgba(201,164,92,.5);background:rgba(8,17,32,.55);backdrop-filter:blur(8px);color:var(--cream);font-size:12px;letter-spacing:.14em;padding:10px 18px;border-radius:2px}
+.chip b{color:var(--gold2);font-weight:500}
 
-  /* room tour: bigger tappable labels, viewer flows below plan */
-  .plancard{padding:14px}
-  .rlabel{font-size:30px}.rsf{font-size:24px}.dim{font-size:26px}
-  .viewer{position:static}
-  .vbody h3{font-size:21px}
-  .thumbs{grid-template-columns:repeat(4,1fr);gap:8px}
+/* ---------- films ---------- */
+#films{background:var(--navy)}
+.films-grid{max-width:1240px;margin:0 auto;padding:0 6vw 130px;display:grid;grid-template-columns:1.35fr 1fr;gap:30px;perspective:1400px}
+.film{position:relative;border-radius:4px;overflow:hidden;border:1px solid rgba(201,164,92,.3);box-shadow:0 30px 90px rgba(0,0,0,.55);transform-style:preserve-3d}
+.film video{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:16/9;background:#000}
+.film .cap{position:absolute;left:0;right:0;bottom:0;padding:40px 24px 18px;background:linear-gradient(180deg,transparent,rgba(8,17,32,.9));font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold2)}
+@media(max-width:960px){.films-grid{grid-template-columns:1fr}}
 
-  /* connectivity route map: enlarge labels, drop drive-time (kept in cards) */
-  .routewrap{padding:14px}
-  .routemap .nlabel{font-size:23px}
-  .routemap .ntime{display:none}
-  .routemap .hublabel{font-size:30px}
-  .routemap .node{r:8}.routemap .pulse{r:8}
-  .routemap .sealabel{font-size:18px}
-  .conn-card{padding:16px 8px}
-  .conn-card .ci{font-size:23px}.conn-card .cn{font-size:13.5px}
-  .conn-card .ct{font-size:12.5px}.conn-card .cd{font-size:10px}
-  .mapembed{aspect-ratio:3/4}
-
-  .promo{gap:16px}.promo .p{padding:26px 20px}.promo .p .amt{font-size:34px}
-  th,td{padding:12px 12px;font-size:13px}
-  .specs .s{grid-template-columns:110px 1fr;gap:12px;padding:14px 0}
-  .specs .s .k{font-size:11px}
-
-  .c-grid{gap:34px}
-  .cinfo .blk .big{font-size:21px}
-
-  .foot-logo{padding:14px 20px}.foot-logo img{width:180px}
-  footer .top{gap:24px}
-
-  .lb{padding:14px}.lb .x{top:12px;right:16px;font-size:42px;padding:6px}
+/* ---------- plans ---------- */
+#plans{background:linear-gradient(180deg,var(--navy),var(--navy2))}
+.plan-tabs{display:flex;gap:12px;justify-content:center;margin-bottom:36px}
+.plan-tabs button{background:none;border:1px solid rgba(201,164,92,.45);color:var(--muted);padding:11px 26px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);transition:.3s}
+.plan-tabs button.on{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.plan-view{max-width:1080px;margin:0 auto;padding:0 6vw 130px}
+.plan-view .frame{border:1px solid rgba(201,164,92,.3);border-radius:4px;overflow:hidden;background:#fff}
+.plan-view img{width:100%}
+.plan-note{text-align:center;color:var(--muted);font-size:12.5px;margin-top:18px;letter-spacing:.06em}
+@media(max-width:700px){
+  .plan-view .frame{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .plan-view .frame img{min-width:760px}
+  .films-grid{padding-bottom:90px}
+  .sec-head{padding:80px 6vw 36px}
+  .stats-grid{padding:56px 6vw;gap:22px}
+  .interior-strip img{height:150px}
+  .u-card .im{height:200px}
+  .offer-points .chip{font-size:11.5px}
 }
 
-@media(max-width:380px){
-  h2.h-sec{font-size:26px}
-  .hero h1{font-size:38px}
-  .conn-grid{gap:12px}
-  .conn-card .cn{font-size:12.5px}
+/* ---------- connectivity ---------- */
+#location{background:var(--navy2)}
+.conn-panel{max-width:1240px;margin:0 auto 26px;padding:0 6vw}
+.conn-map{position:relative;border-radius:8px;overflow:hidden;border:1px solid rgba(201,164,92,.28);
+  background:radial-gradient(130% 160% at 18% 92%,#16304f 0%,var(--navy3) 34%,#0a1830 72%,#081120 100%);
+  box-shadow:0 30px 90px rgba(0,0,0,.45)}
+.conn-map svg{display:block;width:100%;height:auto}
+.conn-map .sea{fill:rgba(122,168,220,.08)}
+.conn-map .sea-label{fill:rgba(159,176,200,.5);font-size:15px;letter-spacing:.32em;font-family:var(--sans)}
+.conn-map .spoke{stroke:rgba(201,164,92,.75);stroke-width:1.4;fill:none}
+.conn-map .halo{fill:rgba(201,164,92,.09)}
+.conn-map .node{fill:var(--gold)}
+.conn-map .node-ring{fill:none;stroke:rgba(201,164,92,.45);stroke-width:1}
+.conn-map .lbl{fill:var(--ink);font-size:17px;font-weight:600;font-family:var(--sans)}
+.conn-map .lbl tspan.t{fill:var(--gold2);font-weight:400}
+.conn-map .center-dot{fill:var(--gold2);stroke:#fff;stroke-width:2.5}
+.conn-map .center-lbl{fill:var(--gold2);font-family:var(--serif);font-size:21px;letter-spacing:.14em;font-weight:600}
+.conn-cards{max-width:1240px;margin:0 auto;padding:14px 6vw 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.c-card{background:var(--navy3);border:1px solid rgba(201,164,92,.22);border-radius:4px;text-align:center;padding:26px 14px 22px;transition:transform .35s ease,border-color .35s}
+.c-card:hover{transform:translateY(-5px);border-color:rgba(201,164,92,.6)}
+.c-card .ico{font-size:30px}
+.c-card h4{font-family:var(--serif);font-size:17.5px;color:var(--cream);font-weight:600;margin-top:12px}
+.c-card .dist{color:var(--gold2);font-size:13px;margin-top:6px;letter-spacing:.05em}
+.c-card a{display:inline-block;margin-top:12px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid rgba(201,164,92,.4);padding-bottom:3px;transition:.3s}
+.c-card a:hover{color:var(--gold2);border-color:var(--gold2)}
+@media(max-width:960px){.conn-cards{grid-template-columns:repeat(2,1fr)}}
+.conn-hint{display:none;text-align:center;color:var(--muted);font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;margin-top:12px}
+@media(max-width:700px){
+  .conn-map{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .conn-map svg{min-width:820px}
+  .conn-map .lbl{font-size:27px;font-weight:500}
+  .conn-map .center-lbl{font-size:32px}
+  .conn-map .sea-label{font-size:22px}
+  .conn-map .node{r:9}.conn-map .node-ring{r:16}
+  .conn-map .spoke{stroke-width:2.2}
+  .conn-hint{display:block}
 }
+.loc-grid{max-width:1240px;margin:0 auto;padding:30px 6vw 130px;display:grid;grid-template-columns:1.3fr 1fr;gap:44px;align-items:center}
+.loc-grid .map{border:1px solid rgba(201,164,92,.3);border-radius:4px;overflow:hidden}
+.d-row{display:flex;align-items:baseline;justify-content:space-between;padding:15px 4px;border-bottom:1px solid rgba(201,164,92,.16)}
+.d-row .place{font-size:14.5px;color:var(--cream);letter-spacing:.04em}
+.d-row .time{font-family:var(--serif);color:var(--gold2);font-size:16px;white-space:nowrap}
+.maps-btn{display:inline-block;margin-top:26px;border:1px solid rgba(201,164,92,.55);color:var(--gold2);padding:13px 30px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;transition:.3s}
+.maps-btn:hover{background:var(--gold);color:var(--navy)}
+@media(max-width:960px){.loc-grid{grid-template-columns:1fr}}
 
-@media (prefers-reduced-motion: reduce){
-  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
-  html.js .reveal{opacity:1;transform:none}
-  .routemap .route{stroke-dashoffset:0}
-  .routemap .node,.routemap .nlabel,.routemap .pulse{opacity:1}
+/* ---------- offer ---------- */
+#offer{background:radial-gradient(90% 120% at 50% 100%,var(--navy3) 0%,var(--navy) 70%)}
+.offer-inner{max-width:900px;margin:0 auto;padding:0 6vw 120px;text-align:center}
+.offer-price{font-family:var(--serif);font-size:clamp(52px,8vw,110px);color:var(--gold2);line-height:1}
+.offer-price .rm{font-size:.4em;color:var(--gold);vertical-align:super}
+.offer-points{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:34px}
+.offer-points .chip{font-size:12.5px}
+.wa-btn{display:inline-block;margin-top:44px;background:var(--gold);color:var(--navy);padding:17px 52px;font-size:12px;letter-spacing:.34em;text-transform:uppercase;font-weight:600;border-radius:2px;transition:.3s}
+.wa-btn:hover{background:var(--gold2)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid rgba(201,164,92,.2);background:#050b16;padding:70px 6vw 46px;text-align:center}
+footer .lockup{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:22px}
+footer .lockup img{height:64px;background:#fff;border-radius:4px;padding:8px 14px}
+footer .lockup .zh{font-family:'Noto Serif TC',serif;color:var(--gold2);font-size:18px;letter-spacing:.5em;text-indent:.5em}
+footer p{color:#5d6f8a;font-size:11.5px;letter-spacing:.08em;line-height:1.9;max-width:760px;margin:0 auto}
+
+.reveal{opacity:0;transform:translateY(46px)}
+@supports(height:100svh){
+  #hero,.stage-wrap,.deck-copy{height:100svh}
+  #skydeck{height:128svh}
 }
 </style>
 </head>
 <body>
 
-<!-- ===== DEVELOPER OPENING SPLASH ===== -->
-<div class="opening" id="opening">
-  <button class="op-skip" id="opSkip" data-zh="略過">Skip</button>
-  <div class="op-inner">
-    <div class="op-eyebrow" data-zh="美嘉城集團 誠意呈獻">A WSG Group Development</div>
-    <div class="op-logo"><img src="assets/img/wsg-logo.png" alt="WSG Group 美嘉城集團"></div>
-    <div class="op-line"><span></span></div>
-    <div class="op-project">
-      <div class="nm">Parklane Residences</div>
-      <div class="sub" data-zh="百可麗豪華公寓 @ 碧多利 · 沙巴巴巴">@ Benoni · Papar, Sabah</div>
-    </div>
-    <button class="op-enter" id="opEnter" data-zh-html="進入項目 <span>→</span>">Enter <span>→</span></button>
-  </div>
+<!-- ======= INTRO / LOGO STING ======= -->
+<div id="intro">
+  <div class="intro-img"></div>
+  <video id="stingVid" muted playsinline preload="auto" poster="assets/gen/logo-scene.jpg">
+    <source src="assets/gen/logo-sting-web.mp4" type="video/mp4">
+  </video>
+  <button class="enter" id="enterBtn" data-zh="進入百可麗">ENTER PARKLANE</button>
 </div>
 
-<!-- NAV -->
+<!-- ======= NAV ======= -->
 <nav id="nav">
-  <div class="wrap nav-in">
-    <a href="#top" class="brand"><b>PARKLANE</b><small data-zh="百可麗 · 美嘉城集團">Residences · WSG Group</small></a>
-    <div class="nav-links" id="navlinks">
-      <a href="#overview" data-zh="概覽">Overview</a>
-      <a href="#residences" data-zh="戶型單位">Residences</a>
-      <a href="#tour" data-zh="室內導覽">Room Tour</a>
-      <a href="#facilities" data-zh="設施">Facilities</a>
-      <a href="#location" data-zh="位置">Location</a>
-      <a href="#pricing" data-zh="價格">Pricing</a>
-      <button class="langtog" id="langtog" aria-label="切換語言 / Switch language">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.7 5.7 3.7 9s-1.3 6.5-3.7 9c-2.4-2.5-3.7-5.7-3.7-9S9.6 5.5 12 3z"/></svg>
-        <span id="langlabel">中文</span>
-      </button>
-      <a href="#contact" class="nav-cta" data-zh="立即諮詢">Register Interest</a>
+  <div class="brand">
+    <span class="mono">WSG</span>
+    <span class="div"></span>
+    <span class="sub"><b>美嘉城集團</b>WSG GROUP</span>
+  </div>
+  <div class="navlinks">
+    <a href="#journey" data-zh="市鎮">Township</a>
+    <a href="#residences" data-zh="戶型">Residences</a>
+    <a href="#skydeck" data-zh="設施">Facilities</a>
+    <a href="#plans" data-zh="平面圖">Floor Plans</a>
+    <a href="#location" data-zh="位置">Location</a>
+    <a href="#offer" data-zh="價格">Pricing</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <div class="lang">
+      <button id="btnEN" class="on">EN</button>
+      <button id="btnZH">中文</button>
     </div>
-    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+    <button class="burger" id="burger" aria-label="Menu"><i></i><i></i><i></i></button>
   </div>
 </nav>
 
-<!-- HERO -->
-<header class="hero" id="top">
-  <video autoplay muted loop playsinline poster="assets/img/hero-poster.jpg">
-    <source src="assets/video/hero.mp4" type="video/mp4">
-  </video>
-  <img class="hero-img" src="assets/img/hero-poster.jpg" alt="" style="display:none">
-  <div class="hero-c">
-    <div class="devline" data-zh="美嘉城集團發展項目 · 碧多利 · 巴巴 · 沙巴">A WSG Group Development · Benoni · Papar · Sabah</div>
-    <div class="award">
-      <span data-zh="🏆 2024 年度最佳發展商">🏆 Top Developer 2024</span>
-      <span data-zh="🏆 2024 鄉區城市化卓越獎">🏆 Rural Urbanisation Excellence 2024</span>
-    </div>
-    <h1>PARKLANE RESIDENCES</h1>
-    <div class="cnm">百可麗豪華公寓 @ 碧多利</div>
-    <div class="tagline" data-zh="靜享碧多利核心地段">Serenity in the Heart of Benoni</div>
-    <p class="sub" data-zh="優質封閉式生活公寓——大學、商場、戲院與高速公路環繞您的家門。在同一地址，安居、工作、求學、休閒。">A gated lifestyle condominium where an entire township — university, mall, cinema &amp; highway — wraps around your front door. Live · Work · Study · Play, in one address.</p>
-    <div class="cta-row">
-      <a href="#contact" class="btn btn-gold" data-zh="立即登記">Register Your Interest</a>
-      <a href="#film" class="btn btn-ghost" data-zh="▶ 觀看影片">▶ Watch the Film</a>
-    </div>
+<div id="mnav">
+  <a href="#journey" data-zh="<span>01</span>市鎮之旅"><span>01</span>The Journey</a>
+  <a href="#township" data-zh="<span>02</span>市鎮配套"><span>02</span>Township</a>
+  <a href="#residences" data-zh="<span>03</span>戶型"><span>03</span>Residences</a>
+  <a href="#skydeck" data-zh="<span>04</span>設施"><span>04</span>Facilities</a>
+  <a href="#plans" data-zh="<span>05</span>平面圖"><span>05</span>Floor Plans</a>
+  <a href="#location" data-zh="<span>06</span>位置"><span>06</span>Location</a>
+  <a href="#offer" data-zh="<span>07</span>價格"><span>07</span>Pricing</a>
+  <a class="m-cta" href="https://wa.me/60198992313?text=Hi%20WSG%20Group%2C%20I%27m%20interested%20in%20Parklane%20Residences%20%40%20Benoni." target="_blank" rel="noopener" data-zh="WhatsApp 諮詢">WHATSAPP US</a>
+</div>
+
+<!-- ======= HERO ======= -->
+<section id="hero">
+  <div class="bg" id="heroBg">
+    <video id="heroVid" autoplay muted loop playsinline poster="assets/gen/township-hero.jpg">
+      <source src="assets/gen/township-fly-web.mp4" type="video/mp4">
+    </video>
   </div>
-  <div class="scrollcue" data-zh="向下探索">Scroll to explore</div>
-</header>
-
-<!-- MARQUEE -->
-<div class="marquee"><div class="track" id="mtrack"></div></div>
-
-<!-- STAT BAR -->
-<section class="statbar">
-  <div class="wrap"><div class="row">
-    <div class="cell"><div class="num" data-count="4">4</div><div class="lab" data-zh="座大廈 · 19 層">Towers · 19 Storeys</div></div>
-    <div class="cell"><div class="num" data-count="999">999</div><div class="lab" data-zh="年地契">Year Land Tenure</div></div>
-    <div class="cell"><div class="num">620–1,100</div><div class="lab" data-zh="平方尺 標準單位">sf Typical Units</div></div>
-    <div class="cell"><div class="num" data-count="100" data-suffix="%">100%</div><div class="lab" data-zh="融資 · 伊斯蘭銀行">Financing · Bank Islam</div></div>
-    <div class="cell"><div class="num" data-count="36">36</div><div class="lab" data-zh="個月竣工">Months to Completion</div></div>
-  </div></div>
+  <div class="shade"></div>
+  <div class="hero-copy" id="heroCopy">
+    <div class="kicker" data-zh="美嘉城集團 · 沙巴巴巴 Benoni">WSG GROUP · BENONI, PAPAR, SABAH</div>
+    <h1 data-zh="一座市鎮<br><em>一種人生</em>">A Township.<br><em>A Way of Life.</em></h1>
+    <div class="hero-zh">百可麗豪華公寓 · 美嘉城市鎮</div>
+    <p class="hero-sub" data-zh="百可麗豪華公寓座落於自成一體的 Benoni 綜合市鎮核心——大學、購物商場、霸級市場、戲院與湖濱公園環繞，四座 19 層住宅大廈拔地而起。">Parklane Residences rises at the heart of the self-contained Benoni Township — four 19-storey towers wrapped by a university, lifestyle mall, hypermarket, cinemas and a lakeside park.</p>
+  </div>
+  <div class="scroll-cue"><span data-zh="向下滑動 · 進入市鎮">SCROLL INTO THE TOWNSHIP</span><i class="line"></i></div>
 </section>
 
-<!-- OVERVIEW -->
-<section class="section" id="overview">
-  <div class="wrap">
-    <div class="two">
-      <div class="reveal">
-        <div class="eyebrow shine" data-zh="項目概覽">The Address</div>
-        <h2 class="h-sec" style="margin-top:12px" data-zh="一址盡享<br>整座新市鎮">A whole township<br>in one address.</h2>
-        <div class="divider" style="margin-left:0"></div>
-        <p style="font-size:16.5px;color:#4a5867;margin-top:6px" data-zh="四座 19 層公寓大廈——A、B、C、D 座——環繞中央設施平台而建，坐落於巴巴 泛婆羅洲高速公路旁的碧多利綜合發展區內。距離亞庇國際機場與亞庇市僅數分鐘車程，並被大學、商場、戲院、霸級市場與得來速餐廳環抱——盡在同一總體規劃之中。">Four towers of 19-storey condominium — <b>Towers A, B, C &amp; D</b> — arranged around a central facilities deck, set within the master-planned Benoni development off the <b>Pan Borneo Highway</b> in Papar, Sabah. Minutes from KKIA Airport and Kota Kinabalu, and wrapped by a university, shopping mall, cinema, hypermarket and drive-thrus — all within the same master plan.</p>
-        <div class="statgrid">
-          <div><div class="n">4</div><div class="l" data-zh="公寓大廈">Condominium Towers</div></div>
-          <div><div class="n">19</div><div class="l" data-zh="每座樓層">Storeys per Tower</div></div>
-          <div><div class="n">999</div><div class="l" data-zh="年地契">Year Tenure</div></div>
-          <div><div class="n">620–1,100</div><div class="l" data-zh="平方尺 標準">sf Typical</div></div>
-          <div><div class="n">2 &amp; 3</div><div class="l" data-zh="臥室戶型">Bedroom Homes</div></div>
-          <div><div class="n">36</div><div class="l" data-zh="個月竣工*">Months to TOP*</div></div>
+<!-- ======= 3D JOURNEY ======= -->
+<section id="journey">
+  <div class="sec-head">
+    <div class="kicker" data-zh="3D 深度捲動之旅">A JOURNEY IN DEPTH</div>
+    <h2 data-zh="向前捲動，穿越整座市鎮">Scroll forward. Fly through the township.</h2>
+    <div class="gold-rule"></div>
+  </div>
+  <div class="stage-wrap" id="stageWrap">
+    <div class="stage" id="stage">
+      <div class="plate" data-plate>
+        <div class="ph"><img src="assets/gen/township-hero.jpg" alt="Benoni Township aerial at golden hour"></div>
+        <div class="tag">
+          <div class="no" data-zh="01 · 總體規劃">01 · THE MASTERPLAN</div>
+          <h3 data-zh="自成一體的綜合市鎮">A self-contained township</h3>
+          <p data-zh="四座住宅大廈、生活商場、店舖辦公樓與湖濱公園——同一總體規劃，一次到位。">Four residential towers, a lifestyle mall, shop-offices and a lakeside park — one masterplan, complete from day one.</p>
         </div>
       </div>
-      <div class="figure reveal">
-        <img src="assets/img/siteplan-board.jpg" alt="Parklane Residences master site plan — four towers around a central facilities deck">
-        <div class="cap" data-zh="總體規劃——A 至 D 座環繞中央平台，設有泳池、健身房與羽球場。">Master site plan — Towers A–D wrap a central deck with pool, gym &amp; badminton court.</div>
+      <div class="plate" data-plate>
+        <div class="ph"><img src="assets/gen/mall-boulevard.jpg" alt="Mall boulevard at dusk"></div>
+        <div class="tag">
+          <div class="no" data-zh="02 · 生活商場">02 · THE MALL</div>
+          <h3 data-zh="家樓下的三層商場">Three storeys of retail, downstairs</h3>
+          <p data-zh="148,000 平方尺商場——Servay 霸級市場、10Star 戲院、餐飲與得來速，步行即達。">A 148,000 sf mall with Servay Hypermarket, 10Star Cinemas, dining and drive-thrus — a stroll from your lobby.</p>
+        </div>
       </div>
+      <div class="plate" data-plate>
+        <div class="ph"><img src="assets/gen/sky-deck.jpg" alt="Central facilities deck at dusk"></div>
+        <div class="tag">
+          <div class="no" data-zh="03 · 中央設施平台">03 · THE DECK</div>
+          <h3 data-zh="四座大廈之間的度假村">A resort between four towers</h3>
+          <p data-zh="泳池、會所、健身房、室內羽球場與兒童遊樂場——每天下樓即享。">Pool, clubhouse, gym, indoor badminton and playground — resort living, every single day.</p>
+        </div>
+      </div>
+      <div class="plate" data-plate>
+        <div class="ph"><img src="assets/gen/park-lifestyle.jpg" alt="Lakeside park morning lifestyle"></div>
+        <div class="tag">
+          <div class="no" data-zh="04 · 湖濱公園">04 · THE PARK</div>
+          <h3 data-zh="以綠意連結的社區">A community stitched in green</h3>
+          <p data-zh="湖濱步道、晨運草坪與林蔭大道，讓每個年齡層都找到自己的節奏。">Lakeside jogging paths, tai-chi lawns and shaded boulevards — a pace for every generation.</p>
+        </div>
+      </div>
+      <div class="plate" data-plate>
+        <div class="ph"><img src="assets/gen/night-skyline.jpg" alt="Township night skyline"></div>
+        <div class="tag">
+          <div class="no" data-zh="05 · 市鎮之夜">05 · THE NIGHT</div>
+          <h3 data-zh="燈火長明的家">A skyline that comes home</h3>
+          <p data-zh="夜幕之下，市鎮燈火與南中國海的月色交輝——這裡是 Benoni。">After dark, the township glows against the moonlit South China Sea. This is Benoni.</p>
+        </div>
+      </div>
+      <div class="plate final" data-plate>
+        <div class="fin-k" data-zh="百可麗豪華公寓">PARKLANE RESIDENCES</div>
+        <h3 data-zh="整座市鎮<br><em>盡在一址</em>">An entire township.<br><em>One address.</em></h3>
+      </div>
+    </div>
+    <div class="journey-progress" id="jProgress"></div>
+  </div>
+</section>
+
+<!-- ======= STATS ======= -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat"><div class="num"><span data-count="4">0</span></div><div class="lbl" data-zh="住宅大廈">Towers</div></div>
+    <div class="stat"><div class="num"><span data-count="19">0</span></div><div class="lbl" data-zh="層樓高">Storeys</div></div>
+    <div class="stat"><div class="num"><span data-count="999">0</span><sup data-zh="年">yr</sup></div><div class="lbl" data-zh="地契年期">Tenure</div></div>
+    <div class="stat"><div class="num"><span data-count="100">0</span><sup>%</sup></div><div class="lbl" data-zh="銀行融資">Financing*</div></div>
+    <div class="stat"><div class="num"><span data-count="36">0</span></div><div class="lbl" data-zh="個月竣工*">Months to Completion*</div></div>
+  </div>
+</section>
+
+<!-- ======= TOWNSHIP HORIZONTAL ======= -->
+<section id="township">
+  <div class="sec-head">
+    <div class="kicker" data-zh="市鎮配套">EVERYTHING IN THE MASTERPLAN</div>
+    <h2 data-zh="一址盡享整座新市鎮">One address. An entire new township.</h2>
+    <p data-zh="橫向捲動，探索 Benoni 市鎮為您準備的一切。">Keep scrolling — the township glides past, piece by piece.</p>
+    <div class="gold-rule"></div>
+  </div>
+  <div class="h-wrap" id="hWrap">
+    <div class="h-track" id="hTrack">
+      <div class="t-card"><div class="im"><img src="assets/gen/mall-boulevard.jpg" alt="Lifestyle mall"></div>
+        <div class="bd"><div class="no">01</div><h3 data-zh="三層生活商場">3-Storey Lifestyle Mall</h3><div class="zh-line">148,000 平方尺</div>
+        <p data-zh="148,000 平方尺的零售、餐飲與娛樂，就在住宅樓下。">148,000 sf of retail, dining and entertainment at the foot of the towers.</p></div></div>
+      <div class="t-card"><div class="im"><img src="assets/img/masterboard.jpg" alt="Servay hypermarket"></div>
+        <div class="bd"><div class="no">02</div><h3 data-zh="Servay 霸級市場">Servay Hypermarket</h3><div class="zh-line">日常所需 · 一應俱全</div>
+        <p data-zh="日常採買免出市鎮，霸級市場就是您的儲藏室。">Groceries without leaving the township — the hypermarket is your pantry.</p></div></div>
+      <div class="t-card"><div class="im"><img src="assets/img/trailer-poster.jpg" alt="10Star Cinemas"></div>
+        <div class="bd"><div class="no">03</div><h3 data-zh="10Star 戲院">10Star Cinemas</h3><div class="zh-line">週末盛事 · 近在咫尺</div>
+        <p data-zh="首輪電影與家庭週末，電梯直達的娛樂。">First-run films and family weekends, an elevator ride away.</p></div></div>
+      <div class="t-card"><div class="im"><img src="assets/gen/park-lifestyle.jpg" alt="North Borneo University"></div>
+        <div class="bd"><div class="no">04</div><h3 data-zh="北婆羅洲大學">North Borneo University</h3><div class="zh-line">書香為鄰</div>
+        <p data-zh="大學為鄰，成就長期租務需求與濃厚人文氣息。">A university next door — steady tenant demand and a campus-town energy.</p></div></div>
+      <div class="t-card"><div class="im"><img src="assets/gen/township-hero.jpg" alt="Shop offices and drive-thrus"></div>
+        <div class="bd"><div class="no">05</div><h3 data-zh="店舖辦公樓與得來速">Shop-Offices & Drive-Thrus</h3><div class="zh-line">林蔭商業大道</div>
+        <p data-zh="林蔭大道旁的商業街區，咖啡、銀行與服務一應俱全。">Tree-lined commercial rows for cafés, banks and everyday services.</p></div></div>
+      <div class="t-card"><div class="im"><img src="assets/gen/night-skyline.jpg" alt="Lakeside park"></div>
+        <div class="bd"><div class="no">06</div><h3 data-zh="湖濱中央公園">Lakeside Central Park</h3><div class="zh-line">綠意 · 步道 · 湖光</div>
+        <p data-zh="貫穿市鎮的綠肺——湖泊、步道與大草坪。">The township's green lung — lake, trails and open lawns.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- AT A GLANCE (must-use master board) -->
-<section class="section glance tight" id="glance" style="padding:80px 0">
-  <div class="wrap center">
-    <div class="eyebrow" data-zh="一覽全貌">At a Glance</div>
-    <h2 class="h-sec reveal" style="margin-top:12px" data-zh="優質封閉式生活公寓">A Gated Lifestyle Condominium</h2>
-    <div class="divider"></div>
-    <p class="lead" data-zh="碧多利新市鎮核心 · 一體規劃的優質社區。">At the centre of Benoni Township — one master-planned, connected community.</p>
-    <div class="board-lg reveal" onclick="lb('assets/img/masterboard.jpg')"><img src="assets/img/masterboard.jpg" alt="Parklane Residences — a gated lifestyle condominium at the centre of Benoni Township"></div>
+<!-- ======= RESIDENCES ======= -->
+<section id="residences">
+  <div class="sec-head">
+    <div class="kicker" data-zh="戶型單位">THE RESIDENCES</div>
+    <h2 data-zh="適合人生每個階段的家">Homes for every stage of life.</h2>
+    <p data-zh="2 房與 3 房戶型，999 年地契，每層 12 個單位的精心配置。">Two- and three-bedroom homes on a 999-year tenure — twelve thoughtfully arranged units per floor.</p>
+    <div class="gold-rule"></div>
+  </div>
+  <div class="units">
+    <div class="u-card" data-tilt>
+      <div class="im"><img src="assets/img/unit-620.jpg" alt="620 sf unit render"></div>
+      <div class="badge" data-zh="入門首選">STARTER PICK</div>
+      <div class="bd">
+        <div class="type" data-zh="2 房 · 2 浴">2 BED · 2 BATH</div>
+        <h3>620 sf</h3>
+        <div class="meta" data-zh="單位 3A · 5 · 6 · 7 · 8 · 10">Units 3A · 5 · 6 · 7 · 8 · 10</div>
+        <div class="price"><span class="fr" data-zh="售價由">FROM</span><span class="rm">RM 246,000</span></div>
+      </div>
+    </div>
+    <div class="u-card" data-tilt>
+      <div class="im"><img src="assets/img/unit-680.jpg" alt="680 sf unit render"></div>
+      <div class="badge" data-zh="靈活之選">FLEXIBLE</div>
+      <div class="bd">
+        <div class="type" data-zh="2 房 · 2 浴 + 陽台">2 BED · 2 BATH + BALCONY</div>
+        <h3>680 sf</h3>
+        <div class="meta" data-zh="單位 3A · 5 · 6 · 7 · 8 · 10">Units 3A · 5 · 6 · 7 · 8 · 10</div>
+        <div class="price"><span class="fr" data-zh="售價由">FROM</span><span class="rm">RM 278,000</span></div>
+      </div>
+    </div>
+    <div class="u-card" data-tilt>
+      <div class="im"><img src="assets/img/unit-1050.jpg" alt="1050 sf unit render"></div>
+      <div class="badge" data-zh="家庭戶型">FAMILY</div>
+      <div class="bd">
+        <div class="type" data-zh="3 房 · 2 浴">3 BED · 2 BATH</div>
+        <h3>1,000–1,100 sf</h3>
+        <div class="meta" data-zh="單位 1 · 2 · 3 · 9 · 11 · 12">Units 1 · 2 · 3 · 9 · 11 · 12</div>
+        <div class="price"><span class="fr" data-zh="售價由">FROM</span><span class="rm">RM 378,000</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="interior-strip">
+    <img src="assets/img/interior-1.jpg" alt="Interior concept 1">
+    <img src="assets/img/interior-2.jpg" alt="Interior concept 2">
+    <img src="assets/img/interior-3.jpg" alt="Interior concept 3">
+    <img src="assets/img/interior-4.jpg" alt="Interior concept 4">
+    <img src="assets/rooms/living.jpg" alt="Living room render">
+    <img src="assets/rooms/master.jpg" alt="Master bedroom render">
+    <img src="assets/rooms/kitchen.jpg" alt="Kitchen render">
+    <img src="assets/rooms/balcony.jpg" alt="Balcony render">
   </div>
 </section>
 
-<!-- FILM -->
-<section class="section film" id="film">
-  <div class="wrap center">
-    <div class="eyebrow shine" data-zh="宣傳影片">The Film</div>
-    <h2 class="h-sec reveal" style="margin-top:12px" data-zh="中心地段 · 優質生活">Live Central. Live Better.</h2>
-    <div class="divider"></div>
-    <p class="lead" data-zh="一場電影式的初見——從天際線的俯瞰，到為島嶼生活而設計的室內空間。">A cinematic first look — from the skyline approach to the interiors designed for island living.</p>
-    <div class="frame reveal">
-      <video controls preload="none" poster="assets/img/trailer-poster.jpg">
-        <source src="assets/video/trailer.mp4" type="video/mp4">
+<!-- ======= SKY DECK ======= -->
+<section id="skydeck">
+  <div class="bg" id="deckBg"></div>
+  <div class="shade"></div>
+  <div class="deck-copy">
+    <div class="kicker" data-zh="中央設施平台">THE CENTRAL DECK</div>
+    <h2 data-zh="每一天，盡享度假式生活">Resort-style living, every day.</h2>
+    <div class="chips">
+      <span class="chip" data-zh="游泳池">Swimming Pool</span>
+      <span class="chip" data-zh="會所與平台">Clubhouse & Deck</span>
+      <span class="chip" data-zh="健身房">Gymnasium</span>
+      <span class="chip" data-zh="室內羽球場">Indoor Badminton</span>
+      <span class="chip" data-zh="兒童遊樂場">Playground</span>
+      <span class="chip" data-zh="24小時保安 · 圍籬社區">24-hr Gated Security</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FILMS ======= -->
+<section id="films">
+  <div class="sec-head">
+    <div class="kicker" data-zh="宣傳影片">THE FILMS</div>
+    <h2 data-zh="先睹為快——空中與室內">See it in motion — from the sky, and inside.</h2>
+    <div class="gold-rule"></div>
+  </div>
+  <div class="films-grid">
+    <div class="film" data-film>
+      <video controls preload="metadata" poster="assets/img/trailer-poster.jpg">
+        <source src="assets/video/trailer-lite.mp4" type="video/mp4">
       </video>
+      <div class="cap" data-zh="電影級開場預告">CINEMATIC OPENING TRAILER</div>
+    </div>
+    <div class="film" data-film>
+      <video controls preload="metadata" poster="assets/img/aerial-2.jpg">
+        <source src="assets/video/hero.mp4" type="video/mp4">
+      </video>
+      <div class="cap" data-zh="無人機航拍 · 大廈穿越">DRONE FLY-THROUGH</div>
     </div>
   </div>
 </section>
 
-<!-- RESIDENCES -->
-<section class="section" id="residences">
-  <div class="wrap">
-    <div class="center">
-      <div class="eyebrow" data-zh="戶型單位">The Residences</div>
-      <h2 class="h-sec reveal" style="margin-top:12px" data-zh="適合人生每個階段的家">Homes for every stage of life.</h2>
-      <div class="divider"></div>
-      <p class="lead" data-zh="兩房與三房戶型，皆配置兩間浴室——由精緻小家到寬敞的家庭居所。">Two- and three-bedroom layouts, all with two bathrooms — from smart compact homes to spacious family sanctuaries.</p>
+<!-- ======= FLOOR PLANS ======= -->
+<section id="plans">
+  <div class="sec-head">
+    <div class="kicker" data-zh="平面圖">FLOOR PLANS</div>
+    <h2 data-zh="每層 12 單位的精心佈局">Twelve homes to a floor, carefully composed.</h2>
+    <div class="gold-rule"></div>
+  </div>
+  <div class="plan-tabs">
+    <button class="on" id="tabTyp" data-zh="2–17 樓標準層">TYPICAL FLOOR 2–17</button>
+    <button id="tab1st" data-zh="首層平面圖">1ST FLOOR</button>
+  </div>
+  <div class="plan-view">
+    <div class="frame">
+      <img id="planImg" src="assets/img/floorplan-typical.jpg" alt="Floor plan">
     </div>
-    <div class="unitcards">
-      <div class="ucard reveal">
-        <div class="top">
-          <div class="tag" data-zh="2 房 · 2 浴">2 Bed · 2 Bath</div>
-          <h3 data-zh="精緻戶型">Compact Living</h3>
-          <div class="sz" data-zh="620 與 680 平方尺 · 單位 3A, 5, 6, 7, 8, 10">620 sf &amp; 680 sf · Units 3A, 5, 6, 7, 8, 10</div>
-          <div class="price"><small data-zh="售價由">Price from</small><b>RM 246,000</b></div>
-        </div>
-        <div class="rows">
-          <div class="r"><span>620 sf · Units 3A, 6, 8, 10</span><span>RM 246k–264k</span></div>
-          <div class="r"><span>680 sf · Units 5, 7</span><span>RM 278k–293k</span></div>
-          <div class="r"><span data-zh="主臥 + 臥室 2">Master + Bedroom 2</span><span data-zh="2 間臥室">2 Bedrooms</span></div>
-          <div class="r"><span data-zh="客廳 · 餐廳 · 乾廚房">Living · Dining · Dry Kitchen</span><span data-zh="+ 陽台">+ Balcony</span></div>
-        </div>
-      </div>
-      <div class="ucard reveal">
-        <div class="top">
-          <div class="tag" data-zh="3 房 · 2 浴">3 Bed · 2 Bath</div>
-          <h3 data-zh="家庭戶型">Family Living</h3>
-          <div class="sz" data-zh="1,000 / 1,050 / 1,100 平方尺 · 單位 1, 2, 3, 9, 11, 12">1,000 / 1,050 / 1,100 sf · Units 1, 2, 3, 9, 11, 12</div>
-          <div class="price"><small data-zh="售價由">Price from</small><b>RM 340,200</b></div>
-        </div>
-        <div class="rows">
-          <div class="r"><span>1,000 sf · Units 1, 2, 11, 12</span><span>RM 378k–398k</span></div>
-          <div class="r"><span>1,050 sf · Units 3, 9</span><span>RM 388k–398k</span></div>
-          <div class="r"><span>1,100 sf · Units 3, 9 (Grd &amp; 1st)</span><span>RM 388k</span></div>
-          <div class="r"><span data-zh="客廳 210 尺 · 餐廳 200 尺">Living 210 sf · Dining 200 sf</span><span data-zh="濕廚房">Wet Kitchen</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="center" style="margin-top:56px">
-      <div class="eyebrow" data-zh="裝修概念">Renovation Concepts</div>
-      <h3 style="font-size:26px;margin-top:8px" data-zh="現代度假式生活——為沙巴而設計">Modern Resort Living — designed for Sabah</h3>
-      <p class="lead" style="font-size:16px" data-zh="通透、自然、放鬆。點擊任一概念圖放大查看。">Airy, natural, relaxed. Tap any concept board to enlarge.</p>
-    </div>
-    <div class="boards">
-      <div class="board" onclick="lb('assets/img/unit-620.jpg')"><img src="assets/img/unit-620.jpg" alt="620 sf renovation concept"><div class="lbl">Compact · 620 sf <span>2 Bed</span></div></div>
-      <div class="board" onclick="lb('assets/img/unit-680.jpg')"><img src="assets/img/unit-680.jpg" alt="680 sf renovation concept"><div class="lbl">Compact+ · 680 sf <span>2 Bed</span></div></div>
-      <div class="board" onclick="lb('assets/img/unit-1050.jpg')"><img src="assets/img/unit-1050.jpg" alt="1050 sf renovation concept"><div class="lbl">Family · 1,050 sf <span>3 Bed</span></div></div>
-    </div>
-    <div class="gal">
-      <a class="wide" onclick="lb('assets/img/interior-1.jpg')"><img src="assets/img/interior-1.jpg" alt="Interior"></a>
-      <a onclick="lb('assets/img/interior-3.jpg')"><img src="assets/img/interior-3.jpg" alt="Interior"></a>
-      <a onclick="lb('assets/img/interior-2.jpg')"><img src="assets/img/interior-2.jpg" alt="Interior"></a>
-      <a onclick="lb('assets/img/interior-4.jpg')"><img src="assets/img/interior-4.jpg" alt="Interior"></a>
-      <a class="wide" onclick="lb('assets/img/aerial-2.jpg')"><img src="assets/img/aerial-2.jpg" alt="Aerial"></a>
-    </div>
+    <p class="plan-note" data-zh="2 房：620 / 680 平方尺 · 3 房：1,000 / 1,050 / 1,100 平方尺。詳情以買賣合約為準。">2-bed: 620 / 680 sf · 3-bed: 1,000 / 1,050 / 1,100 sf. All details subject to the Sale & Purchase Agreement.</p>
   </div>
 </section>
 
-<!-- ===== INTERACTIVE ROOM TOUR ===== -->
-<section class="section tour" id="tour">
-  <div class="wrap">
-    <div class="center">
-      <div class="eyebrow shine" data-zh="互動室內導覽 · 1,050 平方尺">Interactive Room Tour · 1,050 sf</div>
-      <h2 class="h-sec reveal" style="margin-top:12px" data-zh="走進家中——逐間參觀">Step inside — room by room.</h2>
-      <div class="divider"></div>
-      <p class="lead" data-zh="👆 點擊平面圖上任一房間，即可看到裝修後的模樣。">👆 Click any room on the plan to see how it could look after renovation.</p>
-    </div>
-    <div class="tour-layout">
-      <div class="plancard reveal">
-        <h3 data-zh="平面圖 · 點擊房間">Floor Plan · tap a room</h3>
-        <svg viewBox="-10 -30 1080 1080" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0" y="0" width="1060" height="900" rx="6" fill="#f3efe6" stroke="#e2d8c4" stroke-width="3"/>
-          <rect x="250" y="900" width="450" height="105" rx="4" fill="#eef2e6" stroke="#d5dcc6" stroke-width="3"/>
-          <text x="530" y="-8" text-anchor="middle" class="dim">10.6 m</text>
-          <g id="rooms">
-            <g class="room" data-room="bed2"><rect x="8" y="8" width="314" height="314" rx="5" fill="#f7f0e2" stroke="#e2d8c4" stroke-width="3"/><text x="165" y="150" text-anchor="middle" class="rlabel">Bedroom 3</text><text x="165" y="178" text-anchor="middle" class="rsf">Study · 140 sf</text></g>
-            <g><rect x="338" y="8" width="354" height="212" rx="5" fill="#efe9dc" stroke="#e2d8c4" stroke-width="3"/><text x="515" y="120" text-anchor="middle" class="rsf">Foyer / Entry</text></g>
-            <g class="room" data-room="bed2"><rect x="708" y="8" width="344" height="314" rx="5" fill="#f7f0e2" stroke="#e2d8c4" stroke-width="3"/><text x="880" y="150" text-anchor="middle" class="rlabel">Bedroom 2</text><text x="880" y="178" text-anchor="middle" class="rsf">120 sf</text></g>
-            <g class="room" data-room="bath"><rect x="8" y="338" width="204" height="174" rx="5" fill="#e7ecef" stroke="#cdd7da" stroke-width="3"/><text x="110" y="418" text-anchor="middle" class="rsf">Master Bath</text></g>
-            <g class="room" data-room="dining"><rect x="338" y="240" width="354" height="352" rx="5" fill="#f7f1e0" stroke="#e2d8c4" stroke-width="3"/><text x="515" y="405" text-anchor="middle" class="rlabel">Dining</text><text x="515" y="433" text-anchor="middle" class="rsf">200 sf</text></g>
-            <g class="room" data-room="bath"><rect x="868" y="338" width="184" height="154" rx="5" fill="#e7ecef" stroke="#cdd7da" stroke-width="3"/><text x="960" y="420" text-anchor="middle" class="rsf">Bath 2</text></g>
-            <g class="room" data-room="master"><rect x="8" y="528" width="344" height="364" rx="5" fill="#f4ecd8" stroke="#e2d8c4" stroke-width="3"/><text x="180" y="700" text-anchor="middle" class="rlabel">Master</text><text x="180" y="728" text-anchor="middle" class="rsf">Bedroom · 140 sf</text></g>
-            <g class="room" data-room="living"><rect x="360" y="608" width="330" height="284" rx="5" fill="#f9f2e2" stroke="#e2d8c4" stroke-width="3"/><text x="525" y="742" text-anchor="middle" class="rlabel">Living</text><text x="525" y="770" text-anchor="middle" class="rsf">210 sf</text></g>
-            <g class="room" data-room="kitchen"><rect x="708" y="508" width="344" height="384" rx="5" fill="#f4ead4" stroke="#e2d8c4" stroke-width="3"/><text x="880" y="690" text-anchor="middle" class="rlabel">Wet Kitchen</text><text x="880" y="718" text-anchor="middle" class="rsf">120 sf</text></g>
-            <g class="room" data-room="balcony"><rect x="258" y="908" width="434" height="90" rx="4" fill="#eef2e6" stroke="#d5dcc6" stroke-width="3"/><text x="475" y="962" text-anchor="middle" class="rsf">Balcony · 50 sf</text></g>
-          </g>
-        </svg>
-      </div>
-      <div class="viewer reveal">
-        <div class="photo"><img id="rphoto" src="assets/rooms/living.jpg" alt="room"><div class="tag" id="rtag">Living</div></div>
-        <div class="vbody">
-          <h3 id="rtitle">Living Room</h3>
-          <div class="area" id="rarea">210 sf</div>
-          <p id="rdesc"></p>
-          <div class="navbtns">
-            <button id="prev" data-zh="‹ 上一間">‹ Previous</button>
-            <button id="next" data-zh="下一間 ›">Next ›</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="thumbs" id="thumbs"></div>
-    <div class="note center" style="max-width:760px;margin:18px auto 0" data-zh="房間效果圖為度假風格裝修的 AI 示意圖，僅供參考；裝修、尺寸與佈局為約數，並非按比例繪製。">Room images are AI-generated visualisations of a possible resort-style renovation — for illustration only; finishes and dimensions are approximate.</div>
+<!-- ======= LOCATION / CONNECTIVITY ======= -->
+<section id="location">
+  <div class="sec-head">
+    <div class="kicker" data-zh="交通優勢">THE CONNECTIVITY ADVANTAGE</div>
+    <h2 data-zh="從家出發，通達四方">From your doorstep to everywhere.</h2>
+    <p data-zh="直通大道，機場、市區與海岸近在咫尺。以下為約略車程——點按任何目的地即可開啟 Google 地圖實時導航與距離。">Direct highway access puts the airport, city and coast within easy reach. Approximate drive times below — tap any destination for live Google Maps directions & distance.</p>
+    <div class="gold-rule"></div>
   </div>
-</section>
 
-<!-- FACILITIES -->
-<section class="section facilities" id="facilities">
-  <div class="wrap">
-    <div class="center">
-      <div class="eyebrow" data-zh="中央設施平台">Central Facilities Deck</div>
-      <h2 class="h-sec reveal" style="margin-top:12px" data-zh="每一天，盡享度假式生活">Resort-style living, every day.</h2>
-      <div class="divider"></div>
-      <p class="lead" data-zh="共享設施坐落於四座大廈之間的景觀平台——一處滋養身心、休閒與家庭時光的樂園。">Shared amenities sit on a landscaped podium between the four towers — a sanctuary for wellness, recreation and family time.</p>
-    </div>
-    <div class="figure reveal" style="margin-top:40px;max-width:900px;margin-left:auto;margin-right:auto" onclick="lb('assets/img/facilities-deck.jpg')">
-      <img src="assets/img/facilities-deck.jpg" alt="Central Facilities Deck — pool, gym, badminton, greenery">
-    </div>
-    <div class="fac-grid">
-      <div class="fcard reveal"><div class="ico">🏊</div><h4 data-zh="游泳池">Swimming Pool</h4><p data-zh="設有日光甲板的全長泳池，兼具運動與休閒。">Full-length lap &amp; leisure pool with a landscaped sundeck.</p></div>
-      <div class="fcard reveal"><div class="ico">🏋️</div><h4 data-zh="健身房">Gymnasium</h4><p data-zh="設備齊全的健身中心，成就每日健康。">Fully-equipped fitness centre for your daily wellbeing.</p></div>
-      <div class="fcard reveal"><div class="ico">🏸</div><h4 data-zh="室內羽球場">Indoor Badminton</h4><p data-zh="有蓋羽球場，與家人鄰里一同活力運動。">Covered court to stay active with family and neighbours.</p></div>
-      <div class="fcard reveal"><div class="ico">🏃</div><h4 data-zh="跑步道">Jogging Track</h4><p data-zh="環繞平台的景觀跑步道。">Landscaped perimeter running track around the deck.</p></div>
-      <div class="fcard reveal"><div class="ico">🛝</div><h4 data-zh="兒童遊樂場">Children's Playground</h4><p data-zh="為孩子而設的專屬安全遊樂空間。">A dedicated, safe play area for the little ones.</p></div>
-      <div class="fcard reveal"><div class="ico">🌿</div><h4 data-zh="會所與平台">Clubhouse &amp; Deck</h4><p data-zh="四座大廈之間的中央景觀平台與會所。">Central landscaped podium and clubhouse between the towers.</p></div>
-    </div>
-  </div>
-</section>
+  <div class="conn-panel">
+    <div class="conn-map">
+      <svg viewBox="0 0 1200 620" xmlns="http://www.w3.org/2000/svg" aria-label="Connectivity map of Parklane @ Benoni">
+        <path class="sea" d="M0,620 L0,340 Q210,350 300,450 Q380,540 390,620 Z"></path>
+        <text class="sea-label" x="60" y="580" data-zh="南 中 國 海">SOUTH CHINA SEA</text>
 
-<!-- FLOOR PLANS -->
-<section class="section" id="plans">
-  <div class="wrap">
-    <div class="center">
-      <div class="eyebrow" data-zh="樓層平面圖">Floor Plans</div>
-      <h2 class="h-sec reveal" style="margin-top:12px" data-zh="靈活自由的家居畫布">A flexible canvas for your home.</h2>
-      <div class="divider"></div>
-      <p class="lead" data-zh="濕區固定於服務牆側；客廳、餐廳與臥室隔間為靈活空間——適合開放式廚房或改建書房。點擊放大。">Wet areas are fixed against the service walls; living, dining and bedroom partitions are the flexible zones — ideal for open-plan kitchens or a study conversion. Tap to enlarge.</p>
-    </div>
-    <div class="boards" style="grid-template-columns:1fr;max-width:960px;margin:36px auto 0">
-      <div class="board" onclick="lb('assets/img/floorplan-1st.jpg')"><img src="assets/img/floorplan-1st.jpg" alt="Parklane Residences — 1st floor unit mix & renovation concepts"><div class="lbl" data-zh="1 樓平面圖 · 戶型分佈 <span>1,100 尺角落單位</span>">1st Floor Plan · Unit Mix <span>1,100 sf corners</span></div></div>
-      <div class="board" onclick="lb('assets/img/floorplan-typical.jpg')"><img src="assets/img/floorplan-typical.jpg" alt="Parklane Residences — 2nd to 17th typical floor plan"><div class="lbl" data-zh="2–17 樓標準平面圖 <span>12 單位組合</span>">2nd–17th Floor Plan <span>12-unit mix</span></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- LOCATION -->
-<section class="section" id="location" style="background:linear-gradient(180deg,#fff,var(--cream))">
-  <div class="wrap">
-    <div class="center">
-      <div class="eyebrow shine" data-zh="位置與交通">Location &amp; Connectivity</div>
-      <h2 class="h-sec reveal" style="margin-top:12px" data-zh="自成一體的綜合新市鎮">Inside a self-contained township.</h2>
-      <div class="divider"></div>
-      <p class="lead" data-zh="坐落於巴巴 碧多利商業中心（BCC）核心，並可直接由泛婆羅洲高速公路與巴巴支路進出——由大學、商場到霸級市場、戲院與得來速餐廳，盡在同一總體規劃之中。">At the heart of <b>Benoni Commercial Centre (BCC), Papar</b>, with direct access from the Pan Borneo Highway &amp; Papar Spur Road — a university, mall, hypermarket, cinemas and drive-thrus all within the same master plan.</p>
-    </div>
-    <div class="two" style="margin-top:42px">
-      <div class="figure reveal" onclick="lb('assets/img/location-map.jpg')">
-        <img src="assets/img/location-map.jpg" alt="Parklane Residences location map — Benoni, Papar, Sabah">
-      </div>
-      <div class="reveal">
-        <h3 style="font-size:23px" data-zh="同一總體規劃內的一切">Everything within the master plan</h3>
-        <div class="loc-eco" style="grid-template-columns:1fr 1fr">
-          <div class="chip"><span class="d"></span><span data-zh="北婆羅洲大學">North Borneo University</span></div>
-          <div class="chip"><span class="d"></span><span data-zh="三層購物商場 · 148k 尺">3-Storey Mall · 148k sf</span></div>
-          <div class="chip"><span class="d"></span><span data-zh="10Star 戲院">10Star Cinemas</span></div>
-          <div class="chip"><span class="d"></span><span data-zh="Servay 霸級市場">Servay Hypermarket</span></div>
-          <div class="chip"><span class="d"></span><span data-zh="運動館">Sport Arena</span></div>
-          <div class="chip"><span class="d"></span><span data-zh="醫療大樓">Medical Building</span></div>
-        </div>
-        <div class="loc-highlights">
-          <div class="lh"><div class="i">🛣️</div><div><b data-zh="直達交通">Direct access</b> — <span data-zh="經泛婆羅洲高速公路與巴巴支路無縫連接。">seamless via Pan Borneo Highway &amp; Papar Spur Road.</span></div></div>
-          <div class="lh"><div class="i">🛍️</div><div><b data-zh="緊鄰碧多利商業中心">Next to Benoni Commercial Centre</b> — <span data-zh="零售、餐飲、服務與日常所需近在咫尺。">retail, F&amp;B, services &amp; daily conveniences at your door.</span></div></div>
-          <div class="lh"><div class="i">🎯</div><div><b data-zh="鄰近碧多利迴旋處">Near Benoni Roundabout</b> — <span data-zh="位置優越，出入便捷、辨識度高。">prime position with excellent visibility and easy navigation.</span></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ANIMATED CONNECTIVITY ROUTE MAP -->
-    <div class="center" style="margin-top:76px">
-      <div class="eyebrow" data-zh="交通優勢">The Connectivity Advantage</div>
-      <h3 style="font-size:27px;margin-top:8px" data-zh="從家出發，通達四方">From your doorstep to everywhere.</h3>
-      <p class="lead" style="font-size:16px" data-zh="直達泛婆羅洲高速公路，機場、市區與海岸皆近在咫尺。以下為約略車程——點擊任一目的地即可取得 Google 地圖實時路線與距離。">Direct highway access puts the airport, city and coast within easy reach. Approximate drive times below — tap any destination for live Google Maps directions &amp; distance.</p>
-    </div>
-    <div class="routewrap reveal">
-      <svg class="routemap" id="routemap" viewBox="0 0 940 540" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="20" cy="430" rx="190" ry="170" fill="rgba(90,150,200,.16)"/>
-        <text class="sealabel" x="34" y="510">SOUTH CHINA SEA</text>
-        <!-- Pan Borneo Highway spine -->
-        <path class="hwy" d="M100,255 L195,135 L340,210 L560,285 L835,155"/>
-        <path class="hwy" d="M560,285 L350,405 L615,472"/>
-        <!-- routes -->
-        <g id="routes">
-          <path class="route" d="M560,285 L695,240" pathLength="1"/>
-          <path class="route" d="M560,285 L350,405" pathLength="1"/>
-          <path class="route" d="M560,285 L340,210" pathLength="1"/>
-          <path class="route" d="M560,285 L195,135" pathLength="1"/>
-          <path class="route" d="M560,285 L100,255" pathLength="1"/>
-          <path class="route" d="M560,285 L128,365" pathLength="1"/>
-          <path class="route" d="M560,285 L615,472" pathLength="1"/>
-          <path class="route" d="M560,285 L835,155" pathLength="1"/>
+        <g id="spokes">
+          <path class="spoke" d="M700,330 L385,155"></path>
+          <path class="spoke" d="M700,330 L482,240"></path>
+          <path class="spoke" d="M700,330 L215,290"></path>
+          <path class="spoke" d="M700,330 L250,455"></path>
+          <path class="spoke" d="M700,330 L480,480"></path>
+          <path class="spoke" d="M700,330 L790,528"></path>
+          <path class="spoke" d="M700,330 L1010,190"></path>
+          <path class="spoke" d="M700,330 L880,272"></path>
         </g>
-        <!-- destination nodes -->
+
         <g id="nodes">
-          <g><circle class="pulse" cx="695" cy="240" r="5"/><circle class="node" cx="695" cy="240" r="5"/><text class="nlabel" x="708" y="244" text-anchor="start">Benoni CC<tspan class="ntime"> · 2 min</tspan></text></g>
-          <g><circle class="pulse" cx="350" cy="405" r="5"/><circle class="node" cx="350" cy="405" r="5"/><text class="nlabel" x="350" y="432" text-anchor="middle">Papar Town<tspan class="ntime"> · 8 min</tspan></text></g>
-          <g><circle class="pulse" cx="340" cy="210" r="5"/><circle class="node" cx="340" cy="210" r="5"/><text class="nlabel" x="340" y="192" text-anchor="middle">Kinarut<tspan class="ntime"> · 20 min</tspan></text></g>
-          <g><circle class="pulse" cx="195" cy="135" r="5"/><circle class="node" cx="195" cy="135" r="5"/><text class="nlabel" x="195" y="118" text-anchor="middle">Putatan<tspan class="ntime"> · 35 min</tspan></text></g>
-          <g><circle class="pulse" cx="100" cy="255" r="5"/><circle class="node" cx="100" cy="255" r="5"/><text class="nlabel" x="96" y="240" text-anchor="start">Kota Kinabalu<tspan class="ntime"> · 45 min</tspan></text></g>
-          <g><circle class="pulse" cx="128" cy="365" r="5"/><circle class="node" cx="128" cy="365" r="5"/><text class="nlabel" x="124" y="386" text-anchor="start">KKIA Airport<tspan class="ntime"> · 45 min</tspan></text></g>
-          <g><circle class="pulse" cx="615" cy="472" r="5"/><circle class="node" cx="615" cy="472" r="5"/><text class="nlabel" x="615" y="497" text-anchor="middle">Beaufort<tspan class="ntime"> · 50 min</tspan></text></g>
-          <g><circle class="pulse" cx="835" cy="155" r="5"/><circle class="node" cx="835" cy="155" r="5"/><text class="nlabel" x="822" y="159" text-anchor="end">Keningau<tspan class="ntime"> · 1h 30m</tspan></text></g>
+          <g class="cnode"><circle class="halo" cx="385" cy="155" r="26"/><circle class="node" cx="385" cy="155" r="6"/><circle class="node-ring" cx="385" cy="155" r="12"/>
+            <text class="lbl" x="385" y="124" text-anchor="middle">Putatan <tspan class="t">· 35 min</tspan></text></g>
+          <g class="cnode"><circle class="halo" cx="482" cy="240" r="22"/><circle class="node" cx="482" cy="240" r="6"/><circle class="node-ring" cx="482" cy="240" r="12"/>
+            <text class="lbl" x="482" y="212" text-anchor="middle">Kinarut <tspan class="t">· 20 min</tspan></text></g>
+          <g class="cnode"><circle class="halo" cx="215" cy="290" r="26"/><circle class="node" cx="215" cy="290" r="6"/><circle class="node-ring" cx="215" cy="290" r="12"/>
+            <text class="lbl" x="215" y="262" text-anchor="middle">Kota Kinabalu <tspan class="t">· 45 min</tspan></text></g>
+          <g class="cnode"><circle class="halo" cx="250" cy="455" r="26"/><circle class="node" cx="250" cy="455" r="6"/><circle class="node-ring" cx="250" cy="455" r="12"/>
+            <text class="lbl" x="250" y="494" text-anchor="middle">KKIA Airport <tspan class="t">· 45 min</tspan></text></g>
+          <g class="cnode"><circle class="halo" cx="480" cy="480" r="22"/><circle class="node" cx="480" cy="480" r="6"/><circle class="node-ring" cx="480" cy="480" r="12"/>
+            <text class="lbl" x="480" y="519" text-anchor="middle">Papar Town <tspan class="t">· 8 min</tspan></text></g>
+          <g class="cnode"><circle class="halo" cx="790" cy="528" r="22"/><circle class="node" cx="790" cy="528" r="6"/><circle class="node-ring" cx="790" cy="528" r="12"/>
+            <text class="lbl" x="790" y="567" text-anchor="middle">Beaufort <tspan class="t">· 50 min</tspan></text></g>
+          <g class="cnode"><circle class="halo" cx="1010" cy="190" r="24"/><circle class="node" cx="1010" cy="190" r="6"/><circle class="node-ring" cx="1010" cy="190" r="12"/>
+            <text class="lbl" x="1010" y="162" text-anchor="middle">Keningau <tspan class="t">· 1h 30m</tspan></text></g>
+          <g class="cnode"><circle class="halo" cx="880" cy="272" r="20"/><circle class="node" cx="880" cy="272" r="6"/><circle class="node-ring" cx="880" cy="272" r="12"/>
+            <text class="lbl" x="902" y="278" text-anchor="start">Benoni CC <tspan class="t">· 2 min</tspan></text></g>
         </g>
-        <!-- hub -->
-        <circle class="hubring" cx="560" cy="285" r="5"/>
-        <circle class="hub" cx="560" cy="285" r="9"/>
-        <text class="hublabel" x="560" y="318" text-anchor="middle">PARKLANE @ BENONI</text>
+
+        <g id="centerNode">
+          <circle class="halo" cx="700" cy="330" r="42"/>
+          <circle class="center-dot" cx="700" cy="330" r="12"/>
+          <text class="center-lbl" x="700" y="382" text-anchor="middle">PARKLANE @ BENONI</text>
+        </g>
       </svg>
     </div>
-
-    <!-- connectivity cards with live Google Maps directions -->
-    <div class="conn-grid">
-      <a class="conn-card" href="https://www.google.com/maps/dir/?api=1&origin=Benoni+Commercial+Centre,+Papar,+Sabah&destination=Kota+Kinabalu+International+Airport" target="_blank" rel="noopener"><div class="ci">✈️</div><div class="cn" data-zh="亞庇國際機場">KKIA Airport</div><div class="ct">~45 min · 46 km</div><div class="cd" data-zh="路線導航 ↗">Directions ↗</div></a>
-      <a class="conn-card" href="https://www.google.com/maps/dir/?api=1&origin=Benoni+Commercial+Centre,+Papar,+Sabah&destination=Kota+Kinabalu,+Sabah" target="_blank" rel="noopener"><div class="ci">🏙️</div><div class="cn" data-zh="亞庇市">Kota Kinabalu</div><div class="ct">~45 min · 48 km</div><div class="cd" data-zh="路線導航 ↗">Directions ↗</div></a>
-      <a class="conn-card" href="https://www.google.com/maps/dir/?api=1&origin=Benoni+Commercial+Centre,+Papar,+Sabah&destination=Papar,+Sabah" target="_blank" rel="noopener"><div class="ci">🏘️</div><div class="cn" data-zh="巴巴市">Papar Town</div><div class="ct">~8 min · 6 km</div><div class="cd" data-zh="路線導航 ↗">Directions ↗</div></a>
-      <a class="conn-card" href="https://www.google.com/maps/dir/?api=1&origin=Benoni+Commercial+Centre,+Papar,+Sabah&destination=Kinarut,+Sabah" target="_blank" rel="noopener"><div class="ci">🚗</div><div class="cn" data-zh="基納魯">Kinarut</div><div class="ct">~20 min · 18 km</div><div class="cd" data-zh="路線導航 ↗">Directions ↗</div></a>
-      <a class="conn-card" href="https://www.google.com/maps/dir/?api=1&origin=Benoni+Commercial+Centre,+Papar,+Sabah&destination=Putatan,+Sabah" target="_blank" rel="noopener"><div class="ci">🛣️</div><div class="cn" data-zh="普打壇">Putatan</div><div class="ct">~35 min · 38 km</div><div class="cd" data-zh="路線導航 ↗">Directions ↗</div></a>
-      <a class="conn-card" href="https://www.google.com/maps/dir/?api=1&origin=Benoni+Commercial+Centre,+Papar,+Sabah&destination=Benoni+Commercial+Centre,+Papar,+Sabah" target="_blank" rel="noopener"><div class="ci">🛍️</div><div class="cn" data-zh="碧多利商業中心">Benoni Comm. Centre</div><div class="ct" data-zh="毗鄰 · 2 分鐘">Adjacent · 2 min</div><div class="cd" data-zh="路線導航 ↗">Directions ↗</div></a>
-      <a class="conn-card" href="https://www.google.com/maps/dir/?api=1&origin=Benoni+Commercial+Centre,+Papar,+Sabah&destination=Beaufort,+Sabah" target="_blank" rel="noopener"><div class="ci">🌄</div><div class="cn" data-zh="保佛">Beaufort</div><div class="ct">~50 min · 55 km</div><div class="cd" data-zh="路線導航 ↗">Directions ↗</div></a>
-      <a class="conn-card" href="https://www.google.com/maps/dir/?api=1&origin=Benoni+Commercial+Centre,+Papar,+Sabah&destination=Keningau,+Sabah" target="_blank" rel="noopener"><div class="ci">⛰️</div><div class="cn" data-zh="根地咬">Keningau</div><div class="ct">~1h 30m · 92 km</div><div class="cd" data-zh="路線導航 ↗">Directions ↗</div></a>
-    </div>
-
-    <!-- live Google Map -->
-    <div class="center" style="margin-top:64px">
-      <div class="eyebrow" data-zh="實時地圖">Live Map</div>
-      <h3 style="font-size:24px;margin-top:8px" data-zh="在 Google 地圖上探索周邊">Explore the neighbourhood on Google Maps.</h3>
-    </div>
-    <div class="mapembed reveal">
-      <iframe title="Parklane Residences @ Benoni — Google Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://maps.google.com/maps?q=Benoni%20Commercial%20Centre%2C%20Papar%2C%20Sabah&z=11&output=embed"></iframe>
-    </div>
-    <div class="center" style="margin-top:18px">
-      <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&query=Benoni+Commercial+Centre,+Papar,+Sabah" target="_blank" rel="noopener" data-zh="在 Google 地圖開啟 ↗">Open in Google Maps ↗</a>
-    </div>
-    <p class="note center" style="max-width:820px;margin:16px auto 0" data-zh="車程與距離為約略估算，僅供參考；請透過各「路線導航」連結以 Google 地圖即時確認。">Drive times and distances are approximate and indicative only — confirm live via the “Directions” links on Google Maps.</p>
+    <p class="conn-hint" data-zh="← 左右滑動探索地圖 →">← SWIPE THE MAP →</p>
   </div>
-</section>
 
-<!-- PRICING -->
-<section class="section pricing" id="pricing">
-  <div class="wrap center">
-    <div class="eyebrow shine" data-zh="促銷價格">Promo Pricing</div>
-    <h2 class="h-sec reveal" style="margin-top:12px" data-zh="RM 246,000 起入手">Own it from RM 246,000.</h2>
-    <div class="divider"></div>
-    <p class="lead" data-zh="促銷價有效期至 2026 年 8 月 31 日 · 伊斯蘭銀行 100% 融資 · 30% 單位保留予土著並享 5% 折扣。">Promo prices valid until 31 August 2026 · 100% financing by Bank Islam · 30% of units reserved for Bumiputera with 5% discount.</p>
-    <div class="promo">
-      <div class="p reveal"><div class="t" data-zh="2 房 · 2 浴 · 620/680 尺">2 Bed · 2 Bath · 620/680 sf</div><h3 data-zh="精緻戶型">Compact Living</h3><div class="from" data-zh="促銷價由">Promo price from</div><div class="amt">RM 246,000</div></div>
-      <div class="p reveal"><div class="t" data-zh="3 房 · 2 浴 · 1,000 尺起">3 Bed · 2 Bath · 1,000 sf ↑</div><h3 data-zh="家庭戶型">Family Living</h3><div class="from" data-zh="促銷價由">Promo price from</div><div class="amt">RM 340,200</div></div>
-    </div>
-    <div class="tablewrap reveal">
-      <table>
-        <thead><tr><th data-zh="類型">Type</th><th data-zh="佈局">Layout</th><th data-zh="建築面積">Built-up</th><th data-zh="價格範圍">Price range</th><th data-zh="單位">Units</th></tr></thead>
-        <tbody>
-          <tr><td>2 Bed 2 Bath</td><td>Compact</td><td>620 sf</td><td>RM 246,000 – 264,000</td><td>3A, 6, 8, 10</td></tr>
-          <tr><td>2 Bed 2 Bath</td><td>Compact +</td><td>680 sf</td><td>RM 278,000 – 293,000</td><td>5, 7</td></tr>
-          <tr><td>3 Bed 2 Bath</td><td>Family</td><td>1,000 sf</td><td>RM 378,000 – 398,000</td><td>1, 2, 11, 12</td></tr>
-          <tr><td>3 Bed 2 Bath</td><td>Family +</td><td>1,050 sf</td><td>RM 388,000 – 398,000</td><td>3, 9</td></tr>
-          <tr><td>3 Bed 2 Bath</td><td>Family (low)</td><td>1,100 sf</td><td>RM 388,000</td><td>3, 9 (Grd &amp; 1st)</td></tr>
-          <tr><td>Corner / Large</td><td>Premium</td><td>2,070 sf</td><td>RM 938,000</td><td>18th floor (A-18-2)</td></tr>
-          <tr><td>Corner / Large</td><td>Premium</td><td>2,380 sf</td><td>RM 1,088,000</td><td>18th floor (A-18-1/3)</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="note" data-zh="A 座價目表有效期至 2026 年 12 月 31 日。樓層編號為 G, 1, 2, 3, 3A, 5–13, 13A, 15–18（略去 4 及 14 層）。以上為銷售宣傳冊之「起」價，僅供參考，可能隨時變動。">Tower A price list valid until 31.12.2026. Floor numbering runs G, 1, 2, 3, 3A, 5–13, 13A, 15–18 (levels 4 &amp; 14 omitted). Indicative "from" figures from the sales brochure, subject to change.</p>
+  <div class="conn-cards">
+    <div class="c-card"><div class="ico">✈️</div><h4 data-zh="亞庇國際機場">KKIA Airport</h4><div class="dist">~45 min · 46 km</div>
+      <a href="https://www.google.com/maps/dir/?api=1&origin=Benoni+Papar+Sabah&destination=Kota+Kinabalu+International+Airport" target="_blank" rel="noopener" data-zh="導航 ↗">DIRECTIONS ↗</a></div>
+    <div class="c-card"><div class="ico">🏙️</div><h4 data-zh="亞庇市">Kota Kinabalu</h4><div class="dist">~45 min · 48 km</div>
+      <a href="https://www.google.com/maps/dir/?api=1&origin=Benoni+Papar+Sabah&destination=Kota+Kinabalu+Sabah" target="_blank" rel="noopener" data-zh="導航 ↗">DIRECTIONS ↗</a></div>
+    <div class="c-card"><div class="ico">🏘️</div><h4 data-zh="巴巴市">Papar Town</h4><div class="dist">~8 min · 6 km</div>
+      <a href="https://www.google.com/maps/dir/?api=1&origin=Benoni+Papar+Sabah&destination=Papar+Sabah" target="_blank" rel="noopener" data-zh="導航 ↗">DIRECTIONS ↗</a></div>
+    <div class="c-card"><div class="ico">🚗</div><h4 data-zh="基納魯">Kinarut</h4><div class="dist">~20 min · 18 km</div>
+      <a href="https://www.google.com/maps/dir/?api=1&origin=Benoni+Papar+Sabah&destination=Kinarut+Sabah" target="_blank" rel="noopener" data-zh="導航 ↗">DIRECTIONS ↗</a></div>
+    <div class="c-card"><div class="ico">🛣️</div><h4 data-zh="普打壇">Putatan</h4><div class="dist">~35 min · 38 km</div>
+      <a href="https://www.google.com/maps/dir/?api=1&origin=Benoni+Papar+Sabah&destination=Putatan+Sabah" target="_blank" rel="noopener" data-zh="導航 ↗">DIRECTIONS ↗</a></div>
+    <div class="c-card"><div class="ico">🛍️</div><h4 data-zh="Benoni 便利中心">Benoni CC</h4><div class="dist">~2 min</div>
+      <a href="https://www.google.com/maps/dir/?api=1&origin=Benoni+Papar+Sabah&destination=Benoni+Commercial+Centre+Papar" target="_blank" rel="noopener" data-zh="導航 ↗">DIRECTIONS ↗</a></div>
+    <div class="c-card"><div class="ico">🌅</div><h4 data-zh="保佛">Beaufort</h4><div class="dist">~50 min · 55 km</div>
+      <a href="https://www.google.com/maps/dir/?api=1&origin=Benoni+Papar+Sabah&destination=Beaufort+Sabah" target="_blank" rel="noopener" data-zh="導航 ↗">DIRECTIONS ↗</a></div>
+    <div class="c-card"><div class="ico">⛰️</div><h4 data-zh="根地咬">Keningau</h4><div class="dist">~1h 30m</div>
+      <a href="https://www.google.com/maps/dir/?api=1&origin=Benoni+Papar+Sabah&destination=Keningau+Sabah" target="_blank" rel="noopener" data-zh="導航 ↗">DIRECTIONS ↗</a></div>
   </div>
-</section>
 
-<!-- SPECS -->
-<section class="section" id="specs">
-  <div class="wrap">
-    <div class="center">
-      <div class="eyebrow" data-zh="規格">Specifications</div>
-      <h2 class="h-sec reveal" style="margin-top:12px" data-zh="建築與裝修規格">Building &amp; finishes.</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="specs">
-      <div class="s"><div class="k" data-zh="結構">Structure</div><div class="v" data-zh="鋼筋混凝土地基、柱、樑與樓板。">Reinforced concrete foundations, columns, beams and floor slabs.</div></div>
-      <div class="s"><div class="k" data-zh="牆體">Walls</div><div class="v" data-zh="鋼筋混凝土／磚牆／實心牆系統或同等材料。">Reinforced concrete / brick / solid wall system or equivalent.</div></div>
-      <div class="s"><div class="k" data-zh="屋頂">Roofing</div><div class="v" data-zh="彩色金屬屋頂板／鋼筋混凝土屋頂。">Coloured metal roofing sheet / reinforced concrete roofing.</div></div>
-      <div class="s"><div class="k" data-zh="地板">Floors</div><div class="v" data-zh="客廳、餐廳、廚房、浴室及陽台鋪陶瓷磚；臥室採用木／膠地板。">Ceramic tiles to living, dining, kitchens, baths &amp; balcony; timber/vinyl to bedrooms.</div></div>
-      <div class="s"><div class="k" data-zh="窗戶">Windows</div><div class="v" data-zh="鋁框配色玻璃。">Aluminium frame with tinted glass.</div></div>
-      <div class="s"><div class="k" data-zh="門">Doors</div><div class="v" data-zh="全屋木門；客廳／陽台採用鋁框色玻璃門。">Timber doors throughout; aluminium tinted glass to living/balcony.</div></div>
-      <div class="s"><div class="k" data-zh="廚房">Kitchen</div><div class="v" data-zh="乾濕廚房各配單槽不鏽鋼星盆。">Single-bowl stainless steel sink to dry &amp; wet kitchens.</div></div>
-      <div class="s"><div class="k" data-zh="電力">Electrical</div><div class="v" data-zh="全屋暗線，符合 SESB 標準。">All wiring concealed, to SESB standard.</div></div>
+  <div class="loc-grid">
+    <div class="map"><img src="assets/img/location-map.jpg" alt="Location map of Benoni, Papar"></div>
+    <div>
+      <div class="d-row"><span class="place" data-zh="巴巴市">Papar Town</span><span class="time">~8 min · 6 km</span></div>
+      <div class="d-row"><span class="place" data-zh="基納魯">Kinarut</span><span class="time">~20 min · 18 km</span></div>
+      <div class="d-row"><span class="place" data-zh="普打壇">Putatan</span><span class="time">~38 km</span></div>
+      <div class="d-row"><span class="place" data-zh="亞庇國際機場">Kota Kinabalu Int'l Airport</span><span class="time">~45 min · 46 km</span></div>
+      <div class="d-row"><span class="place" data-zh="亞庇市">Kota Kinabalu City</span><span class="time">~45 min · 48 km</span></div>
+      <a class="maps-btn" href="https://www.google.com/maps/search/Benoni+Papar+Sabah" target="_blank" rel="noopener" data-zh="在 Google 地圖開啟 ↗">OPEN IN GOOGLE MAPS ↗</a>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="section contact" id="contact">
-  <div class="wrap">
-    <div class="center">
-      <div class="eyebrow" data-zh="立即登記">Register Your Interest</div>
-      <h2 class="h-sec reveal" style="margin-top:12px" data-zh="開啟您的百可麗生活">Begin your Parklane journey.</h2>
-      <div class="divider"></div>
-      <p class="lead" data-zh="留下您的聯絡資料，我們的銷售團隊將盡快與您聯繫，或親臨碧多利銷售藝廊。">Leave your details and our sales team will be in touch, or reach us directly at the Benoni Sales Gallery.</p>
+<!-- ======= OFFER ======= -->
+<section id="offer">
+  <div class="sec-head">
+    <div class="kicker" data-zh="促銷價格">THE OFFER</div>
+    <h2 data-zh="開啟您的百可麗生活">Begin your Parklane journey.</h2>
+    <div class="gold-rule"></div>
+  </div>
+  <div class="offer-inner">
+    <div class="offer-price"><span class="rm">RM</span><span data-count="246000" data-money="1">0</span></div>
+    <div class="kicker" style="margin-top:14px" data-zh="促銷價 · 由此起">PROMOTIONAL PRICE · FROM</div>
+    <div class="offer-points">
+      <span class="chip"><b data-zh="999 年">999-yr</b> <span data-zh="地契">tenure</span></span>
+      <span class="chip"><b>100%</b> <span data-zh="Bank Islam 融資*">Bank Islam financing*</span></span>
+      <span class="chip"><b data-zh="36 個月">36 months</b> <span data-zh="竣工*">to completion*</span></span>
+      <span class="chip"><b data-zh="2 房">2-bed</b> RM 246,000 – 293,000</span>
+      <span class="chip"><b data-zh="3 房">3-bed</b> RM 378,000 – 398,000</span>
     </div>
-    <div class="c-grid">
-      <form class="form reveal" id="enquiry">
-        <input type="text" id="f-name" placeholder="Full name" data-zh-ph="姓名" required>
-        <input type="tel" id="f-phone" placeholder="Phone number" data-zh-ph="聯絡電話" required>
-        <input type="email" id="f-email" placeholder="Email address" data-zh-ph="電郵地址">
-        <input type="text" id="f-unit" placeholder="Preferred unit type (e.g. 3 Bed · 1,050 sf)" data-zh-ph="心儀戶型（例：3 房 · 1,050 尺）">
-        <textarea id="f-msg" rows="4" placeholder="Message (optional)" data-zh-ph="留言（選填）"></textarea>
-        <button type="submit" class="btn btn-gold" data-zh="提交諮詢 →">Send Enquiry →</button>
-      </form>
-      <div class="cinfo reveal">
-        <div class="blk"><div class="h" data-zh="銷售藝廊">Sales Gallery</div><div class="big">WSG Properties Sdn. Bhd.</div><div style="color:#5a6774" data-zh="銷售藝廊，碧多利，巴巴，沙巴">Sales Gallery, Benoni, Papar, Sabah</div></div>
-        <div class="blk"><div class="h" data-zh="致電">Call</div><div class="big"><a href="tel:+6088269980">+6088-269 980</a> · 910 223</div><div style="color:#5a6774">Joy Hardey · <a href="tel:+60198992313">019 899 2313</a></div></div>
-        <div class="blk"><div class="h" data-zh="電郵">Email</div><div class="big"><a href="mailto:sales.wsggroup@gmail.com">sales.wsggroup@gmail.com</a></div></div>
-        <div class="blk"><div class="h" data-zh="銷售團隊">Sales Team</div>
-          <div class="team">
-            <div class="m"><b>Welter</b><span>013 874 7778</span></div>
-            <div class="m"><b>Benny</b><span>016 582 8640</span></div>
-            <div class="m"><b>Mayren</b><span>013 435 8067</span></div>
-            <div class="m"><b>Anne C.</b><span>014 679 8010</span></div>
-            <div class="m"><b>Iwan</b><span>016 827 3566</span></div>
-            <div class="m"><b>Rickie</b><span>012 904 2716</span></div>
-            <div class="m"><b>Roger</b><span>016 853 7173</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <a class="wa-btn" id="waBtn" href="https://wa.me/60198992313?text=Hi%20WSG%20Group%2C%20I%27m%20interested%20in%20Parklane%20Residences%20%40%20Benoni." target="_blank" rel="noopener" data-zh="WhatsApp 諮詢">ENQUIRE ON WHATSAPP</a>
+    <p class="plan-note" data-zh="*條款細則以發展商最新公佈為準。">*Terms per the developer's latest announcement.</p>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ======= FOOTER ======= -->
 <footer>
-  <div class="wrap">
-    <div class="foot-logo"><img src="assets/img/wsg-logo.png" alt="WSG Group 美嘉城集團"></div>
-    <div class="top">
-      <div class="brand2">
-        <b>PARKLANE RESIDENCES</b><br>
-        <span style="color:var(--gold);letter-spacing:.16em;font-size:12px">@ BENONI · 百可麗豪華公寓</span>
-        <p style="margin-top:10px;max-width:360px" data-zh="優質封閉式生活公寓，坐落沙巴巴巴碧多利新市鎮核心。">A gated lifestyle condominium at the heart of Benoni Township, Papar, Sabah.</p>
-      </div>
-      <div class="lic">
-        <b style="color:#fff" data-zh="發展商">Developer</b><br>
-        WSG Properties Sdn. Bhd. (912219-A) · WSG Group 美嘉城集團<br>
-        <span data-zh-html="發展商準證 07-2027/06810 · 廣告準證 07-2027/05116">Developer's Licence 07-2027/06810 · Advertisement Permit 07-2027/05116</span><br>
-        <a href="https://www.wsggroup.com.my" style="color:var(--gold2)">www.wsggroup.com.my</a><br>
-        <span data-zh="999 年地契 · 伊斯蘭銀行 100% 融資 · 2024 年度最佳發展商">999-year tenure · 100% financing by Bank Islam · Top Developer 2024</span>
-      </div>
-    </div>
-    <div class="disc" data-zh="免責聲明：本頁所有數據、佈局、價格、單位編號及規格均取自「百可麗豪華公寓 @ 碧多利」銷售宣傳冊。效果圖與面積為藝術示意及約數，所有項目均可能按發展商建築師或相關當局建議而變動、修改或替換。本頁僅供參考，並非合約文件。© 2026 美嘉城集團 版權所有。">Disclaimer: All figures, layouts, prices, unit numbers and specifications were extracted from the "Parklane Residences @ Benoni" sales brochure. Renderings and floor areas are artists' impressions and approximate only; all items are subject to variations and substitutions per the developer's architect or relevant authorities. This page is for illustration and is not a contractual document. © 2026 WSG Group. All rights reserved.</div>
+  <div class="lockup">
+    <img src="assets/img/wsg-logo.png" alt="WSG Group 美嘉城集團 bilingual logo">
   </div>
+  <p data-zh="百可麗豪華公寓 @ Benoni · 沙巴巴巴 — 美嘉城集團傾力打造。本頁所有 3D 視覺、市鎮擴展圖與動態影像由 Higgsfield AI 生成，僅供概念展示；一切以買賣合約及發展商正式圖則為準。">Parklane Residences @ Benoni, Papar, Sabah — proudly developed by WSG Group 美嘉城集團. Township visuals, expanded aerials and motion assets on this page were generated with Higgsfield AI for concept presentation; all details are subject to the Sale & Purchase Agreement and the developer's official plans.</p>
+  <p style="margin-top:16px">© 2026 WSG Group · Design 02 — “Township in Depth” 3D scroll concept</p>
 </footer>
 
-<!-- Sticky WhatsApp -->
-<a class="wa-fab" id="waFab" href="https://wa.me/60198992313" target="_blank" rel="noopener" aria-label="WhatsApp — Parklane Residences Sales">
-  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 7.9L.4 31.6l7.9-2.1c2.3 1.3 5 2 7.7 2C24.6 31.5 31.5 24.6 31.5 16S24.6.5 16 .5zm0 28.3c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.4-2.2-2.1-4.7-2.1-7.2C2.6 8.5 8.5 2.6 16 2.6S29.4 8.5 29.4 16 23.5 28.8 16 28.8zm8.2-9.9c-.4-.2-2.6-1.3-3-1.4-.4-.1-.7-.2-1 .2-.3.4-1.1 1.4-1.3 1.6-.2.2-.5.3-.9.1-.4-.2-1.9-.7-3.6-2.2-1.3-1.2-2.2-2.6-2.5-3-.3-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-1-2.4-1.4-3.3-.4-.9-.7-.7-1-.7h-.8c-.3 0-.7.1-1.1.5-.4.4-1.5 1.4-1.5 3.5s1.5 4.1 1.7 4.4c.2.3 3 4.6 7.3 6.4 1 .4 1.8.7 2.4.9 1 .3 1.9.3 2.6.2.8-.1 2.6-1.1 3-2.1.4-1 .4-1.9.3-2.1-.1-.2-.4-.3-.8-.5z"/></svg>
-  <span class="wa-label" data-zh="WhatsApp 諮詢">WhatsApp Us</span>
-</a>
-
-<div class="lb" id="lightbox"><span class="x">&times;</span><img id="lbimg" src="" alt="enlarged view"></div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
-/* ---------- OPENING SPLASH ---------- */
-(function(){
-  var op=document.getElementById('opening'); if(!op) return;
-  var seen; try{seen=sessionStorage.getItem('wsgOpened');}catch(e){}
-  if(seen){op.style.display='none';return;}
-  document.body.classList.add('op-lock');
-  function close(){op.classList.add('hide');document.body.classList.remove('op-lock');
-    try{sessionStorage.setItem('wsgOpened','1');}catch(e){}
-    setTimeout(function(){op.style.display='none';},750);}
-  document.getElementById('opEnter').onclick=close;
-  document.getElementById('opSkip').onclick=close;
-})();
+gsap.registerPlugin(ScrollTrigger);
+const isMobile = matchMedia('(max-width:900px)').matches;
+const reduced  = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ---------- BILINGUAL EN / 中文 ---------- */
-(function(){
-  function apply(l){
-    var zh=l==='zh';
-    document.querySelectorAll('[data-zh],[data-zh-html],[data-zh-ph]').forEach(function(e){
-      if(e.hasAttribute('data-zh-html')){
-        if(e.dataset.enHtml===undefined) e.dataset.enHtml=e.innerHTML;
-        e.innerHTML = zh ? e.dataset.zhHtml : e.dataset.enHtml;
-      } else if(e.hasAttribute('data-zh')){
-        if(e.dataset.en===undefined) e.dataset.en=e.innerHTML;
-        e.innerHTML = zh ? e.dataset.zh : e.dataset.en;
-      }
-      if(e.hasAttribute('data-zh-ph')){
-        if(e.dataset.enPh===undefined) e.dataset.enPh=e.getAttribute('placeholder')||'';
-        e.setAttribute('placeholder', zh ? e.dataset.zhPh : e.dataset.enPh);
-      }
+/* ---------- intro ---------- */
+const intro = document.getElementById('intro');
+const sting = document.getElementById('stingVid');
+let entered = false;
+function enterSite(){
+  if(entered) return; entered = true;
+  intro.classList.add('done');
+  try{ sting.pause(); }catch(e){}
+  document.body.style.overflow = '';
+  heroIntro();
+}
+document.body.style.overflow = 'hidden';
+document.getElementById('enterBtn').addEventListener('click', enterSite);
+sting.addEventListener('ended', ()=> setTimeout(enterSite, 400));
+sting.addEventListener('error', ()=> setTimeout(enterSite, 2200));
+sting.play().catch(()=> setTimeout(enterSite, 2200));
+setTimeout(enterSite, 9000); // hard fallback
+
+/* ---------- hero entrance + parallax ---------- */
+function heroIntro(){
+  gsap.fromTo('#heroCopy > *', {y:60, autoAlpha:0}, {y:0, autoAlpha:1, duration:1.2, stagger:.12, ease:'power3.out'});
+}
+gsap.to('#heroBg', {
+  yPercent: 14, scale: 1.08, ease:'none',
+  scrollTrigger:{trigger:'#hero', start:'top top', end:'bottom top', scrub:true}
+});
+gsap.to('#heroCopy', {
+  yPercent:-30, autoAlpha:0, ease:'none',
+  scrollTrigger:{trigger:'#hero', start:'top top', end:'70% top', scrub:true}
+});
+if(!isMobile && !reduced){
+  const copy = document.getElementById('heroCopy');
+  addEventListener('mousemove', e=>{
+    const x = (e.clientX/innerWidth - .5), y = (e.clientY/innerHeight - .5);
+    gsap.to(copy, {rotationY: x*4, rotationX: -y*4, transformPerspective:900, duration:.6, ease:'power2.out'});
+  });
+} else if(!reduced){
+  // phones: no cursor — give the hero title a slow cinematic float instead
+  gsap.to('#heroCopy h1', {y:-10, rotationX:2, transformPerspective:900, duration:3.2, repeat:-1, yoyo:true, ease:'sine.inOut'});
+  gsap.to('.hero-zh', {y:-6, duration:3.2, delay:.4, repeat:-1, yoyo:true, ease:'sine.inOut'});
+}
+
+/* ---------- mobile menu ---------- */
+const burger = document.getElementById('burger'), mnav = document.getElementById('mnav');
+function closeMenu(){ burger.classList.remove('open'); mnav.classList.remove('open'); document.body.style.overflow=''; }
+burger.addEventListener('click', ()=>{
+  const open = !mnav.classList.contains('open');
+  burger.classList.toggle('open', open); mnav.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+mnav.querySelectorAll('a').forEach(a=> a.addEventListener('click', closeMenu));
+
+/* ---------- nav ---------- */
+ScrollTrigger.create({start:80, onUpdate:st=>document.getElementById('nav').classList.toggle('scrolled', st.scroll()>80)});
+
+/* ---------- 3D deep-zoom journey ---------- */
+const plates = gsap.utils.toArray('[data-plate]');
+const prog = document.getElementById('jProgress');
+plates.forEach(()=> prog.appendChild(document.createElement('i')));
+const dots = prog.querySelectorAll('i');
+
+const STEP = 1;                 // timeline seconds per plate
+const jtl = gsap.timeline({
+  scrollTrigger:{
+    trigger:'#stageWrap', start:'top top', end:'+=' + (plates.length*110) + '%',
+    pin:true, scrub:.6,
+    onUpdate:self=>{
+      const idx = Math.min(plates.length-1, Math.floor(self.progress * plates.length));
+      dots.forEach((d,i)=> d.classList.toggle('on', i===idx));
+    }
+  }
+});
+plates.forEach((p, i)=>{
+  const t = i * STEP;
+  jtl.fromTo(p,
+    {z:-2400, autoAlpha:0, rotationX:6},
+    {z:0, autoAlpha:1, rotationX:0, duration:STEP*.62, ease:'power1.out',
+     transformOrigin:'50% 50%'}, t);
+  if(i < plates.length-1){
+    jtl.to(p, {z:850, autoAlpha:0, duration:STEP*.38, ease:'power1.in'}, t + STEP*.62);
+  } else {
+    jtl.to(p, {z:120, duration:STEP*.38, ease:'none'}, t + STEP*.62);
+  }
+});
+
+/* ---------- stats count-up ---------- */
+document.querySelectorAll('[data-count]').forEach(el=>{
+  const end = +el.dataset.count, money = el.dataset.money;
+  ScrollTrigger.create({
+    trigger: el, start:'top 88%', once:true,
+    onEnter: ()=> gsap.fromTo(el, {innerText:0}, {
+      innerText:end, duration:1.8, ease:'power2.out', snap:{innerText:1},
+      onUpdate(){ el.innerText = money ? (+el.innerText).toLocaleString('en-US') : Math.round(+el.innerText); }
+    })
+  });
+});
+
+/* ---------- township horizontal scroll ---------- */
+const track = document.getElementById('hTrack');
+function trackShift(){ return -(track.scrollWidth - innerWidth); }
+gsap.to(track, {
+  x: trackShift, ease:'none',
+  scrollTrigger:{trigger:'#hWrap', start:'top 18%', end:()=>'+='+(track.scrollWidth-innerWidth), pin:'#township', scrub:.5, invalidateOnRefresh:true}
+});
+
+/* ---------- unit card tilt ---------- */
+if(!isMobile && !reduced){
+  document.querySelectorAll('[data-tilt]').forEach(card=>{
+    card.addEventListener('mousemove', e=>{
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX-r.left)/r.width - .5, y = (e.clientY-r.top)/r.height - .5;
+      gsap.to(card, {rotationY:x*8, rotationX:-y*8, transformPerspective:800, scale:1.02, duration:.4});
     });
-    document.documentElement.lang = zh ? 'zh-Hant' : 'en';
-    var lbl=document.getElementById('langlabel'); if(lbl) lbl.textContent = zh ? 'EN' : '中文';
-    try{localStorage.setItem('pkl-lang',l);}catch(e){}
-  }
-  var saved='en'; try{saved=localStorage.getItem('pkl-lang')||'en';}catch(e){}
-  if(saved==='zh') apply('zh');
-  document.getElementById('langtog').onclick=function(){
-    apply(document.documentElement.lang.indexOf('zh')===0?'en':'zh');
-  };
-})();
-
-/* ---------- MARQUEE ---------- */
-(function(){
-  var items=['999-Year Tenure','4 Towers · 19 Storeys','From RM 246,000','100% Bank Islam Financing',
-    'Pan Borneo Highway','Minutes to KKIA Airport','North Borneo University','Central Facilities Deck','Top Developer 2024'];
-  var html=items.map(function(t){return '<span>◆ '+t+'</span>';}).join('');
-  document.getElementById('mtrack').innerHTML=html+html;
-})();
-
-/* ---------- NAV + MOBILE ---------- */
-var nav=document.getElementById('nav');
-addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>60);},{passive:true});
-document.getElementById('burger').onclick=function(){document.getElementById('navlinks').classList.toggle('mobile');};
-document.querySelectorAll('#navlinks a').forEach(function(a){a.onclick=function(){document.getElementById('navlinks').classList.remove('mobile');};});
-
-/* ---------- REVEAL ---------- */
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
-
-/* ---------- CONNECTIVITY ROUTE MAP DRAW ---------- */
-(function(){var rm=document.getElementById('routemap'); if(!rm) return;
-  var rio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){rm.classList.add('animate');rio.disconnect();}});},{threshold:.25});
-  rio.observe(rm);})();
-
-/* ---------- COUNT-UP ---------- */
-var cio=new IntersectionObserver(function(es){es.forEach(function(e){
-  if(!e.isIntersecting) return; cio.unobserve(e.target);
-  var el=e.target, end=+el.dataset.count, suf=el.dataset.suffix||'', t0=null, dur=1400;
-  function step(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/dur,1); var v=Math.floor((0.5-Math.cos(p*Math.PI)/2)*end);
-    el.textContent=v.toLocaleString()+suf; if(p<1) requestAnimationFrame(step); else el.textContent=end.toLocaleString()+suf; }
-  requestAnimationFrame(step);
-});},{threshold:.5});
-document.querySelectorAll('[data-count]').forEach(function(el){cio.observe(el);});
-
-/* ---------- LIGHTBOX ---------- */
-function lb(src){document.getElementById('lbimg').src=src;document.getElementById('lightbox').classList.add('open');}
-document.getElementById('lightbox').onclick=function(){this.classList.remove('open');};
-
-/* ---------- HERO VIDEO FALLBACK ---------- */
-var hv=document.querySelector('.hero video');
-if(hv){hv.addEventListener('error',function(){hv.style.display='none';document.querySelector('.hero-img').style.display='block';});}
-
-/* ---------- STICKY WHATSAPP (prefilled bilingual message) ---------- */
-(function(){
-  var wa=document.getElementById('waFab'); if(!wa) return;
-  var base='https://wa.me/60198992313';
-  function setMsg(){
-    var zh=document.documentElement.lang.indexOf('zh')===0;
-    var msg=zh
-      ? '您好，我對 Parklane Residences 百可麗豪華公寓 @ 碧多利 有興趣，請提供更多詳情。'
-      : "Hi, I'm interested in Parklane Residences @ Benoni (百可麗豪華公寓). Please share more details.";
-    wa.href=base+'?text='+encodeURIComponent(msg);
-  }
-  setMsg();
-  var lt=document.getElementById('langtog');
-  if(lt) lt.addEventListener('click',function(){setTimeout(setMsg,0);});
-})();
-
-/* ---------- ROOM TOUR ---------- */
-(function(){
-  var ROOMS=[
-    {key:'living', img:'assets/rooms/living.jpg', title:'Living Room', zh:'客廳', area:'210 sf · open to dining & balcony', areaZh:'210 尺 · 連通餐廳與陽台',
-      desc:'Open living anchored by a warm timber-slat feature wall with mounted TV, facing a sofa and sage armchair; sliding doors open to the balcony and greenery.',
-      descZh:'開放式客廳以溫暖的木飾條特色牆為主軸，配掛壁電視、沙發與鼠尾草綠扶手椅，落地門通往陽台與綠意。'},
-    {key:'dining', img:'assets/rooms/dining.jpg', title:'Dining Area', zh:'餐廳', area:'200 sf · seats six', areaZh:'200 尺 · 六人座',
-      desc:'A six-seat dining zone that flows into the living and kitchen — the social heart of the home, lit by a statement pendant over a solid timber table.',
-      descZh:'可容六人的用餐區，連通客廳與廚房——家的社交核心，實木餐桌上方懸掛焦點吊燈。'},
-    {key:'kitchen', img:'assets/rooms/kitchen.jpg', title:'Wet Kitchen', zh:'濕廚房', area:'120 sf · L-shaped', areaZh:'120 尺 · L 形',
-      desc:'L-shaped wet kitchen with natural stone countertop, tall pantry cabinets, stainless sink and cooktop — extra counter space and smart storage.',
-      descZh:'L 形濕廚房配天然石檯面、高身儲物櫃、不鏽鋼星盆與爐具——更多檯面空間與智能收納。'},
-    {key:'master', img:'assets/rooms/master.jpg', title:'Master Bedroom', zh:'主人房', area:'140 sf · with ensuite', areaZh:'140 尺 · 附套內浴室',
-      desc:'A calm, private retreat with a low platform bed, timber-slat headboard, full-height built-in wardrobe and direct access to the ensuite bathroom.',
-      descZh:'寧靜私密的主人套房，設矮平台床、木飾條床頭板、通頂衣櫃，並直達套內浴室。'},
-    {key:'bath', img:'assets/rooms/bath.jpg', title:'Bathrooms', zh:'浴室', area:'Master Bath & Bath 2 · 35 sf each', areaZh:'主浴與浴室 2 · 各 35 尺',
-      desc:'Modern bathrooms with walk-in shower, floating vanity, natural stone and light porcelain finishes with warm timber accents.',
-      descZh:'現代浴室配步入式淋浴、懸浮浴櫃、天然石與淺色瓷磚，並以溫暖木質點綴。'},
-    {key:'bed2', img:'assets/rooms/bed2.jpg', title:'Bedroom 2 / 3', zh:'臥室 2／3', area:'120–140 sf · flexible', areaZh:'120–140 尺 · 靈活運用',
-      desc:'Flexible second and third rooms with built-in wardrobes — ideal as a children’s room, guest room, or a work-from-home study.',
-      descZh:'靈活的第二及第三房，配內置衣櫃——可作兒童房、客房或在家辦公的書房。'},
-    {key:'balcony', img:'assets/rooms/balcony.jpg', title:'Balcony', zh:'陽台', area:'50 sf · private outdoor', areaZh:'50 尺 · 私人戶外空間',
-      desc:'A private balcony for morning coffee, potted plants and evening relaxation, framed by greenery and the resort landscape beyond.',
-      descZh:'私人陽台，享受晨間咖啡、盆栽與傍晚的悠閒，綠意與度假景觀盡收眼底。'}
-  ];
-  var photo=document.getElementById('rphoto'), rtitle=document.getElementById('rtitle'),
-      rarea=document.getElementById('rarea'), rdesc=document.getElementById('rdesc'), rtag=document.getElementById('rtag');
-  var idx=0;
-  function isZh(){return document.documentElement.lang.indexOf('zh')===0;}
-  function show(i){
-    idx=(i+ROOMS.length)%ROOMS.length; var r=ROOMS[idx]; var zh=isZh();
-    photo.src=r.img; photo.alt=r.title;
-    rtitle.textContent=zh?r.zh:r.title; rtag.textContent=zh?r.zh:r.title;
-    rarea.textContent=zh?r.areaZh:r.area; rdesc.textContent=zh?r.descZh:r.desc;
-    document.querySelectorAll('.room').forEach(function(g){g.classList.toggle('active',g.dataset.room===r.key);});
-    document.querySelectorAll('.thumb').forEach(function(t,ti){t.classList.toggle('active',ti===idx);});
-  }
-  document.querySelectorAll('.room').forEach(function(g){
-    g.addEventListener('click',function(){var k=g.dataset.room;var i=ROOMS.findIndex(function(r){return r.key===k;});if(i>=0)show(i);});
+    card.addEventListener('mouseleave', ()=> gsap.to(card, {rotationX:0, rotationY:0, scale:1, duration:.6, ease:'power2.out'}));
   });
-  document.getElementById('prev').onclick=function(){show(idx-1);};
-  document.getElementById('next').onclick=function(){show(idx+1);};
-  var tw=document.getElementById('thumbs');
-  ROOMS.forEach(function(r,i){
-    var d=document.createElement('div'); d.className='thumb';
-    var im=document.createElement('img'); im.src=r.img; im.alt=r.title; im.loading='lazy';
-    var s=document.createElement('span'); s.textContent=r.title;
-    d.appendChild(im); d.appendChild(s); d.onclick=function(){show(i);}; tw.appendChild(d);
+  document.querySelectorAll('[data-film]').forEach(f=>{
+    gsap.fromTo(f, {rotationY:f.matches(':first-child')?8:-8, autoAlpha:0, y:60},
+      {rotationY:0, autoAlpha:1, y:0, duration:1.1, ease:'power3.out',
+       scrollTrigger:{trigger:f, start:'top 82%'}});
   });
-  // re-render current room text when language changes
-  document.getElementById('langtog').addEventListener('click',function(){setTimeout(function(){show(idx);},0);});
-  show(0);
+}
+
+/* ---------- sky deck parallax ---------- */
+gsap.fromTo('#deckBg', {yPercent:-10}, {yPercent:10, ease:'none',
+  scrollTrigger:{trigger:'#skydeck', start:'top bottom', end:'bottom top', scrub:true}});
+
+/* ---------- connectivity map draw-in ---------- */
+(()=>{
+  const spokes = gsap.utils.toArray('.conn-map .spoke');
+  if(!spokes.length) return;
+  spokes.forEach(s=>{ const L=s.getTotalLength(); s.style.strokeDasharray=L; s.style.strokeDashoffset=L; });
+  const ctl = gsap.timeline({scrollTrigger:{trigger:'.conn-map', start:'top 74%', once:true}});
+  ctl.from('#centerNode', {scale:0, transformOrigin:'700px 330px', duration:.7, ease:'back.out(2)'})
+     .to(spokes, {strokeDashoffset:0, duration:1.1, ease:'power2.out', stagger:.09}, '-=.2')
+     .from('.conn-map .cnode', {opacity:0, scale:.4, transformOrigin:'center', duration:.5, ease:'back.out(2.4)', stagger:.07}, '-=.9');
+  gsap.to('#centerNode .halo', {attr:{r:56}, opacity:.25, duration:1.6, repeat:-1, yoyo:true, ease:'sine.inOut'});
+  // phones: pre-centre the pannable map on the Parklane hub
+  if(isMobile){
+    const panel = document.querySelector('.conn-map');
+    const centre = ()=>{ const svgW = panel.querySelector('svg').getBoundingClientRect().width;
+      panel.scrollLeft = svgW*(700/1200) - panel.clientWidth/2; };
+    requestAnimationFrame(centre); addEventListener('load', centre);
+  }
+  gsap.utils.toArray('.c-card').forEach((c,i)=>{
+    gsap.fromTo(c, {y:36, autoAlpha:0}, {y:0, autoAlpha:1, duration:.7, delay:(i%4)*.08, ease:'power3.out',
+      scrollTrigger:{trigger:c, start:'top 92%'}});
+  });
 })();
+
+/* ---------- generic reveals ---------- */
+gsap.utils.toArray('.sec-head, .u-card, .d-row, .offer-inner, .plan-view').forEach(el=>{
+  gsap.fromTo(el, {y:46, autoAlpha:0}, {y:0, autoAlpha:1, duration:1, ease:'power3.out',
+    scrollTrigger:{trigger:el, start:'top 86%'}});
+});
+
+/* ---------- floor plan tabs ---------- */
+const planImg = document.getElementById('planImg');
+const tabs = [document.getElementById('tabTyp'), document.getElementById('tab1st')];
+const srcs = ['assets/img/floorplan-typical.jpg','assets/img/floorplan-1st.jpg'];
+tabs.forEach((b,i)=> b.addEventListener('click', ()=>{
+  tabs.forEach(t=>t.classList.remove('on')); b.classList.add('on');
+  gsap.to(planImg, {autoAlpha:0, duration:.25, onComplete(){ planImg.src = srcs[i]; gsap.to(planImg,{autoAlpha:1,duration:.4}); }});
+}));
+
+/* ---------- bilingual toggle ---------- */
+const btnEN = document.getElementById('btnEN'), btnZH = document.getElementById('btnZH');
+function setLang(zh){
+  document.body.classList.toggle('zh', zh);
+  document.documentElement.lang = zh ? 'zh-Hant' : 'en';
+  btnEN.classList.toggle('on', !zh); btnZH.classList.toggle('on', zh);
+  document.querySelectorAll('[data-zh]').forEach(el=>{
+    if(!el.dataset.en) el.dataset.en = el.innerHTML;
+    el.innerHTML = zh ? el.dataset.zh : el.dataset.en;
+  });
+  try{ localStorage.setItem('pl-lang', zh?'zh':'en'); }catch(e){}
+  ScrollTrigger.refresh();
+}
+btnEN.addEventListener('click', ()=>setLang(false));
+btnZH.addEventListener('click', ()=>setLang(true));
+try{ if(localStorage.getItem('pl-lang')==='zh') setLang(true); }catch(e){}
+
+/* smooth anchor scrolling that respects pinned sections */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+  });
+});
 </script>
 </body>
 </html>
