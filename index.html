@@ -297,6 +297,21 @@ footer .disc{font-size:11px;color:rgba(255,255,255,.4);max-width:900px;line-heig
 html.js .reveal{opacity:0;transform:translateY(30px);transition:.8s var(--ease)}
 html.js .reveal.in{opacity:1;transform:none}
 
+/* sticky WhatsApp FAB */
+.wa-fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:95;
+  height:58px;width:58px;border-radius:50%;background:#25d366;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  box-shadow:0 12px 30px rgba(37,211,102,.45),0 4px 12px rgba(0,0,0,.28);transition:transform .25s,box-shadow .25s;animation:waIn .5s var(--ease) .9s both}
+.wa-fab svg{width:32px;height:32px;fill:#fff;flex:none}
+.wa-fab .wa-label{display:none;color:#fff;font-weight:600;font-size:14px;letter-spacing:.02em;white-space:nowrap}
+.wa-fab::before{content:"";position:absolute;inset:0;border-radius:inherit;background:#25d366;z-index:-1;animation:waPulse 2.8s ease-out infinite}
+.wa-fab:hover{transform:scale(1.07);box-shadow:0 16px 38px rgba(37,211,102,.55)}
+@keyframes waPulse{0%{opacity:.5;transform:scale(1)}100%{opacity:0;transform:scale(1.85)}}
+@keyframes waIn{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+@media(min-width:901px){
+  .wa-fab{width:auto;border-radius:999px;padding:0 22px 0 16px}
+  .wa-fab .wa-label{display:inline}
+}
+
 /* lightbox */
 .lb{position:fixed;inset:0;background:rgba(6,14,26,.94);z-index:200;display:none;align-items:center;justify-content:center;padding:40px;cursor:zoom-out}
 .lb.open{display:flex}
@@ -894,6 +909,12 @@ html.js .reveal.in{opacity:1;transform:none}
   </div>
 </footer>
 
+<!-- Sticky WhatsApp -->
+<a class="wa-fab" id="waFab" href="https://wa.me/60198992313" target="_blank" rel="noopener" aria-label="WhatsApp — Parklane Residences Sales">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 7.9L.4 31.6l7.9-2.1c2.3 1.3 5 2 7.7 2C24.6 31.5 31.5 24.6 31.5 16S24.6.5 16 .5zm0 28.3c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.4-2.2-2.1-4.7-2.1-7.2C2.6 8.5 8.5 2.6 16 2.6S29.4 8.5 29.4 16 23.5 28.8 16 28.8zm8.2-9.9c-.4-.2-2.6-1.3-3-1.4-.4-.1-.7-.2-1 .2-.3.4-1.1 1.4-1.3 1.6-.2.2-.5.3-.9.1-.4-.2-1.9-.7-3.6-2.2-1.3-1.2-2.2-2.6-2.5-3-.3-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-1-2.4-1.4-3.3-.4-.9-.7-.7-1-.7h-.8c-.3 0-.7.1-1.1.5-.4.4-1.5 1.4-1.5 3.5s1.5 4.1 1.7 4.4c.2.3 3 4.6 7.3 6.4 1 .4 1.8.7 2.4.9 1 .3 1.9.3 2.6.2.8-.1 2.6-1.1 3-2.1.4-1 .4-1.9.3-2.1-.1-.2-.4-.3-.8-.5z"/></svg>
+  <span class="wa-label" data-zh="WhatsApp 諮詢">WhatsApp Us</span>
+</a>
+
 <div class="lb" id="lightbox"><span class="x">&times;</span><img id="lbimg" src="" alt="enlarged view"></div>
 
 <script>
@@ -978,6 +999,22 @@ document.getElementById('lightbox').onclick=function(){this.classList.remove('op
 /* ---------- HERO VIDEO FALLBACK ---------- */
 var hv=document.querySelector('.hero video');
 if(hv){hv.addEventListener('error',function(){hv.style.display='none';document.querySelector('.hero-img').style.display='block';});}
+
+/* ---------- STICKY WHATSAPP (prefilled bilingual message) ---------- */
+(function(){
+  var wa=document.getElementById('waFab'); if(!wa) return;
+  var base='https://wa.me/60198992313';
+  function setMsg(){
+    var zh=document.documentElement.lang.indexOf('zh')===0;
+    var msg=zh
+      ? '您好，我對 Parklane Residences 百可麗豪華公寓 @ 碧多利 有興趣，請提供更多詳情。'
+      : "Hi, I'm interested in Parklane Residences @ Benoni (百可麗豪華公寓). Please share more details.";
+    wa.href=base+'?text='+encodeURIComponent(msg);
+  }
+  setMsg();
+  var lt=document.getElementById('langtog');
+  if(lt) lt.addEventListener('click',function(){setTimeout(setMsg,0);});
+})();
 
 /* ---------- ROOM TOUR ---------- */
 (function(){
