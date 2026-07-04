@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parklane Residences @ Benoni — A Gated Lifestyle Condominium · WSG Group</title>
+<meta name="description" content="Parklane Residences @ Benoni, Papar, Sabah. A gated lifestyle condominium — 4 towers, 19 storeys, 999-year tenure. 2 & 3 bedroom homes from RM 246,000. Live, work, study & play in one address.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.className='js';</script>
+<style>
+:root{
+  --navy:#0a1a2e; --navy2:#0f2b46; --navy3:#143654; --panel:#102a44;
+  --gold:#c9a45c; --gold2:#e0c384; --goldsoft:#f0dfae;
+  --cream:#f6f1e8; --paper:#fbf8f2; --ink:#1b2733; --muted:#94a2b3;
+  --line:rgba(201,164,92,.22); --line2:#e7ddca;
+  --shadow:0 24px 60px rgba(7,18,33,.16); --shadow-s:0 10px 30px rgba(7,18,33,.10);
+  --maxw:1200px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;color:var(--navy2);line-height:1.12;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+.eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.section{padding:96px 0}
+.section.tight{padding:70px 0}
+.center{text-align:center}
+.lead{font-size:19px;color:#4a5867;max-width:720px;margin:18px auto 0;font-weight:300}
+.divider{width:64px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:2px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;cursor:pointer;border:1px solid transparent;transition:.3s}
+.btn-gold{background:var(--gold);color:var(--navy);}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 12px 30px rgba(201,164,92,.4)}
+.btn-ghost{background:transparent;border-color:rgba(255,255,255,.5);color:#fff}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold2)}
+.btn-dark{background:var(--navy2);color:#fff}
+.btn-dark:hover{background:var(--navy3)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s;padding:20px 0}
+nav.scrolled{background:rgba(10,26,46,.96);backdrop-filter:blur(12px);padding:12px 0;box-shadow:0 6px 30px rgba(0,0,0,.25)}
+.nav-in{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;flex-direction:column;line-height:1}
+.brand b{font-family:'Playfair Display',serif;color:#fff;font-size:22px;letter-spacing:.04em;font-weight:700}
+.brand small{color:var(--gold);font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;margin-top:5px}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-links a{color:rgba(255,255,255,.82);font-size:13px;letter-spacing:.08em;font-weight:400;transition:.2s}
+.nav-links a:hover{color:var(--gold2)}
+.nav-cta{padding:11px 22px;border:1px solid var(--gold);color:var(--gold2);font-size:12px;letter-spacing:.14em;text-transform:uppercase;border-radius:2px;transition:.3s}
+.nav-cta:hover{background:var(--gold);color:var(--navy)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:#fff}
+
+/* HERO */
+.hero{position:relative;height:clamp(620px,100vh,900px);display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero video,.hero .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,20,36,.72) 0%,rgba(8,20,36,.42) 40%,rgba(8,20,36,.82) 100%)}
+.hero-c{position:relative;z-index:2;color:#fff;padding:0 24px;max-width:900px}
+.hero .award{display:inline-flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-bottom:26px}
+.hero .award span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--goldsoft);border:1px solid var(--line);padding:7px 14px;border-radius:2px}
+.hero h1{color:#fff;font-size:clamp(44px,7vw,88px);font-weight:700;letter-spacing:.02em;text-shadow:0 4px 30px rgba(0,0,0,.4)}
+.hero .tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,3vw,34px);color:var(--goldsoft);margin-top:6px}
+.hero .sub{font-size:17px;font-weight:300;color:rgba(255,255,255,.9);margin:22px auto 0;max-width:600px}
+.hero .cta-row{display:flex;gap:16px;justify-content:center;margin-top:38px;flex-wrap:wrap}
+.scrollcue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.28em;text-transform:uppercase;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* STAT BAR */
+.statbar{background:var(--navy);color:#fff;padding:0}
+.statbar .row{display:grid;grid-template-columns:repeat(5,1fr)}
+.statbar .cell{padding:34px 18px;text-align:center;border-right:1px solid rgba(255,255,255,.07)}
+.statbar .cell:last-child{border-right:none}
+.statbar .num{font-family:'Playfair Display',serif;font-size:34px;color:var(--gold2);font-weight:700}
+.statbar .lab{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.66);margin-top:6px}
+
+/* OVERVIEW */
+.two{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.figure{border-radius:4px;overflow:hidden;box-shadow:var(--shadow);position:relative}
+.figure .cap{position:absolute;left:0;bottom:0;right:0;padding:22px;background:linear-gradient(transparent,rgba(8,20,36,.85));color:#fff;font-size:12.5px;letter-spacing:.04em}
+.h-sec{font-size:clamp(30px,4vw,46px)}
+.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line2);border:1px solid var(--line2);margin-top:34px;border-radius:4px;overflow:hidden}
+.statgrid div{background:#fff;padding:24px 16px;text-align:center}
+.statgrid .n{font-family:'Playfair Display',serif;font-size:30px;color:var(--navy2);font-weight:700}
+.statgrid .l{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+/* FILM */
+.film{background:var(--navy);color:#fff}
+.film .frame{max-width:1000px;margin:40px auto 0;border-radius:4px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5);border:1px solid var(--line)}
+.film video{width:100%;display:block;background:#000}
+.film h2{color:#fff}
+.film .lead{color:rgba(255,255,255,.72)}
+
+/* RESIDENCES cards */
+.unitcards{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:44px}
+.ucard{background:#fff;border:1px solid var(--line2);border-radius:6px;overflow:hidden;box-shadow:var(--shadow-s);transition:.35s}
+.ucard:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.ucard .top{padding:30px 30px 24px;border-bottom:1px solid var(--line2)}
+.ucard .tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.ucard h3{font-size:27px;margin:8px 0 2px}
+.ucard .sz{color:var(--muted);font-size:14px}
+.ucard .price{margin-top:16px}
+.ucard .price small{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ucard .price b{display:block;font-family:'Playfair Display',serif;font-size:32px;color:var(--navy2)}
+.ucard .rows{padding:22px 30px 28px}
+.ucard .rows .r{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--line2);font-size:14px}
+.ucard .rows .r:last-child{border:none}
+.ucard .rows .r span:last-child{color:var(--navy2);font-weight:600}
+
+/* boards gallery */
+.boards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:30px}
+.board{background:#fff;border:1px solid var(--line2);border-radius:6px;overflow:hidden;cursor:zoom-in;box-shadow:var(--shadow-s);transition:.3s}
+.board:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+.board .lbl{padding:14px 18px;font-size:13px;letter-spacing:.06em;color:var(--navy2);font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.board .lbl span{color:var(--gold);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+
+/* GALLERY masonry */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+.gal a{border-radius:4px;overflow:hidden;position:relative;cursor:zoom-in}
+.gal a img{height:100%;width:100%;object-fit:cover;transition:.5s}
+.gal a:hover img{transform:scale(1.06)}
+.gal .wide{grid-column:span 2}
+.gal .tall{grid-row:span 2}
+
+/* FACILITIES */
+.facilities{background:linear-gradient(180deg,var(--cream),#fff)}
+.fac-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.fcard{background:#fff;border:1px solid var(--line2);border-radius:6px;padding:30px 26px;transition:.3s;box-shadow:var(--shadow-s)}
+.fcard:hover{border-color:var(--gold);transform:translateY(-4px)}
+.fcard .ico{width:46px;height:46px;color:var(--gold);margin-bottom:16px}
+.fcard h4{font-size:20px;margin-bottom:6px}
+.fcard p{color:#5a6774;font-size:14.5px}
+
+/* LOCATION */
+.loc-eco{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.chip{background:#fff;border:1px solid var(--line2);border-radius:4px;padding:16px 18px;font-size:13.5px;color:var(--navy2);font-weight:500;display:flex;gap:10px;align-items:center}
+.chip .d{width:7px;height:7px;background:var(--gold);border-radius:50%;flex:none;transform:rotate(45deg)}
+.connect{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.connect span{background:var(--navy2);color:#fff;padding:8px 16px;border-radius:999px;font-size:12.5px;letter-spacing:.03em}
+
+/* PRICING */
+.pricing{background:var(--navy);color:#fff}
+.pricing h2{color:#fff}.pricing .lead{color:rgba(255,255,255,.72)}
+.promo{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:760px;margin:40px auto 0}
+.promo .p{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:34px;text-align:center}
+.promo .p .t{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2)}
+.promo .p h3{color:#fff;font-size:24px;margin:10px 0}
+.promo .p .from{font-size:12px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+.promo .p .amt{font-family:'Playfair Display',serif;font-size:42px;color:var(--gold2);font-weight:700;margin-top:4px}
+.tablewrap{max-width:1000px;margin:44px auto 0;overflow-x:auto;border:1px solid var(--line);border-radius:6px}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+th{background:var(--panel);color:var(--gold2);text-align:left;padding:15px 18px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+td{padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.9)}
+tr:hover td{background:rgba(255,255,255,.03)}
+.note{max-width:1000px;margin:16px auto 0;font-size:12.5px;color:var(--muted)}
+
+/* SPECS */
+.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:0 50px;margin-top:34px}
+.specs .s{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line2)}
+.specs .s .k{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:600;padding-top:2px}
+.specs .s .v{font-size:14px;color:#4a5867}
+
+/* CONTACT */
+.contact{background:var(--cream)}
+.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:44px;align-items:start}
+.form input,.form textarea{width:100%;padding:14px 16px;border:1px solid var(--line2);border-radius:4px;font-family:inherit;font-size:15px;margin-bottom:14px;background:#fff}
+.form input:focus,.form textarea:focus{outline:none;border-color:var(--gold)}
+.form .btn{width:100%;justify-content:center}
+.cinfo .blk{margin-bottom:26px}
+.cinfo .blk .h{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px}
+.cinfo .blk .big{font-family:'Playfair Display',serif;font-size:24px;color:var(--navy2)}
+.cinfo a{color:var(--navy2);font-weight:500}
+.team{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 24px;margin-top:6px}
+.team .m{display:flex;justify-content:space-between;font-size:14px;padding:6px 0;border-bottom:1px dashed var(--line2)}
+.team .m b{color:var(--navy2)}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:56px 0 30px;font-size:13px}
+footer .top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:26px;margin-bottom:22px}
+footer .brand b{color:#fff}
+footer .lic{font-size:11.5px;line-height:1.9}
+footer .disc{font-size:11px;color:rgba(255,255,255,.4);max-width:900px;line-height:1.7}
+
+/* reveal — progressive enhancement: hidden only when JS is active.
+   Both rules gated by html.js so the .in override keeps higher specificity. */
+html.js .reveal{opacity:0;transform:translateY(30px);transition:.8s cubic-bezier(.2,.7,.2,1)}
+html.js .reveal.in{opacity:1;transform:none}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;background:rgba(6,14,26,.94);z-index:200;display:none;align-items:center;justify-content:center;padding:40px;cursor:zoom-out}
+.lb.open{display:flex}
+.lb img{max-width:95%;max-height:92%;border-radius:4px;box-shadow:0 30px 90px rgba(0,0,0,.6)}
+.lb .x{position:absolute;top:24px;right:30px;color:#fff;font-size:34px;cursor:pointer;line-height:1}
+
+@media(max-width:900px){
+  .nav-links{display:none}.burger{display:flex}
+  .nav-links.mobile{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(10,26,46,.98);padding:24px 26px;gap:18px}
+  .two{grid-template-columns:1fr;gap:34px}
+  .statbar .row{grid-template-columns:repeat(2,1fr)}
+  .statbar .cell:nth-child(2){border-right:none}
+  .unitcards,.boards,.fac-grid,.loc-eco,.promo,.specs,.c-grid,.gal{grid-template-columns:1fr}
+  .gal .wide,.gal .tall{grid-column:auto;grid-row:auto}
+  .team{grid-template-columns:1fr}
+  .section{padding:66px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand"><b>PARKLANE</b><small>Residences · WSG Group</small></a>
+    <div class="nav-links" id="navlinks">
+      <a href="#overview">Overview</a>
+      <a href="#residences">Residences</a>
+      <a href="#facilities">Facilities</a>
+      <a href="#location">Location</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact" class="nav-cta">Register Interest</a>
+    </div>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <video autoplay muted loop playsinline poster="assets/img/hero-poster.jpg">
+    <source src="assets/video/hero.mp4" type="video/mp4">
+  </video>
+  <img class="hero-img" src="assets/img/hero-poster.jpg" alt="" style="display:none">
+  <div class="hero-c">
+    <div class="award">
+      <span>🏆 Top Developer 2024</span>
+      <span>🏆 Rural Urbanisation Excellence 2024</span>
+    </div>
+    <div class="eyebrow" style="color:var(--goldsoft)">WSG Group · Benoni, Papar · Sabah</div>
+    <h1>PARKLANE RESIDENCES</h1>
+    <div class="tagline">Serenity in the Heart of Benoni</div>
+    <p class="sub">A gated lifestyle condominium where an entire township — university, mall, cinema &amp; highway — wraps around your front door. Live · Work · Study · Play, in one address.</p>
+    <div class="cta-row">
+      <a href="#contact" class="btn btn-gold">Register Your Interest</a>
+      <a href="#film" class="btn btn-ghost">▶ Watch the Film</a>
+    </div>
+  </div>
+  <div class="scrollcue">Scroll to explore</div>
+</header>
+
+<!-- STAT BAR -->
+<section class="statbar">
+  <div class="wrap"><div class="row">
+    <div class="cell"><div class="num">4</div><div class="lab">Towers · 19 Storeys</div></div>
+    <div class="cell"><div class="num">999</div><div class="lab">Year Land Tenure</div></div>
+    <div class="cell"><div class="num">620–1,100</div><div class="lab">sf Typical Units</div></div>
+    <div class="cell"><div class="num">100%</div><div class="lab">Financing · Bank Islam</div></div>
+    <div class="cell"><div class="num">36</div><div class="lab">Months to Completion</div></div>
+  </div></div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="section" id="overview">
+  <div class="wrap">
+    <div class="two">
+      <div class="reveal">
+        <div class="eyebrow">The Address</div>
+        <h2 class="h-sec" style="margin-top:12px">A whole township<br>in one address.</h2>
+        <div class="divider" style="margin-left:0"></div>
+        <p style="font-size:16.5px;color:#4a5867;margin-top:6px">Four towers of 19-storey condominium — <b>Towers A, B, C &amp; D</b> — arranged around a central facilities deck, set within the master-planned Benoni development off the <b>Pan Borneo Highway</b> in Papar, Sabah. Minutes from KKIA Airport and Kota Kinabalu, and wrapped by a university, shopping mall, cinema, hypermarket and drive-thrus — all within the same master plan.</p>
+        <div class="statgrid">
+          <div><div class="n">4</div><div class="l">Condominium Towers</div></div>
+          <div><div class="n">19</div><div class="l">Storeys per Tower</div></div>
+          <div><div class="n">999</div><div class="l">Year Tenure</div></div>
+          <div><div class="n">620–1,100</div><div class="l">sf Typical</div></div>
+          <div><div class="n">2 &amp; 3</div><div class="l">Bedroom Homes</div></div>
+          <div><div class="n">36</div><div class="l">Months to TOP*</div></div>
+        </div>
+      </div>
+      <div class="figure reveal">
+        <img src="assets/img/siteplan.jpg" alt="Parklane Residences master site plan — four towers around a central facilities deck">
+        <div class="cap">Master site plan — Towers A–D wrap a central deck with pool, gym &amp; badminton court.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILM -->
+<section class="section film" id="film">
+  <div class="wrap center">
+    <div class="eyebrow" style="color:var(--gold)">The Film</div>
+    <h2 class="h-sec reveal" style="margin-top:12px">Live Central. Live Better.</h2>
+    <div class="divider"></div>
+    <p class="lead">A cinematic first look — from the skyline approach to the interiors designed for island living.</p>
+    <div class="frame reveal">
+      <video controls preload="none" poster="assets/img/trailer-poster.jpg">
+        <source src="assets/video/trailer.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- RESIDENCES -->
+<section class="section" id="residences">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">The Residences</div>
+      <h2 class="h-sec reveal" style="margin-top:12px">Homes for every stage of life.</h2>
+      <div class="divider"></div>
+      <p class="lead">Two- and three-bedroom layouts, all with two bathrooms — from smart compact homes to spacious family sanctuaries.</p>
+    </div>
+
+    <div class="unitcards">
+      <div class="ucard reveal">
+        <div class="top">
+          <div class="tag">2 Bed · 2 Bath</div>
+          <h3>Compact Living</h3>
+          <div class="sz">620 sf &amp; 680 sf · Units 3A, 5, 6, 7, 8, 10</div>
+          <div class="price"><small>Price from</small><b>RM 246,000</b></div>
+        </div>
+        <div class="rows">
+          <div class="r"><span>620 sf · Units 3A, 6, 8, 10</span><span>RM 246k–264k</span></div>
+          <div class="r"><span>680 sf · Units 5, 7</span><span>RM 278k–293k</span></div>
+          <div class="r"><span>Master + Bedroom 2</span><span>2 Bedrooms</span></div>
+          <div class="r"><span>Living · Dining · Dry Kitchen</span><span>+ Balcony</span></div>
+        </div>
+      </div>
+      <div class="ucard reveal">
+        <div class="top">
+          <div class="tag">3 Bed · 2 Bath</div>
+          <h3>Family Living</h3>
+          <div class="sz">1,000 / 1,050 / 1,100 sf · Units 1, 2, 3, 9, 11, 12</div>
+          <div class="price"><small>Price from</small><b>RM 340,200</b></div>
+        </div>
+        <div class="rows">
+          <div class="r"><span>1,000 sf · Units 1, 2, 11, 12</span><span>RM 378k–398k</span></div>
+          <div class="r"><span>1,050 sf · Units 3, 9</span><span>RM 388k–398k</span></div>
+          <div class="r"><span>1,100 sf · Units 3, 9 (Grd &amp; 1st)</span><span>RM 388k</span></div>
+          <div class="r"><span>Living 210 sf · Dining 200 sf</span><span>Wet Kitchen</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="center" style="margin-top:56px">
+      <div class="eyebrow">Renovation Concepts</div>
+      <h3 style="font-size:26px;margin-top:8px">Modern Resort Living — designed for Sabah</h3>
+      <p class="lead" style="font-size:16px">Airy, natural, relaxed. Tap any concept board to enlarge.</p>
+    </div>
+    <div class="boards">
+      <div class="board" onclick="lb('assets/img/unit-620.jpg')"><img src="assets/img/unit-620.jpg" alt="620 sf renovation concept"><div class="lbl">Compact · 620 sf <span>2 Bed</span></div></div>
+      <div class="board" onclick="lb('assets/img/unit-680.jpg')"><img src="assets/img/unit-680.jpg" alt="680 sf renovation concept"><div class="lbl">Compact+ · 680 sf <span>2 Bed</span></div></div>
+      <div class="board" onclick="lb('assets/img/unit-1050.jpg')"><img src="assets/img/unit-1050.jpg" alt="1050 sf renovation concept"><div class="lbl">Family · 1,050 sf <span>3 Bed</span></div></div>
+    </div>
+
+    <!-- interior gallery -->
+    <div class="gal" style="margin-top:24px">
+      <a class="wide" onclick="lb('assets/img/interior-1.jpg')"><img src="assets/img/interior-1.jpg" alt="Interior living space"></a>
+      <a onclick="lb('assets/img/interior-3.jpg')"><img src="assets/img/interior-3.jpg" alt="Interior"></a>
+      <a onclick="lb('assets/img/interior-2.jpg')"><img src="assets/img/interior-2.jpg" alt="Interior"></a>
+      <a onclick="lb('assets/img/interior-4.jpg')"><img src="assets/img/interior-4.jpg" alt="Interior bedroom"></a>
+      <a class="wide" onclick="lb('assets/img/aerial-2.jpg')"><img src="assets/img/aerial-2.jpg" alt="Aerial view"></a>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section class="section facilities" id="facilities">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">Central Facilities Deck</div>
+      <h2 class="h-sec reveal" style="margin-top:12px">Resort-style living, every day.</h2>
+      <div class="divider"></div>
+      <p class="lead">Shared amenities sit on a landscaped podium between the four towers — a sanctuary for wellness, recreation and family time.</p>
+    </div>
+    <div class="figure reveal" style="margin-top:40px">
+      <img src="assets/img/facilities-render.jpg" alt="Facilities artist impression — pool, jogging track, badminton, gym & playground">
+      <div class="cap">Artist's impression — clubhouse, full-length pool, jogging track, badminton, gym &amp; playground.</div>
+    </div>
+    <div class="fac-grid">
+      <div class="fcard reveal"><div class="ico">🏊</div><h4>Swimming Pool</h4><p>Full-length lap &amp; leisure pool with a landscaped sundeck.</p></div>
+      <div class="fcard reveal"><div class="ico">🏋️</div><h4>Gymnasium</h4><p>Fully-equipped fitness centre for your daily wellbeing.</p></div>
+      <div class="fcard reveal"><div class="ico">🏸</div><h4>Indoor Badminton</h4><p>Covered court to stay active with family and neighbours.</p></div>
+      <div class="fcard reveal"><div class="ico">🏃</div><h4>Jogging Track</h4><p>Landscaped perimeter running track around the deck.</p></div>
+      <div class="fcard reveal"><div class="ico">🛝</div><h4>Children's Playground</h4><p>A dedicated, safe play area for the little ones.</p></div>
+      <div class="fcard reveal"><div class="ico">🌿</div><h4>Clubhouse &amp; Deck</h4><p>Central landscaped podium and clubhouse between the towers.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOOR PLANS -->
+<section class="section" id="plans">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">Floor Plans</div>
+      <h2 class="h-sec reveal" style="margin-top:12px">A flexible canvas for your home.</h2>
+      <div class="divider"></div>
+      <p class="lead">Wet areas are fixed against the service walls; living, dining and bedroom partitions are the flexible zones — ideal for open-plan kitchens or a study conversion. Tap to enlarge.</p>
+    </div>
+    <div class="boards" style="grid-template-columns:1fr 1fr;margin-top:36px">
+      <div class="board" onclick="lb('assets/img/floorplan-1st.jpg')"><img src="assets/img/floorplan-1st.jpg" alt="1st floor plan"><div class="lbl">1st Floor Plan <span>1,100 sf corners</span></div></div>
+      <div class="board" onclick="lb('assets/img/floorplan-typical.jpg')"><img src="assets/img/floorplan-typical.jpg" alt="Typical floor plan"><div class="lbl">2nd–17th Floor Plan <span>12-unit mix</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="section contact" id="location" style="background:linear-gradient(180deg,#fff,var(--cream))">
+  <div class="wrap">
+    <div class="two">
+      <div class="figure reveal">
+        <img src="assets/img/location-map.jpg" alt="Location map — Benoni, Papar, Sabah, fronting Pan Borneo Highway">
+        <div class="cap">Fronting the Pan Borneo Highway — near KKIA Airport, Papar, Kinarut, Putatan &amp; Kota Kinabalu.</div>
+      </div>
+      <div class="reveal">
+        <div class="eyebrow">Location &amp; Connectivity</div>
+        <h2 class="h-sec" style="margin-top:12px">Inside a self-contained township.</h2>
+        <div class="divider" style="margin-left:0"></div>
+        <p style="color:#4a5867">At the heart of <b>Benoni Commercial Centre (BCC), Papar</b> — everything from a university and shopping mall to hypermarkets, cinemas and drive-thrus sits within the same master plan.</p>
+        <div class="loc-eco">
+          <div class="chip"><span class="d"></span>North Borneo University</div>
+          <div class="chip"><span class="d"></span>3-Storey Mall · 148k sf</div>
+          <div class="chip"><span class="d"></span>10Star Cinemas</div>
+          <div class="chip"><span class="d"></span>Servay Hypermarket</div>
+          <div class="chip"><span class="d"></span>Sport Arena</div>
+          <div class="chip"><span class="d"></span>Medical Building</div>
+          <div class="chip"><span class="d"></span>Majestic Ballroom</div>
+          <div class="chip"><span class="d"></span>Drive-Thrus &amp; F&amp;B</div>
+        </div>
+        <p style="margin-top:22px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)">Connectivity</p>
+        <div class="connect">
+          <span>Pan Borneo Highway</span><span>KKIA Airport</span><span>Kota Kinabalu</span>
+          <span>Papar Town</span><span>Kinarut</span><span>Putatan</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing" id="pricing">
+  <div class="wrap center">
+    <div class="eyebrow" style="color:var(--gold)">Promo Pricing</div>
+    <h2 class="h-sec reveal" style="margin-top:12px">Own it from RM 246,000.</h2>
+    <div class="divider"></div>
+    <p class="lead">Promo prices valid until 31 August 2026 · 100% financing by Bank Islam · 30% of units reserved for Bumiputera with 5% discount.</p>
+    <div class="promo">
+      <div class="p reveal"><div class="t">2 Bed · 2 Bath · 620/680 sf</div><h3>Compact Living</h3><div class="from">Promo price from</div><div class="amt">RM 246,000</div></div>
+      <div class="p reveal"><div class="t">3 Bed · 2 Bath · 1,000 sf ↑</div><h3>Family Living</h3><div class="from">Promo price from</div><div class="amt">RM 340,200</div></div>
+    </div>
+    <div class="tablewrap reveal">
+      <table>
+        <thead><tr><th>Type</th><th>Layout</th><th>Built-up</th><th>Price range</th><th>Units</th></tr></thead>
+        <tbody>
+          <tr><td>2 Bed 2 Bath</td><td>Compact</td><td>620 sf</td><td>RM 246,000 – 264,000</td><td>3A, 6, 8, 10</td></tr>
+          <tr><td>2 Bed 2 Bath</td><td>Compact +</td><td>680 sf</td><td>RM 278,000 – 293,000</td><td>5, 7</td></tr>
+          <tr><td>3 Bed 2 Bath</td><td>Family</td><td>1,000 sf</td><td>RM 378,000 – 398,000</td><td>1, 2, 11, 12</td></tr>
+          <tr><td>3 Bed 2 Bath</td><td>Family +</td><td>1,050 sf</td><td>RM 388,000 – 398,000</td><td>3, 9</td></tr>
+          <tr><td>3 Bed 2 Bath</td><td>Family (low floors)</td><td>1,100 sf</td><td>RM 388,000</td><td>3, 9 (Grd &amp; 1st)</td></tr>
+          <tr><td>Corner / Large</td><td>Premium</td><td>2,070 sf</td><td>RM 938,000</td><td>18th floor (A-18-2)</td></tr>
+          <tr><td>Corner / Large</td><td>Premium</td><td>2,380 sf</td><td>RM 1,088,000</td><td>18th floor (A-18-1/3)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Tower A price list valid until 31.12.2026. Floor numbering runs G, 1, 2, 3, 3A, 5–13, 13A, 15–18 (levels 4 &amp; 14 omitted). Indicative "from" figures extracted from the sales brochure and subject to change.</p>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section class="section" id="specs">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">Specifications</div>
+      <h2 class="h-sec reveal" style="margin-top:12px">Building &amp; finishes.</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="specs">
+      <div class="s"><div class="k">Structure</div><div class="v">Reinforced concrete foundations, columns, beams and floor slabs.</div></div>
+      <div class="s"><div class="k">Walls</div><div class="v">Reinforced concrete / brick / solid wall system or equivalent.</div></div>
+      <div class="s"><div class="k">Roofing</div><div class="v">Coloured metal roofing sheet / reinforced concrete roofing.</div></div>
+      <div class="s"><div class="k">Floors</div><div class="v">Ceramic tiles to living, dining, kitchens, baths &amp; balcony; timber/vinyl to bedrooms.</div></div>
+      <div class="s"><div class="k">Windows</div><div class="v">Aluminium frame with tinted glass.</div></div>
+      <div class="s"><div class="k">Doors</div><div class="v">Timber doors throughout; aluminium tinted glass to living/balcony.</div></div>
+      <div class="s"><div class="k">Kitchen</div><div class="v">Single-bowl stainless steel sink to dry &amp; wet kitchens.</div></div>
+      <div class="s"><div class="k">Electrical</div><div class="v">All wiring concealed, to SESB standard.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">Register Your Interest</div>
+      <h2 class="h-sec reveal" style="margin-top:12px">Begin your Parklane journey.</h2>
+      <div class="divider"></div>
+      <p class="lead">Leave your details and our sales team will be in touch, or reach us directly at the Benoni Sales Gallery.</p>
+    </div>
+    <div class="c-grid">
+      <form class="form reveal" id="enquiry">
+        <input type="text" id="f-name" placeholder="Full name" required>
+        <input type="tel" id="f-phone" placeholder="Phone number" required>
+        <input type="email" id="f-email" placeholder="Email address">
+        <input type="text" id="f-unit" placeholder="Preferred unit type (e.g. 3 Bed · 1,050 sf)">
+        <textarea id="f-msg" rows="4" placeholder="Message (optional)"></textarea>
+        <button type="submit" class="btn btn-gold">Send Enquiry →</button>
+      </form>
+      <div class="cinfo reveal">
+        <div class="blk"><div class="h">Sales Gallery</div><div class="big">WSG Properties Sdn. Bhd.</div><div style="color:#5a6774">Sales Gallery, Benoni, Papar, Sabah</div></div>
+        <div class="blk"><div class="h">Call</div><div class="big"><a href="tel:+6088269980">+6088-269 980</a> · 910 223</div><div style="color:#5a6774">Joy Hardey · <a href="tel:+60198992313">019 899 2313</a></div></div>
+        <div class="blk"><div class="h">Email</div><div class="big"><a href="mailto:sales.wsggroup@gmail.com">sales.wsggroup@gmail.com</a></div></div>
+        <div class="blk"><div class="h">Sales Team</div>
+          <div class="team">
+            <div class="m"><b>Welter</b><span>013 874 7778</span></div>
+            <div class="m"><b>Benny</b><span>016 582 8640</span></div>
+            <div class="m"><b>Mayren</b><span>013 435 8067</span></div>
+            <div class="m"><b>Anne C.</b><span>014 679 8010</span></div>
+            <div class="m"><b>Iwan</b><span>016 827 3566</span></div>
+            <div class="m"><b>Rickie</b><span>012 904 2716</span></div>
+            <div class="m"><b>Roger</b><span>016 853 7173</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand"><b style="font-family:'Playfair Display',serif;font-size:22px">PARKLANE RESIDENCES</b><br><span style="color:var(--gold);letter-spacing:.2em;font-size:11px">@ BENONI · 百可丽豪华公寓</span></div>
+      <div class="lic">
+        <b style="color:#fff">WSG Properties Sdn. Bhd.</b> (912219-A)<br>
+        Developer's Licence 07-2027/06810 · Advertisement Permit 07-2027/05116<br>
+        <a href="https://www.wsggroup.com.my" style="color:var(--gold2)">www.wsggroup.com.my</a> · 999-year tenure · 100% financing by Bank Islam
+      </div>
+    </div>
+    <div class="disc">Disclaimer: All figures, layouts, prices, unit numbers and specifications were extracted from the "Parklane Residences @ Benoni" sales brochure. Renderings and floor areas are artists' impressions and approximate measurements only; all items are subject to variations, modifications and substitutions as recommended by the developer's architect or relevant authorities. This page is for illustration and is not a contractual document. © 2026 WSG Group. All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="lb" id="lightbox"><span class="x">&times;</span><img id="lbimg" src="" alt="enlarged view"></div>
+
+<script>
+// nav scroll
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+// mobile burger
+document.getElementById('burger').onclick=()=>document.getElementById('navlinks').classList.toggle('mobile');
+document.querySelectorAll('#navlinks a').forEach(a=>a.onclick=()=>document.getElementById('navlinks').classList.remove('mobile'));
+// reveal on scroll
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// lightbox
+function lb(src){document.getElementById('lbimg').src=src;document.getElementById('lightbox').classList.add('open')}
+document.getElementById('lightbox').onclick=()=>document.getElementById('lightbox').classList.remove('open');
+// hero fallback if video fails
+const hv=document.querySelector('.hero video');
+if(hv){hv.addEventListener('error',()=>{hv.style.display='none';document.querySelector('.hero-img').style.display='block'})}
+// enquiry -> mailto
+document.getElementById('enquiry').onsubmit=(e)=>{
+  e.preventDefault();
+  const g=id=>document.getElementById(id).value;
+  const body=`Name: ${g('f-name')}%0D%0APhone: ${g('f-phone')}%0D%0AEmail: ${g('f-email')}%0D%0APreferred unit: ${g('f-unit')}%0D%0A%0D%0A${g('f-msg')}`;
+  window.location.href=`mailto:sales.wsggroup@gmail.com?subject=Parklane Residences Enquiry — ${encodeURIComponent(g('f-name'))}&body=${body}`;
+};
+</script>
+</body>
+</html>
