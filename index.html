@@ -20,7 +20,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 :lang(zh),html[lang^="zh"] body{font-family:'Noto Serif SC','Inter',serif}
 h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;color:var(--navy2);line-height:1.12;letter-spacing:-.01em}
 html[lang^="zh"] h1,html[lang^="zh"] h2,html[lang^="zh"] h3,html[lang^="zh"] h4{font-family:'Noto Serif SC',serif}
@@ -305,16 +305,106 @@ html.js .reveal.in{opacity:1;transform:none}
 
 @media(max-width:900px){
   .nav-links{display:none}.burger{display:flex}
-  .nav-links.mobile{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(10,26,46,.98);padding:24px 26px;gap:18px}
+  .nav-links.mobile{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;background:rgba(10,26,46,.98);padding:22px 26px;gap:6px;box-shadow:0 20px 40px rgba(0,0,0,.35)}
+  .nav-links.mobile a{padding:13px 4px;border-bottom:1px solid rgba(255,255,255,.08);font-size:15px}
+  .nav-links.mobile .langtog{margin-top:10px;justify-content:center;padding:12px}
+  .nav-links.mobile .nav-cta{margin-top:6px;text-align:center;padding:14px}
   .two,.tour-layout{grid-template-columns:1fr;gap:34px}
   .statbar .row{grid-template-columns:repeat(2,1fr)}
   .statbar .cell:nth-child(2){border-right:none}
   .unitcards,.boards,.fac-grid,.loc-eco,.promo,.specs,.c-grid,.gal,.thumbs{grid-template-columns:1fr}
+  .statgrid{grid-template-columns:repeat(2,1fr)}
   .conn-grid{grid-template-columns:1fr 1fr}
   .thumbs{grid-template-columns:repeat(4,1fr)}
   .gal .wide{grid-column:auto}
   .team{grid-template-columns:1fr}
-  .section{padding:66px 0}
+  .section{padding:70px 0}
+  .lead{font-size:16.5px}
+  .mapembed{aspect-ratio:4/3}
+}
+
+/* ===== PHONES ===== */
+@media(max-width:560px){
+  .wrap{padding:0 18px}
+  .section{padding:52px 0}
+  .eyebrow{letter-spacing:.24em;font-size:11px}
+  h2.h-sec{font-size:29px}
+  .lead{font-size:15.5px;margin-top:14px}
+  .btn{padding:14px 22px;font-size:12px}
+
+  /* dynamic viewport height so mobile browser chrome doesn't clip the hero */
+  .hero,.opening{height:100svh;min-height:540px}
+  .hero .devline{font-size:9.5px;letter-spacing:.18em;margin-bottom:14px}
+  .hero .award{gap:8px;margin-bottom:18px}
+  .hero .award span{font-size:9.5px;letter-spacing:.1em;padding:6px 10px}
+  .hero .cnm{font-size:17px;margin-top:6px}
+  .hero .tagline{font-size:20px;margin-top:8px}
+  .hero .sub{font-size:14.5px;margin-top:16px}
+  .hero .cta-row{flex-direction:column;align-items:stretch;gap:12px;margin-top:28px}
+  .hero .cta-row .btn{width:100%;justify-content:center}
+  .scrollcue{display:none}
+
+  .brand b{font-size:18px}.brand small{font-size:8px;letter-spacing:.24em}
+  nav{padding:14px 0}
+
+  .op-logo{padding:20px 26px}.op-project .sub{font-size:11px}
+
+  .statbar .cell{padding:26px 12px}
+  .statbar .num{font-size:27px}.statbar .lab{font-size:10px}
+  .statgrid .n{font-size:23px}.statgrid .l{font-size:10px}
+
+  .figure .cap{font-size:11.5px;padding:16px}
+  .ucard .top{padding:24px 22px 20px}.ucard h3{font-size:24px}
+  .ucard .price b{font-size:28px}.ucard .rows{padding:18px 22px 22px}
+  .boards{gap:18px}.board .lbl{font-size:12px;padding:12px 14px}
+
+  .fcard{padding:24px 22px}.fcard .ico{font-size:30px}.fcard h4{font-size:19px}
+
+  /* room tour: bigger tappable labels, viewer flows below plan */
+  .plancard{padding:14px}
+  .rlabel{font-size:30px}.rsf{font-size:24px}.dim{font-size:26px}
+  .viewer{position:static}
+  .vbody h3{font-size:21px}
+  .thumbs{grid-template-columns:repeat(4,1fr);gap:8px}
+
+  /* connectivity route map: enlarge labels, drop drive-time (kept in cards) */
+  .routewrap{padding:14px}
+  .routemap .nlabel{font-size:23px}
+  .routemap .ntime{display:none}
+  .routemap .hublabel{font-size:30px}
+  .routemap .node{r:8}.routemap .pulse{r:8}
+  .routemap .sealabel{font-size:18px}
+  .conn-card{padding:16px 8px}
+  .conn-card .ci{font-size:23px}.conn-card .cn{font-size:13.5px}
+  .conn-card .ct{font-size:12.5px}.conn-card .cd{font-size:10px}
+  .mapembed{aspect-ratio:3/4}
+
+  .promo{gap:16px}.promo .p{padding:26px 20px}.promo .p .amt{font-size:34px}
+  th,td{padding:12px 12px;font-size:13px}
+  .specs .s{grid-template-columns:110px 1fr;gap:12px;padding:14px 0}
+  .specs .s .k{font-size:11px}
+
+  .c-grid{gap:34px}
+  .cinfo .blk .big{font-size:21px}
+
+  .foot-logo{padding:14px 20px}.foot-logo img{width:180px}
+  footer .top{gap:24px}
+
+  .lb{padding:14px}.lb .x{top:12px;right:16px;font-size:42px;padding:6px}
+}
+
+@media(max-width:380px){
+  h2.h-sec{font-size:26px}
+  .hero h1{font-size:38px}
+  .conn-grid{gap:12px}
+  .conn-card .cn{font-size:12.5px}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+  html.js .reveal{opacity:1;transform:none}
+  .routemap .route{stroke-dashoffset:0}
+  .routemap .node,.routemap .nlabel,.routemap .pulse{opacity:1}
 }
 </style>
 </head>
@@ -650,14 +740,14 @@ html.js .reveal.in{opacity:1;transform:none}
         </g>
         <!-- destination nodes -->
         <g id="nodes">
-          <g><circle class="pulse" cx="695" cy="240" r="5"/><circle class="node" cx="695" cy="240" r="5"/><text class="nlabel" x="708" y="244" text-anchor="start">Benoni Comm. Centre · 2 min</text></g>
-          <g><circle class="pulse" cx="350" cy="405" r="5"/><circle class="node" cx="350" cy="405" r="5"/><text class="nlabel" x="350" y="432" text-anchor="middle">Papar Town · 8 min</text></g>
-          <g><circle class="pulse" cx="340" cy="210" r="5"/><circle class="node" cx="340" cy="210" r="5"/><text class="nlabel" x="340" y="192" text-anchor="middle">Kinarut · 20 min</text></g>
-          <g><circle class="pulse" cx="195" cy="135" r="5"/><circle class="node" cx="195" cy="135" r="5"/><text class="nlabel" x="195" y="118" text-anchor="middle">Putatan · 35 min</text></g>
-          <g><circle class="pulse" cx="100" cy="255" r="5"/><circle class="node" cx="100" cy="255" r="5"/><text class="nlabel" x="96" y="240" text-anchor="start">Kota Kinabalu · 45 min</text></g>
-          <g><circle class="pulse" cx="128" cy="365" r="5"/><circle class="node" cx="128" cy="365" r="5"/><text class="nlabel" x="124" y="386" text-anchor="start">KKIA Airport · 45 min</text></g>
-          <g><circle class="pulse" cx="615" cy="472" r="5"/><circle class="node" cx="615" cy="472" r="5"/><text class="nlabel" x="615" y="497" text-anchor="middle">Beaufort · 50 min</text></g>
-          <g><circle class="pulse" cx="835" cy="155" r="5"/><circle class="node" cx="835" cy="155" r="5"/><text class="nlabel" x="822" y="159" text-anchor="end">Keningau · 1h 30m</text></g>
+          <g><circle class="pulse" cx="695" cy="240" r="5"/><circle class="node" cx="695" cy="240" r="5"/><text class="nlabel" x="708" y="244" text-anchor="start">Benoni CC<tspan class="ntime"> · 2 min</tspan></text></g>
+          <g><circle class="pulse" cx="350" cy="405" r="5"/><circle class="node" cx="350" cy="405" r="5"/><text class="nlabel" x="350" y="432" text-anchor="middle">Papar Town<tspan class="ntime"> · 8 min</tspan></text></g>
+          <g><circle class="pulse" cx="340" cy="210" r="5"/><circle class="node" cx="340" cy="210" r="5"/><text class="nlabel" x="340" y="192" text-anchor="middle">Kinarut<tspan class="ntime"> · 20 min</tspan></text></g>
+          <g><circle class="pulse" cx="195" cy="135" r="5"/><circle class="node" cx="195" cy="135" r="5"/><text class="nlabel" x="195" y="118" text-anchor="middle">Putatan<tspan class="ntime"> · 35 min</tspan></text></g>
+          <g><circle class="pulse" cx="100" cy="255" r="5"/><circle class="node" cx="100" cy="255" r="5"/><text class="nlabel" x="96" y="240" text-anchor="start">Kota Kinabalu<tspan class="ntime"> · 45 min</tspan></text></g>
+          <g><circle class="pulse" cx="128" cy="365" r="5"/><circle class="node" cx="128" cy="365" r="5"/><text class="nlabel" x="124" y="386" text-anchor="start">KKIA Airport<tspan class="ntime"> · 45 min</tspan></text></g>
+          <g><circle class="pulse" cx="615" cy="472" r="5"/><circle class="node" cx="615" cy="472" r="5"/><text class="nlabel" x="615" y="497" text-anchor="middle">Beaufort<tspan class="ntime"> · 50 min</tspan></text></g>
+          <g><circle class="pulse" cx="835" cy="155" r="5"/><circle class="node" cx="835" cy="155" r="5"/><text class="nlabel" x="822" y="159" text-anchor="end">Keningau<tspan class="ntime"> · 1h 30m</tspan></text></g>
         </g>
         <!-- hub -->
         <circle class="hubring" cx="560" cy="285" r="5"/>
