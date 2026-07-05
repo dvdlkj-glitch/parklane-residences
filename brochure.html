@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Parklane Residences @ Benoni — Print Brochure</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#081120; --navy2:#0c1a30; --navy3:#13233f;
+  --gold:#c9a45c; --gold2:#e8cf9a; --cream:#f4ead8;
+  --ink:#e9eef7; --muted:#8fa2bd;
+  --serif:'Playfair Display','Noto Serif TC',serif;
+  --sans:'Inter','Noto Serif TC',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+@page{size:A4 portrait;margin:0}
+body{font-family:var(--sans);font-weight:300;color:var(--ink);background:#fff}
+.page{position:relative;width:210mm;height:296.5mm;overflow:hidden;page-break-after:always;background:var(--navy)}
+.page:last-child{page-break-after:auto}
+img{display:block}
+
+.kick{font-size:8.5pt;letter-spacing:.45em;text-transform:uppercase;color:var(--gold2)}
+h2{font-family:var(--serif);font-weight:600;color:var(--cream);font-size:24pt;line-height:1.15}
+h2 em{font-style:italic;color:var(--gold2)}
+.zh{font-family:'Noto Serif TC',serif;color:var(--gold);letter-spacing:.25em}
+.rule{width:44px;height:1px;background:var(--gold);position:relative;margin:14px 0}
+.rule::after{content:'';position:absolute;left:50%;top:-2px;width:5px;height:5px;background:var(--gold);transform:translateX(-50%) rotate(45deg)}
+.body-txt{color:var(--muted);font-size:9.5pt;line-height:1.75}
+.pagenum{position:absolute;bottom:9mm;right:12mm;font-size:7.5pt;letter-spacing:.3em;color:rgba(159,176,200,.55)}
+.brandline{position:absolute;bottom:9mm;left:12mm;font-size:7.5pt;letter-spacing:.28em;color:rgba(201,164,92,.7);text-transform:uppercase}
+
+/* ---------- cover ---------- */
+.cover .hero{position:absolute;inset:0}
+.cover .hero img{width:100%;height:100%;object-fit:cover}
+.cover .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,17,32,.72) 0%,rgba(8,17,32,.18) 42%,rgba(8,17,32,.92) 100%)}
+.cover .logo-chip{position:absolute;top:14mm;left:0;right:0;text-align:center}
+.cover .logo-chip img{height:24mm;background:#fff;border-radius:3mm;padding:4mm 7mm;margin:0 auto;box-shadow:0 6px 30px rgba(0,0,0,.5)}
+.cover .title{position:absolute;left:0;right:0;bottom:38mm;text-align:center;padding:0 15mm}
+.cover .title .kick{margin-bottom:7mm}
+.cover h1{font-family:var(--serif);font-weight:600;color:var(--cream);font-size:37pt;line-height:1.06;text-shadow:0 4px 30px rgba(0,0,0,.6)}
+.cover h1 em{font-style:italic;color:var(--gold2)}
+.cover .zh-t{font-family:'Noto Serif TC',serif;font-size:14pt;color:var(--gold2);letter-spacing:.55em;margin-top:7mm;text-indent:.55em}
+.cover .strip{position:absolute;left:0;right:0;bottom:12mm;display:flex;justify-content:center;gap:5mm;font-size:8pt;letter-spacing:.2em;color:var(--cream);text-transform:uppercase}
+.cover .strip span{border:1px solid rgba(201,164,92,.55);background:rgba(8,17,32,.55);padding:2.4mm 4.5mm;border-radius:1mm}
+.cover .strip b{color:var(--gold2);font-weight:600}
+
+/* ---------- generic content page ---------- */
+.pad{padding:16mm 14mm 20mm}
+.head-row{margin-bottom:7mm}
+.photo{border-radius:2mm;overflow:hidden;border:1px solid rgba(201,164,92,.35)}
+.photo img{width:100%;object-fit:cover}
+.cap{font-size:7.5pt;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2);margin-top:2.2mm}
+
+/* stats band */
+.stats{display:flex;justify-content:space-between;border-top:1px solid rgba(201,164,92,.3);border-bottom:1px solid rgba(201,164,92,.3);padding:5mm 2mm;margin:8mm 0}
+.stat{text-align:center;flex:1}
+.stat .n{font-family:var(--serif);font-size:20pt;color:var(--gold2)}
+.stat .n sup{font-size:.45em;color:var(--gold)}
+.stat .l{font-size:6.8pt;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:1.5mm}
+
+/* pillars grid */
+.pillars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4mm}
+.pillar{background:var(--navy3);border:1px solid rgba(201,164,92,.28);border-radius:2mm;padding:5mm}
+.pillar .no{font-size:7pt;letter-spacing:.3em;color:var(--gold)}
+.pillar h4{font-family:var(--serif);font-size:11.5pt;color:var(--cream);margin:2mm 0 1mm;font-weight:600}
+.pillar .pz{font-family:'Noto Serif TC',serif;font-size:8pt;color:var(--gold2);letter-spacing:.12em}
+.pillar p{font-size:8pt;color:var(--muted);line-height:1.6;margin-top:2mm}
+
+/* units */
+.units{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4.5mm}
+.unit{background:var(--navy3);border:1px solid rgba(201,164,92,.3);border-radius:2mm;overflow:hidden}
+.unit .im{height:52mm;overflow:hidden}
+.unit .im img{width:100%;height:100%;object-fit:cover;object-position:top}
+.unit .bd{padding:4mm 4.5mm 5mm}
+.unit .t{font-size:6.8pt;letter-spacing:.28em;color:var(--gold);text-transform:uppercase}
+.unit h4{font-family:var(--serif);font-size:15pt;color:var(--cream);margin:1.6mm 0 .8mm;font-weight:600}
+.unit .m{font-size:7.6pt;color:var(--muted);letter-spacing:.05em}
+.unit .pr{margin-top:3mm;padding-top:3mm;border-top:1px solid rgba(201,164,92,.25)}
+.unit .pr .f{font-size:6.5pt;letter-spacing:.24em;color:var(--muted);text-transform:uppercase}
+.unit .pr .v{font-family:var(--serif);font-size:13pt;color:var(--gold2)}
+.interiors{display:grid;grid-template-columns:repeat(4,1fr);gap:3.5mm;margin-top:5mm}
+.interiors .photo{height:31mm}
+.interiors .photo img{height:100%}
+
+/* facilities chips */
+.chips{display:flex;flex-wrap:wrap;gap:2.6mm;margin-top:5mm}
+.chip{border:1px solid rgba(201,164,92,.5);color:var(--cream);font-size:8pt;letter-spacing:.1em;padding:2.4mm 4mm;border-radius:1mm;background:rgba(19,35,63,.7)}
+.chip b{color:var(--gold2);font-weight:500}
+
+/* plans */
+.plan-frame{background:#fff;border-radius:2mm;overflow:hidden;border:1px solid rgba(201,164,92,.4)}
+.plan-frame img{width:100%}
+.note{font-size:7.6pt;color:var(--muted);letter-spacing:.05em;margin-top:3mm;line-height:1.6}
+
+/* location */
+.loc-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:6mm;align-items:start}
+.d-table{width:100%;border-collapse:collapse}
+.d-table td{padding:2.8mm 1mm;border-bottom:1px solid rgba(201,164,92,.2);font-size:9pt}
+.d-table td.place{color:var(--cream)}
+.d-table td.pz{font-family:'Noto Serif TC',serif;color:var(--muted);font-size:8pt}
+.d-table td.time{font-family:var(--serif);color:var(--gold2);text-align:right;white-space:nowrap}
+
+/* back cover */
+.back{background:radial-gradient(120% 100% at 50% 100%,var(--navy3) 0%,var(--navy) 62%)}
+.back .logo-scene{height:96mm;overflow:hidden}
+.back .logo-scene img{width:100%;height:100%;object-fit:cover}
+.back .inner{padding:12mm 16mm;text-align:center}
+.back .price{font-family:var(--serif);font-size:37pt;color:var(--gold2);line-height:1}
+.back .price .rm{font-size:.42em;color:var(--gold);vertical-align:super}
+.back .qr-row{display:flex;align-items:center;justify-content:center;gap:8mm;margin-top:8mm}
+.back .qr{background:#fff;border-radius:2.5mm;padding:2.5mm;width:33mm;height:33mm}
+.back .qr img{width:100%;height:100%}
+.back .contact{text-align:left}
+.back .contact .big{font-family:var(--serif);font-size:14.5pt;color:var(--cream)}
+.back .contact .s{font-size:8.5pt;color:var(--muted);letter-spacing:.08em;line-height:1.8}
+.disclaimer{font-size:6.6pt;color:rgba(143,162,189,.75);line-height:1.65;margin-top:9mm;text-align:center;padding:0 6mm}
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1 · COVER ================= -->
+<div class="page cover">
+  <div class="hero"><img src="assets/gen/township-hero.jpg" alt=""></div>
+  <div class="shade"></div>
+  <div class="logo-chip"><img src="assets/img/wsg-logo.png" alt="WSG Group 美嘉城集團"></div>
+  <div class="title">
+    <div class="kick">WSG GROUP · BENONI TOWNSHIP · PAPAR, SABAH</div>
+    <h1>A Township.<br><em>A Way of Life.</em></h1>
+    <div class="zh-t">百可麗豪華公寓 · 美嘉城市鎮</div>
+  </div>
+  <div class="strip">
+    <span><b>4</b> TOWERS</span><span><b>19</b> STOREYS</span><span><b>999</b>-YR TENURE</span><span>FROM <b>RM 246,000</b></span>
+  </div>
+</div>
+
+<!-- ================= PAGE 2 · THE TOWNSHIP ================= -->
+<div class="page">
+  <div class="pad">
+    <div class="head-row">
+      <div class="kick">THE MASTERPLAN · 總體規劃</div>
+      <h2 style="margin-top:3mm">One address. <em>An entire new township.</em></h2>
+      <div class="rule"></div>
+      <p class="body-txt" style="max-width:150mm">Parklane Residences rises at the heart of the self-contained Benoni Township — four 19-storey towers wrapped by a university, lifestyle mall, hypermarket, cinemas and a lakeside park, minutes off the Pan Borneo Highway.<br>
+      <span class="zh" style="letter-spacing:.08em;font-size:9pt">百可麗豪華公寓座落於自成一體的 Benoni 綜合市鎮核心——大學、購物商場、霸級市場、戲院與湖濱公園環繞。</span></p>
+    </div>
+    <div class="photo" style="height:74mm"><img src="assets/gen/township-hero.jpg" style="height:100%" alt=""></div>
+    <div class="cap">Benoni Township — concept masterplan visual 市鎮概念圖</div>
+    <div class="stats">
+      <div class="stat"><div class="n">4</div><div class="l">Towers 大廈</div></div>
+      <div class="stat"><div class="n">19</div><div class="l">Storeys 層</div></div>
+      <div class="stat"><div class="n">999<sup>yr</sup></div><div class="l">Tenure 地契</div></div>
+      <div class="stat"><div class="n">100<sup>%</sup></div><div class="l">Financing* 融資</div></div>
+      <div class="stat"><div class="n">36</div><div class="l">Months* 個月竣工</div></div>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><div class="no">01</div><h4>3-Storey Lifestyle Mall</h4><div class="pz">三層生活商場 · 148,000 平方尺</div><p>148,000 sf of retail, dining and entertainment at the foot of the towers.</p></div>
+      <div class="pillar"><div class="no">02</div><h4>Servay Hypermarket</h4><div class="pz">Servay 霸級市場</div><p>Groceries without leaving the township — the hypermarket is your pantry.</p></div>
+      <div class="pillar"><div class="no">03</div><h4>10Star Cinemas</h4><div class="pz">10Star 戲院</div><p>First-run films and family weekends, an elevator ride away.</p></div>
+      <div class="pillar"><div class="no">04</div><h4>North Borneo University</h4><div class="pz">北婆羅洲大學為鄰</div><p>A university next door — steady tenant demand and campus-town energy.</p></div>
+      <div class="pillar"><div class="no">05</div><h4>Shop-Offices &amp; Drive-Thrus</h4><div class="pz">店舖辦公樓與得來速</div><p>Tree-lined commercial rows for cafés, banks and everyday services.</p></div>
+      <div class="pillar"><div class="no">06</div><h4>Lakeside Central Park</h4><div class="pz">湖濱中央公園</div><p>The township's green lung — lake, jogging trails and open lawns.</p></div>
+    </div>
+  </div>
+  <div class="brandline">WSG GROUP · 美嘉城集團</div><div class="pagenum">02</div>
+</div>
+
+<!-- ================= PAGE 3 · RESIDENCES ================= -->
+<div class="page">
+  <div class="pad">
+    <div class="head-row">
+      <div class="kick">THE RESIDENCES · 戶型單位</div>
+      <h2 style="margin-top:3mm">Homes for <em>every stage of life.</em></h2>
+      <div class="rule"></div>
+      <p class="body-txt">Two- and three-bedroom homes on a 999-year tenure — twelve thoughtfully arranged units per floor. 適合人生每個階段的家。</p>
+    </div>
+    <div class="units">
+      <div class="unit">
+        <div class="im"><img src="assets/img/unit-620.jpg" alt=""></div>
+        <div class="bd"><div class="t">2 BED · 2 BATH · 入門首選</div><h4>620 sf</h4><div class="m">Units 3A · 5 · 6 · 7 · 8 · 10</div>
+        <div class="pr"><div class="f">From 售價由</div><div class="v">RM 246,000</div></div></div>
+      </div>
+      <div class="unit">
+        <div class="im"><img src="assets/img/unit-680.jpg" alt=""></div>
+        <div class="bd"><div class="t">2 BED · 2 BATH + BALCONY</div><h4>680 sf</h4><div class="m">Units 3A · 5 · 6 · 7 · 8 · 10</div>
+        <div class="pr"><div class="f">From 售價由</div><div class="v">RM 278,000</div></div></div>
+      </div>
+      <div class="unit">
+        <div class="im"><img src="assets/img/unit-1050.jpg" alt=""></div>
+        <div class="bd"><div class="t">3 BED · 2 BATH · 家庭戶型</div><h4>1,000–1,100 sf</h4><div class="m">Units 1 · 2 · 3 · 9 · 11 · 12</div>
+        <div class="pr"><div class="f">From 售價由</div><div class="v">RM 378,000</div></div></div>
+      </div>
+    </div>
+    <div class="kick" style="margin-top:8mm">INTERIOR CONCEPTS · 室內概念</div>
+    <div class="interiors">
+      <div class="photo"><img src="assets/rooms/living.jpg" alt=""></div>
+      <div class="photo"><img src="assets/rooms/master.jpg" alt=""></div>
+      <div class="photo"><img src="assets/rooms/kitchen.jpg" alt=""></div>
+      <div class="photo"><img src="assets/rooms/balcony.jpg" alt=""></div>
+    </div>
+    <div class="interiors" style="margin-top:3.5mm">
+      <div class="photo"><img src="assets/img/interior-1.jpg" alt=""></div>
+      <div class="photo"><img src="assets/img/interior-2.jpg" alt=""></div>
+      <div class="photo"><img src="assets/img/interior-3.jpg" alt=""></div>
+      <div class="photo"><img src="assets/img/interior-4.jpg" alt=""></div>
+    </div>
+    <p class="note">Price ranges: 2-bed RM 246,000 – 293,000 · 3-bed RM 378,000 – 398,000. Larger corner/penthouse units up to 2,380 sf available. Interior visuals are renovation concepts for the 1,050 sf type.</p>
+  </div>
+  <div class="brandline">WSG GROUP · 美嘉城集團</div><div class="pagenum">03</div>
+</div>
+
+<!-- ================= PAGE 4 · FACILITIES ================= -->
+<div class="page">
+  <div class="pad">
+    <div class="head-row">
+      <div class="kick">THE CENTRAL DECK · 中央設施平台</div>
+      <h2 style="margin-top:3mm">Resort-style living, <em>every day.</em></h2>
+      <div class="rule"></div>
+    </div>
+    <div class="photo" style="height:104mm"><img src="assets/gen/sky-deck.jpg" style="height:100%" alt=""></div>
+    <div class="cap">The central facilities deck between the four towers 四座大廈之間的中央景觀平台（概念圖）</div>
+    <div class="chips">
+      <span class="chip"><b>Swimming Pool</b> 游泳池</span>
+      <span class="chip"><b>Clubhouse &amp; Deck</b> 會所與平台</span>
+      <span class="chip"><b>Gymnasium</b> 健身房</span>
+      <span class="chip"><b>Indoor Badminton</b> 室內羽球場</span>
+      <span class="chip"><b>Playground</b> 兒童遊樂場</span>
+      <span class="chip"><b>24-hr Gated Security</b> 24小時保安圍籬社區</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4.5mm;margin-top:6mm">
+      <div class="photo" style="height:47mm"><img src="assets/gen/park-lifestyle.jpg" style="height:100%" alt=""></div>
+      <div class="photo" style="height:47mm"><img src="assets/gen/mall-boulevard.jpg" style="height:100%" alt=""></div>
+    </div>
+    <div class="cap">Lakeside park mornings 湖濱清晨 · Mall boulevard evenings 商場大道之夜（概念圖）</div>
+  </div>
+  <div class="brandline">WSG GROUP · 美嘉城集團</div><div class="pagenum">04</div>
+</div>
+
+<!-- ================= PAGE 5 · FLOOR PLANS ================= -->
+<div class="page">
+  <div class="pad">
+    <div class="head-row">
+      <div class="kick">FLOOR PLANS · 平面圖</div>
+      <h2 style="margin-top:3mm">Twelve homes to a floor, <em>carefully composed.</em></h2>
+      <div class="rule"></div>
+    </div>
+    <div class="plan-frame"><img src="assets/img/floorplan-typical.jpg" alt="Typical floor plan"></div>
+    <div class="cap">Typical floor 2–17 · 12-unit configuration 標準層 2–17 樓 · 12 單位組合</div>
+    <p class="note">2-bed: 620 / 680 sf · 3-bed: 1,000 / 1,050 / 1,100 sf · Living 210 sf · Dining 200 sf typical for family type. All layouts, dimensions and details are subject to the Sale &amp; Purchase Agreement and the developer's approved plans. 詳情以買賣合約及發展商正式圖則為準。</p>
+  </div>
+  <div class="brandline">WSG GROUP · 美嘉城集團</div><div class="pagenum">05</div>
+</div>
+
+<!-- ================= PAGE 6 · LOCATION ================= -->
+<div class="page">
+  <div class="pad">
+    <div class="head-row">
+      <div class="kick">THE CONNECTIVITY ADVANTAGE · 交通優勢</div>
+      <h2 style="margin-top:3mm">From your doorstep <em>to everywhere.</em></h2>
+      <div class="rule"></div>
+      <p class="body-txt">Direct highway access puts the airport, city and coast within easy reach — off the Pan Borneo Highway. 直通泛婆羅洲大道，機場、市區與海岸近在咫尺。</p>
+    </div>
+    <div class="loc-grid">
+      <div>
+        <div class="photo"><img src="assets/img/location-map.jpg" alt="Location map"></div>
+        <div class="cap">Location map 位置圖</div>
+      </div>
+      <table class="d-table">
+        <tr><td class="place">Benoni CC <span class="pz">便利中心</span></td><td class="time">~2 min</td></tr>
+        <tr><td class="place">Papar Town <span class="pz">巴巴市</span></td><td class="time">~8 min · 6 km</td></tr>
+        <tr><td class="place">Kinarut <span class="pz">基納魯</span></td><td class="time">~20 min · 18 km</td></tr>
+        <tr><td class="place">Putatan <span class="pz">普打壇</span></td><td class="time">~35 min · 38 km</td></tr>
+        <tr><td class="place">KKIA Airport <span class="pz">亞庇國際機場</span></td><td class="time">~45 min · 46 km</td></tr>
+        <tr><td class="place">Kota Kinabalu <span class="pz">亞庇市</span></td><td class="time">~45 min · 48 km</td></tr>
+        <tr><td class="place">Beaufort <span class="pz">保佛</span></td><td class="time">~50 min · 55 km</td></tr>
+        <tr><td class="place">Keningau <span class="pz">根地咬</span></td><td class="time">~1 h 30 m</td></tr>
+      </table>
+    </div>
+    <div class="photo" style="height:64mm;margin-top:7mm"><img src="assets/gen/night-skyline.jpg" style="height:100%" alt=""></div>
+    <div class="cap">Benoni Township by night 市鎮之夜（概念圖）</div>
+  </div>
+  <div class="brandline">WSG GROUP · 美嘉城集團</div><div class="pagenum">06</div>
+</div>
+
+<!-- ================= PAGE 7 · OFFER / BACK ================= -->
+<div class="page back">
+  <div class="logo-scene"><img src="assets/gen/logo-scene.jpg" alt="WSG Group 美嘉城集團"></div>
+  <div class="inner">
+    <div class="kick">PROMOTIONAL PRICE · FROM 促銷價由</div>
+    <div class="price" style="margin-top:4mm"><span class="rm">RM </span>246,000</div>
+    <div class="chips" style="justify-content:center;margin-top:6mm">
+      <span class="chip"><b>999-yr</b> tenure 年地契</span>
+      <span class="chip"><b>100%</b> Bank Islam financing*</span>
+      <span class="chip"><b>36 months</b> to completion* 個月竣工</span>
+      <span class="chip"><b>2-bed</b> RM 246,000–293,000</span>
+      <span class="chip"><b>3-bed</b> RM 378,000–398,000</span>
+    </div>
+    <div class="qr-row">
+      <div class="qr"><img src="assets/gen/wa-qr.png" alt="WhatsApp QR"></div>
+      <div class="contact">
+        <div class="big">Begin your home journey.</div>
+        <div class="zh" style="font-size:10.5pt;letter-spacing:.3em;margin:1.5mm 0 3mm">開啟您的安家之旅</div>
+        <div class="s">WhatsApp&nbsp;&nbsp;<b style="color:var(--gold2)">+60 19-899 2313</b><br>
+        Office&nbsp;&nbsp;+60 88-269 980<br>
+        Scan the code to chat with our sales team 掃碼諮詢</div>
+      </div>
+    </div>
+    <p class="disclaimer">*Terms per the developer's latest announcement. Expected completion 36 months from date of SPA. 30% of units reserved for Bumiputera with 5% discount. All visuals marked "concept" were generated for presentation; renders, plans, prices and details are subject to the Sale &amp; Purchase Agreement and the developer's approved plans. Parklane Residences @ Benoni, Papar, Sabah — developed by WSG Group 美嘉城集團. © 2026 WSG Group.</p>
+  </div>
+</div>
+
+</body>
+</html>
