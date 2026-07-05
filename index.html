@@ -220,6 +220,52 @@ section{position:relative}
 .plan-view .frame{border:1px solid rgba(201,164,92,.3);border-radius:4px;overflow:hidden;background:#fff}
 .plan-view img{width:100%}
 .plan-note{text-align:center;color:var(--muted);font-size:12.5px;margin-top:18px;letter-spacing:.06em}
+
+/* ---- floor-plan interest voting ---- */
+.plan-wrap{position:relative}
+.plan-hots{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s}
+.plan-hots.on{opacity:1}
+.plan-hots button{
+  position:absolute;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;
+  pointer-events:auto;cursor:pointer;border:2px solid var(--gold);
+  background:rgba(8,17,32,.28);color:#fff;font-size:15px;line-height:1;
+  display:flex;align-items:center;justify-content:center;transition:.25s;
+  animation:pl-pulse 2.4s ease-out infinite;
+}
+.plan-hots button:hover{background:var(--gold);transform:translate(-50%,-50%) scale(1.12)}
+.plan-hots button.voted{animation:none;background:var(--gold);border-color:var(--gold2)}
+@keyframes pl-pulse{
+  0%{box-shadow:0 0 0 0 rgba(201,164,92,.55)}
+  70%{box-shadow:0 0 0 16px rgba(201,164,92,0)}
+  100%{box-shadow:0 0 0 0 rgba(201,164,92,0)}
+}
+.pl-interest{max-width:1080px;margin:26px auto 0;padding:34px 34px 26px;
+  border:1px solid rgba(201,164,92,.3);border-radius:4px;background:rgba(255,255,255,.028)}
+.pl-interest h3{font-family:var(--serif);color:var(--cream);font-size:clamp(20px,2.6vw,27px);
+  font-weight:500;margin:0 0 8px;text-align:center}
+.pi-sub{color:var(--muted);font-size:13px;text-align:center;max-width:620px;margin:0 auto 26px;line-height:1.7}
+.pi-groups{display:grid;grid-template-columns:1.25fr 1fr;gap:34px}
+@media(max-width:820px){.pi-groups{grid-template-columns:1fr}}
+.pi-lbl{color:var(--gold);font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;margin-bottom:14px}
+.pi-row{display:flex;align-items:center;gap:12px;width:100%;background:none;border:1px solid transparent;
+  border-radius:4px;padding:8px 10px;cursor:pointer;transition:.25s;font-family:var(--sans)}
+.pi-row:hover{background:rgba(201,164,92,.08);border-color:rgba(201,164,92,.3)}
+.pi-row.voted{background:rgba(201,164,92,.12);border-color:var(--gold)}
+.pi-row.locked{cursor:default}
+.pi-row.locked:not(.voted):hover{background:none;border-color:transparent}
+.pi-name{width:150px;min-width:118px;text-align:left;color:var(--ink);font-size:13px;letter-spacing:.04em}
+.pi-name small{color:var(--muted);font-size:10.5px;letter-spacing:.12em}
+.pi-track{flex:1;height:10px;border-radius:99px;background:rgba(233,238,247,.09);overflow:hidden}
+.pi-fill{display:block;height:100%;border-radius:99px;width:0;
+  background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .8s cubic-bezier(.2,.7,.2,1)}
+.pi-row[data-choice="620"] .pi-fill{background:linear-gradient(90deg,#7fa8cf,#a9c7e4)}
+.pi-row[data-choice="680"] .pi-fill{background:linear-gradient(90deg,#8fb289,#b5d0a8)}
+.pi-row[data-choice="1000"] .pi-fill{background:linear-gradient(90deg,#bfa76b,#d6c496)}
+.pi-row[data-choice="1050"] .pi-fill{background:linear-gradient(90deg,#c08c56,#d9a97b)}
+.pi-row[data-choice="1100"] .pi-fill{background:linear-gradient(90deg,#cf8ea0,#e8b3bf)}
+.pi-n{width:46px;text-align:right;color:var(--gold2);font-size:13px;font-variant-numeric:tabular-nums}
+.pi-heart{width:18px;color:var(--gold2);font-size:12px}
+.pi-note{color:var(--muted);font-size:11px;text-align:center;margin:22px 0 0;letter-spacing:.05em;font-style:italic}
 @media(max-width:700px){
   .plan-view .frame{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .plan-view .frame img{min-width:760px}
@@ -599,9 +645,45 @@ footer p{color:#5d6f8a;font-size:11.5px;letter-spacing:.08em;line-height:1.9;max
   </div>
   <div class="plan-view">
     <div class="frame">
-      <img id="planImg" src="assets/img/floorplan-typical.jpg" alt="Floor plan">
+      <div class="plan-wrap">
+        <img id="planImg" src="assets/img/floorplan-typical.jpg" alt="Floor plan">
+        <div class="plan-hots" id="planHots" aria-label="Tap a unit to record your interest">
+          <button data-choice="1000" style="left:13.6%;top:40.9%" title="Unit 2 · 1000 sf">♡</button>
+          <button data-choice="620"  style="left:28.3%;top:38.9%" title="Unit 3A · 620 sf">♡</button>
+          <button data-choice="620"  style="left:48.5%;top:38.8%" title="Unit 6 · 620 sf">♡</button>
+          <button data-choice="1000" style="left:53.5%;top:40.9%" title="Unit 12 · 1000 sf">♡</button>
+          <button data-choice="1000" style="left:12.5%;top:67.8%" title="Unit 1 · 1000 sf">♡</button>
+          <button data-choice="1100" style="left:17.7%;top:67.8%" title="Unit 3 · 1100 sf">♡</button>
+          <button data-choice="1100" style="left:51.6%;top:67.8%" title="Unit 9 · 1100 sf">♡</button>
+          <button data-choice="1000" style="left:55.6%;top:67.8%" title="Unit 11 · 1000 sf">♡</button>
+        </div>
+      </div>
     </div>
     <p class="plan-note" data-zh="2 房：620 / 680 平方尺 · 3 房：1,000 / 1,050 / 1,100 平方尺。詳情以買賣合約為準。">2-bed: 620 / 680 sf · 3-bed: 1,000 / 1,050 / 1,100 sf. All details subject to the Sale & Purchase Agreement.</p>
+
+    <!-- visitor interest voting -->
+    <div class="pl-interest" id="plInterest">
+      <h3 data-zh="哪一種戶型最令你心動？">Which home speaks to you?</h3>
+      <p class="pi-sub" data-zh="輕按首層平面圖上的金色圓點，或在下方選擇面積與大廈 — 即時看看其他訪客最喜歡哪一種。">Tap a gold dot on the 1st-floor plan, or pick a size and tower below — and see live which homes other visitors love most.</p>
+      <div class="pi-groups">
+        <div class="pi-group">
+          <div class="pi-lbl" data-zh="最受歡迎面積">Favourite size</div>
+          <button class="pi-row" data-kind="size" data-choice="620"><span class="pi-name">620 sf <small data-zh="2 房">2 BED</small></span><span class="pi-track"><span class="pi-fill"></span></span><span class="pi-n">·</span><span class="pi-heart"></span></button>
+          <button class="pi-row" data-kind="size" data-choice="680"><span class="pi-name">680 sf <small data-zh="2 房">2 BED</small></span><span class="pi-track"><span class="pi-fill"></span></span><span class="pi-n">·</span><span class="pi-heart"></span></button>
+          <button class="pi-row" data-kind="size" data-choice="1000"><span class="pi-name">1,000 sf <small data-zh="3 房">3 BED</small></span><span class="pi-track"><span class="pi-fill"></span></span><span class="pi-n">·</span><span class="pi-heart"></span></button>
+          <button class="pi-row" data-kind="size" data-choice="1050"><span class="pi-name">1,050 sf <small data-zh="3 房">3 BED</small></span><span class="pi-track"><span class="pi-fill"></span></span><span class="pi-n">·</span><span class="pi-heart"></span></button>
+          <button class="pi-row" data-kind="size" data-choice="1100"><span class="pi-name">1,100 sf <small data-zh="3 房">3 BED</small></span><span class="pi-track"><span class="pi-fill"></span></span><span class="pi-n">·</span><span class="pi-heart"></span></button>
+        </div>
+        <div class="pi-group">
+          <div class="pi-lbl" data-zh="最受歡迎大廈">Favourite tower</div>
+          <button class="pi-row" data-kind="tower" data-choice="A"><span class="pi-name" data-zh="A 座">Tower A</span><span class="pi-track"><span class="pi-fill"></span></span><span class="pi-n">·</span><span class="pi-heart"></span></button>
+          <button class="pi-row" data-kind="tower" data-choice="B"><span class="pi-name" data-zh="B 座">Tower B</span><span class="pi-track"><span class="pi-fill"></span></span><span class="pi-n">·</span><span class="pi-heart"></span></button>
+          <button class="pi-row" data-kind="tower" data-choice="C"><span class="pi-name" data-zh="C 座">Tower C</span><span class="pi-track"><span class="pi-fill"></span></span><span class="pi-n">·</span><span class="pi-heart"></span></button>
+          <button class="pi-row" data-kind="tower" data-choice="D"><span class="pi-name" data-zh="D 座">Tower D</span><span class="pi-track"><span class="pi-fill"></span></span><span class="pi-n">·</span><span class="pi-heart"></span></button>
+        </div>
+      </div>
+      <p class="pi-note" data-zh="數據為本頁訪客的即時興趣統計，僅供參考，不構成任何銷售承諾。每位訪客可為面積與大廈各投一票。">Live visitor interest on this page — one vote each for size and tower per visitor. For reference only; not a sales commitment.</p>
+    </div>
   </div>
 </section>
 
@@ -926,12 +1008,79 @@ gsap.utils.toArray('.sec-head, .u-card, .d-row, .offer-inner, .plan-view').forEa
 
 /* ---------- floor plan tabs ---------- */
 const planImg = document.getElementById('planImg');
+const planHots = document.getElementById('planHots');
 const tabs = [document.getElementById('tabTyp'), document.getElementById('tab1st')];
 const srcs = ['assets/img/floorplan-typical.jpg','assets/img/floorplan-1st.jpg'];
 tabs.forEach((b,i)=> b.addEventListener('click', ()=>{
   tabs.forEach(t=>t.classList.remove('on')); b.classList.add('on');
-  gsap.to(planImg, {autoAlpha:0, duration:.25, onComplete(){ planImg.src = srcs[i]; gsap.to(planImg,{autoAlpha:1,duration:.4}); }});
+  planHots.classList.remove('on');
+  gsap.to(planImg, {autoAlpha:0, duration:.25, onComplete(){
+    planImg.src = srcs[i];
+    gsap.to(planImg,{autoAlpha:1,duration:.4});
+    if(i===1) planHots.classList.add('on');
+  }});
 }));
+
+/* ---------- visitor interest voting (Supabase-backed) ---------- */
+const PL_SUPA = 'https://yeuldzzstlriqpbtmsip.supabase.co';
+const PL_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlldWxkenpzdGxyaXFwYnRtc2lwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwNjI1NzgsImV4cCI6MjA5MTYzODU3OH0.CB0s0MlB4mnDEd-76Hc0Ui7FRRlHmruX_UDWamUjMZ0';
+const PL_HDRS = {apikey: PL_KEY, Authorization: `Bearer ${PL_KEY}`};
+const piRows = [...document.querySelectorAll('.pi-row')];
+
+function plVoted(kind){ try{ return localStorage.getItem('pl-voted-'+kind); }catch(e){ return null; } }
+
+function plPaint(counts){
+  ['size','tower'].forEach(kind=>{
+    const rows = piRows.filter(r=>r.dataset.kind===kind);
+    const max = Math.max(1, ...rows.map(r=>counts[kind+':'+r.dataset.choice]||0));
+    const done = plVoted(kind);
+    rows.forEach(r=>{
+      const n = counts[kind+':'+r.dataset.choice]||0;
+      r.querySelector('.pi-fill').style.width = (n ? Math.max(5, Math.round(n/max*100)) : 0)+'%';
+      r.querySelector('.pi-n').textContent = n;
+      r.classList.toggle('voted', done===r.dataset.choice);
+      r.classList.toggle('locked', !!done);
+      r.querySelector('.pi-heart').textContent = done===r.dataset.choice ? '♥' : '';
+    });
+  });
+  const doneSize = plVoted('size');
+  document.querySelectorAll('#planHots button').forEach(b=>{
+    b.classList.toggle('voted', doneSize===b.dataset.choice);
+    if(doneSize) b.innerHTML = doneSize===b.dataset.choice ? '♥' : '♡';
+  });
+}
+
+async function plLoad(){
+  try{
+    const r = await fetch(`${PL_SUPA}/rest/v1/parklane_vote_summary?select=kind,choice,votes`, {headers: PL_HDRS});
+    const counts = {};
+    (await r.json()).forEach(row=>{ counts[row.kind+':'+row.choice] = Number(row.votes); });
+    plPaint(counts);
+  }catch(e){ /* offline / blocked — leave placeholders */ }
+}
+
+async function plVote(kind, choice){
+  if(plVoted(kind)) return;
+  try{ localStorage.setItem('pl-voted-'+kind, choice); }catch(e){}
+  try{
+    await fetch(`${PL_SUPA}/rest/v1/rpc/parklane_vote`, {
+      method:'POST',
+      headers:{...PL_HDRS, 'Content-Type':'application/json'},
+      body: JSON.stringify({p_kind:kind, p_choice:choice}),
+    });
+  }catch(e){}
+  plLoad();
+}
+
+piRows.forEach(r=> r.addEventListener('click', ()=> plVote(r.dataset.kind, r.dataset.choice)));
+document.querySelectorAll('#planHots button').forEach(b=>{
+  b.addEventListener('click', e=>{
+    e.stopPropagation();
+    plVote('size', b.dataset.choice);
+    b.innerHTML = '♥';
+  });
+});
+plLoad();
 
 /* ---------- bilingual toggle ---------- */
 const btnEN = document.getElementById('btnEN'), btnZH = document.getElementById('btnZH');
