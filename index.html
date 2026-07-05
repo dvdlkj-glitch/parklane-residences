@@ -181,6 +181,10 @@ section{position:relative}
 
 /* ---------- films ---------- */
 #films{background:var(--navy)}
+.story-feature{max-width:1240px;margin:0 auto 30px;padding:0 6vw}
+.story-feature .film{border-color:rgba(201,164,92,.5)}
+.story-feature .cap{display:flex;justify-content:space-between;align-items:baseline}
+.story-feature .cap .tagline{color:var(--muted);letter-spacing:.12em;text-transform:none;font-size:11px}
 .films-grid{max-width:1240px;margin:0 auto;padding:0 6vw 130px;display:grid;grid-template-columns:1.35fr 1fr;gap:30px;perspective:1400px}
 .film{position:relative;border-radius:4px;overflow:hidden;border:1px solid rgba(201,164,92,.3);box-shadow:0 30px 90px rgba(0,0,0,.55);transform-style:preserve-3d}
 .film video{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:16/9;background:#000}
@@ -517,6 +521,14 @@ footer p{color:#5d6f8a;font-size:11.5px;letter-spacing:.08em;line-height:1.9;max
     <div class="kicker" data-zh="宣傳影片">THE FILMS</div>
     <h2 data-zh="先睹為快——空中與室內">See it in motion — from the sky, and inside.</h2>
     <div class="gold-rule"></div>
+  </div>
+  <div class="story-feature">
+    <div class="film" data-film>
+      <video controls preload="metadata" poster="assets/gen/township-hero.jpg">
+        <source src="assets/gen/story-web.mp4" type="video/mp4">
+      </video>
+      <div class="cap"><span data-zh="故事影片 · 開啟您的安家之旅">THE STORY FILM · BEGIN YOUR HOME JOURNEY</span><span class="tagline" data-zh="38 秒 · 中英雙語">38 s · bilingual</span></div>
+    </div>
   </div>
   <div class="films-grid">
     <div class="film" data-film>

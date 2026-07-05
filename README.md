@@ -33,6 +33,7 @@ Township** (Papar, Sabah) with Parklane Residences at its centre.
 | `sky-deck.jpg` | Central facilities deck at twilight |
 | `night-skyline.jpg` | Township at night, 21:9 |
 | `park-lifestyle.jpg` | Lakeside park morning lifestyle |
+| `story-web.mp4` | 38 s bilingual story film “Begin Your Home Journey” — 7 scenes (aerial dream → park → mall → home → deck → night → WSG logo end-card), Higgsfield scenes + ffmpeg crossfades + licensed instrumental score |
 *(web-optimised versions in the repo; raw 2K PNG / 1080p masters kept locally)*
 
 All were generated with the project's **real renders as references** so the
