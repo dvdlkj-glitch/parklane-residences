@@ -152,6 +152,18 @@ section{position:relative}
 .u-card .price .fr{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
 .u-card .price .rm{font-family:var(--serif);font-size:24px;color:var(--gold2)}
 .badge{position:absolute;top:16px;left:16px;background:rgba(8,17,32,.78);border:1px solid rgba(201,164,92,.5);color:var(--gold2);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding:7px 13px;backdrop-filter:blur(6px)}
+.view-full{position:absolute;right:10px;bottom:10px;z-index:3;background:rgba(8,17,32,.8);border:1px solid rgba(201,164,92,.5);color:var(--gold2);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;padding:6px 11px;border-radius:2px;backdrop-filter:blur(6px);pointer-events:none}
+.u-card .im{position:relative;cursor:zoom-in}
+
+/* ---------- lightbox ---------- */
+#lightbox{position:fixed;inset:0;z-index:120;background:rgba(4,9,18,.95);backdrop-filter:blur(12px);display:none;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+#lightbox.open{display:block}
+#lightbox .lb-inner{min-height:100%;min-width:100%;display:flex;padding:60px 12px 46px;box-sizing:border-box}
+#lightbox img{margin:auto;width:min(1080px,96vw);height:auto;border-radius:4px;cursor:zoom-in;box-shadow:0 30px 90px rgba(0,0,0,.7),0 0 0 1px rgba(201,164,92,.35);background:#fff}
+#lightbox img.zoomed{width:min(2200px,230vw);max-width:none;cursor:zoom-out}
+.lb-close{position:fixed;top:12px;right:12px;z-index:121;width:44px;height:44px;border-radius:50%;border:1px solid rgba(201,164,92,.55);background:rgba(8,17,32,.75);color:var(--gold2);font-size:19px;cursor:pointer;line-height:1;backdrop-filter:blur(6px)}
+.lb-close:hover{background:var(--gold);color:var(--navy)}
+.lb-hint{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:121;color:var(--muted);font-size:10px;letter-spacing:.28em;text-transform:uppercase;background:rgba(8,17,32,.75);padding:8px 16px;border-radius:2px;border:1px solid rgba(201,164,92,.3);white-space:nowrap}
 @media(max-width:960px){.units{grid-template-columns:1fr}}
 .interior-strip{display:flex;gap:14px;max-width:1240px;margin:0 auto;padding:0 6vw 120px;overflow-x:auto;scrollbar-width:none}
 .interior-strip::-webkit-scrollbar{display:none}
@@ -439,7 +451,7 @@ footer p{color:#5d6f8a;font-size:11.5px;letter-spacing:.08em;line-height:1.9;max
   </div>
   <div class="units">
     <div class="u-card" data-tilt>
-      <div class="im"><img src="assets/img/unit-620.jpg" alt="620 sf unit render"></div>
+      <div class="im"><img src="assets/img/unit-620.jpg" alt="620 sf unit render"><div class="view-full" data-zh="🔍 查看完整平面圖">🔍 VIEW FULL PLAN</div></div>
       <div class="badge" data-zh="入門首選">STARTER PICK</div>
       <div class="bd">
         <div class="type" data-zh="2 房 · 2 浴">2 BED · 2 BATH</div>
@@ -449,7 +461,7 @@ footer p{color:#5d6f8a;font-size:11.5px;letter-spacing:.08em;line-height:1.9;max
       </div>
     </div>
     <div class="u-card" data-tilt>
-      <div class="im"><img src="assets/img/unit-680.jpg" alt="680 sf unit render"></div>
+      <div class="im"><img src="assets/img/unit-680.jpg" alt="680 sf unit render"><div class="view-full" data-zh="🔍 查看完整平面圖">🔍 VIEW FULL PLAN</div></div>
       <div class="badge" data-zh="靈活之選">FLEXIBLE</div>
       <div class="bd">
         <div class="type" data-zh="2 房 · 2 浴 + 陽台">2 BED · 2 BATH + BALCONY</div>
@@ -459,7 +471,7 @@ footer p{color:#5d6f8a;font-size:11.5px;letter-spacing:.08em;line-height:1.9;max
       </div>
     </div>
     <div class="u-card" data-tilt>
-      <div class="im"><img src="assets/img/unit-1050.jpg" alt="1050 sf unit render"></div>
+      <div class="im"><img src="assets/img/unit-1050.jpg" alt="1050 sf unit render"><div class="view-full" data-zh="🔍 查看完整平面圖">🔍 VIEW FULL PLAN</div></div>
       <div class="badge" data-zh="家庭戶型">FAMILY</div>
       <div class="bd">
         <div class="type" data-zh="3 房 · 2 浴">3 BED · 2 BATH</div>
@@ -659,6 +671,13 @@ footer p{color:#5d6f8a;font-size:11.5px;letter-spacing:.08em;line-height:1.9;max
   <p style="margin-top:16px">© 2026 WSG Group · Design 02 — “Township in Depth” 3D scroll concept</p>
 </footer>
 
+<!-- ======= LIGHTBOX ======= -->
+<div id="lightbox" role="dialog" aria-label="Full-size image viewer">
+  <div class="lb-inner"><img id="lbImg" src="" alt="Full-size plan"></div>
+  <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+  <div class="lb-hint" data-zh="點按圖片放大 · 拖動平移 · ✕ 關閉">TAP IMAGE TO ZOOM · DRAG TO PAN · ✕ TO CLOSE</div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
@@ -846,6 +865,31 @@ function setLang(zh){
 btnEN.addEventListener('click', ()=>setLang(false));
 btnZH.addEventListener('click', ()=>setLang(true));
 try{ if(localStorage.getItem('pl-lang')==='zh') setLang(true); }catch(e){}
+
+/* ---------- lightbox (full-size floor plans & interiors) ---------- */
+const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lbImg');
+function openLB(src, alt){
+  lbImg.src = src; lbImg.alt = alt || 'Full-size plan';
+  lbImg.classList.remove('zoomed');
+  lb.classList.add('open');
+  lb.scrollTop = 0; lb.scrollLeft = 0;
+  document.body.style.overflow = 'hidden';
+}
+function closeLB(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
+document.getElementById('lbClose').addEventListener('click', closeLB);
+lb.addEventListener('click', e=>{ if(e.target === lb || e.target.classList.contains('lb-inner')) closeLB(); });
+addEventListener('keydown', e=>{ if(e.key === 'Escape' && lb.classList.contains('open')) closeLB(); });
+lbImg.addEventListener('click', ()=>{
+  const wasZoomed = lbImg.classList.contains('zoomed');
+  lbImg.classList.toggle('zoomed');
+  if(!wasZoomed){ // centre the zoomed view roughly on the middle
+    requestAnimationFrame(()=>{ lb.scrollLeft = (lb.scrollWidth - lb.clientWidth)/2; });
+  }
+});
+document.querySelectorAll('.u-card .im img, .plan-view .frame img, .interior-strip img').forEach(img=>{
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', ()=> openLB(img.src, img.alt));
+});
 
 /* smooth anchor scrolling that respects pinned sections */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{

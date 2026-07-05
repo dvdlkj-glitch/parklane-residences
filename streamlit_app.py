@@ -63,7 +63,8 @@ def data_uri(path: Path) -> str:
 
 
 @st.cache_data(show_spinner="Preparing the township…")
-def build_page() -> str:
+def build_page(mtime: float) -> str:
+    """`mtime` only busts the cache when index.html changes."""
     html = (ROOT / "index.html").read_text(encoding="utf-8")
     # Replace every referenced asset path (src=, poster=, CSS url(...)) with an
     # inlined data URI. Longest paths first to avoid partial overlaps.
@@ -80,4 +81,4 @@ def build_page() -> str:
 
 # height is a fallback only — the CSS above pins the iframe to 100dvh and the
 # site scrolls internally (required for the pinned 3D scroll scenes).
-components.html(build_page(), height=900, scrolling=True)
+components.html(build_page((ROOT / "index.html").stat().st_mtime), height=900, scrolling=True)
