@@ -770,17 +770,49 @@ plates.forEach((p, i)=>{
   }
 });
 
-/* ---------- stats count-up ---------- */
-document.querySelectorAll('[data-count]').forEach(el=>{
+/* ---------- stats count-up (IntersectionObserver + self-healing fallback,
+   so a missed trigger can never leave "RM 0" on screen) ---------- */
+const counters = [...document.querySelectorAll('[data-count]')];
+function runCount(el, instant){
+  if(el.dataset.done) return;
+  el.dataset.done = '1';
   const end = +el.dataset.count, money = el.dataset.money;
-  ScrollTrigger.create({
-    trigger: el, start:'top 88%', once:true,
-    onEnter: ()=> gsap.fromTo(el, {innerText:0}, {
-      innerText:end, duration:1.8, ease:'power2.out', snap:{innerText:1},
-      onUpdate(){ el.innerText = money ? (+el.innerText).toLocaleString('en-US') : Math.round(+el.innerText); }
-    })
+  const fmt = n => money ? Math.round(n).toLocaleString('en-US') : String(Math.round(n));
+  if(instant || reduced){ el.innerText = fmt(end); return; }
+  const obj = {v:0};
+  gsap.to(obj, {v:end, duration:1.8, ease:'power2.out',
+    onUpdate(){ el.innerText = fmt(obj.v); },
+    onComplete(){ el.innerText = fmt(end); }
   });
-});
+}
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){ runCount(en.target); io.unobserve(en.target); }
+  });
+}, {threshold:.15});
+counters.forEach(el=> io.observe(el));
+// safety net: every second, finish any counter that is on screen (or already
+// scrolled past) but somehow didn't run; stop checking once all are done.
+const counterGuard = setInterval(()=>{
+  let allFinal = true;
+  counters.forEach(el=>{
+    const end = +el.dataset.count;
+    const fin = el.dataset.money ? end.toLocaleString('en-US') : String(end);
+    if(el.textContent === fin) return;
+    allFinal = false;
+    const r = el.getBoundingClientRect();
+    if(!el.dataset.done){
+      if(r.bottom < 0) runCount(el, true);                      // already scrolled past
+      else if(r.top < innerHeight && r.bottom > 0) runCount(el); // visible now
+    } else {
+      // started but stalled (e.g. tab was hidden mid-tween) — give the tween
+      // 4s of page-visible time, then snap to the final figure.
+      el.dataset.stall = (+(el.dataset.stall||0)) + (document.visibilityState==='visible' ? 1 : 0);
+      if(+el.dataset.stall >= 4) el.textContent = fin;
+    }
+  });
+  if(allFinal) clearInterval(counterGuard);
+}, 1000);
 
 /* ---------- township horizontal scroll ---------- */
 const track = document.getElementById('hTrack');
