@@ -266,6 +266,11 @@ section{position:relative}
 .pi-n{width:46px;text-align:right;color:var(--gold2);font-size:13px;font-variant-numeric:tabular-nums}
 .pi-heart{width:18px;color:var(--gold2);font-size:12px}
 .pi-note{color:var(--muted);font-size:11px;text-align:center;margin:22px 0 0;letter-spacing:.05em;font-style:italic}
+.pi-demo{display:flex;align-items:center;justify-content:center;gap:8px;margin:-12px auto 24px;
+  max-width:660px;padding:9px 16px;border:1px dashed rgba(201,164,92,.5);border-radius:4px;
+  color:var(--gold2);font-size:11.5px;letter-spacing:.05em;line-height:1.6}
+.pi-demo .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex:none;
+  animation:pl-pulse 2.4s ease-out infinite}
 @media(max-width:700px){
   .plan-view .frame{overflow-x:auto;-webkit-overflow-scrolling:touch}
   .plan-view .frame img{min-width:760px}
@@ -665,6 +670,7 @@ footer p{color:#5d6f8a;font-size:11.5px;letter-spacing:.08em;line-height:1.9;max
     <div class="pl-interest" id="plInterest">
       <h3 data-zh="哪一種戶型最令你心動？">Which home speaks to you?</h3>
       <p class="pi-sub" data-zh="輕按首層平面圖上的金色圓點，或在下方選擇面積與大廈 — 即時看看其他訪客最喜歡哪一種。">Tap a gold dot on the 1st-floor plan, or pick a size and tower below — and see live which homes other visitors love most.</p>
+      <div class="pi-demo"><span class="dot"></span><span data-zh="示範模式：目前顯示的數字為模擬示範數據 — 現在點按任何選項，即可實際體驗計數器即時記錄與更新。">Demo mode: the counts shown are simulated sample data — tap any option now and the live counter records and updates it for real.</span></div>
       <div class="pi-groups">
         <div class="pi-group">
           <div class="pi-lbl" data-zh="最受歡迎面積">Favourite size</div>
